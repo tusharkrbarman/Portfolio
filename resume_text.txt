@@ -1,0 +1,56 @@
+Tushar Kumar Barman
+# tusharbarman123@gmail.com
+ 9613847976
+ð Tushar Barman
+§ callmetushar123
+Education
+BITS Pilani ME in Computer Science
+Aug 2022 – June 2024
+◦GPA: 8.95 (Top 10 in class)
+Assam Engineering College BE in Computer Science
+Aug 2017 – Sept 2021
+◦Percentage: 76.55/100 (First-Class Hons.)
+Experience
+Intel Corporation
+GPU Software Development Engineer
+Hyderabad, TG July 2024
+– Present
+◦Integrated Intel Compiler IDE extensions for Visual Studio 2026, providing early-access support for next-gen hetero-
+geneous computing.
+◦Managed the end-to-end release lifecycle of Intel oneAPI Compiler extensions, maintaining 100% backward compati-
+bility across Eclipse and Visual Studio ecosystems.
+◦Simplified developer workflows by mapping DPC++ compiler switches to Visual Studio project properties, reducing
+environment configuration time for GPU-targeted applications.
+◦Developed a Python-based AI agent to parse massive CI/CD test logs and extract critical failure data; utilized the
+OpenAI API to summarize findings into concise reports and automatically generate JIRA tickets with root cause
+details.
+◦Built an observability pipeline for hybrid cloud environments (ADL, MTL, CaaS), centralizing real-time telemetry for
+300+ distributed CI systems.
+◦Created Grafana dashboards adopted by 4+ cross-functional teams, improving infrastructure utilization by 20% and
+supporting data-driven allocation of silicon resources.
+◦Developed a backend using NestJS and Elasticsearch, improving dashboard performance through server-side sum
+aggregations and paginated REST APIs.
+◦Built Python data collectors using GitHub Actions to normalize disparate API streams into a unified JSON schema
+with Zod runtime validation.
+Intel Corporation
+Infrastructure and DevOps Engineer (Intern)
+Hyderabad, TG Jan 2024
+– June 2024
+◦Developed a Python-based ETL pipeline using multi-threading to ingest telemetry from OneCloud and GTAX APIs
+to support real-time Grafana monitoring.
+◦Maintained and improved production Grafana dashboards by resolving bugs in data visualization and reporting scripts,
+ensuring accurate metrics for 4+ engineering stakeholders.
+◦Created scripts for classifying 1M+ log lines into high-fidelity training sets, enabling the development of predictive
+models for automated system failure detection for AIOps.
+Publications
+Does Varying BeeGFS Configuration Affect the I/O Performance of HPC Workloads?
+IEEE Cluster 2023
+10.1109/CLUSTERWorkshops61457.2023.00010 2
+Setup BeeGFS cluster with ELK monitoring to analyze HPC performance and shortcomings
+Projects
+SIEM on AWS using ELK Stack
+◦Built a cloud-based IDS using Docker and ELK on AWS enabling real-time threat detection.
+Skills
+◦Languages: Python, C++, C, JavaScript, TypeScript
+◦Tools & Frameworks: Docker, Visual Studio, Eclipse, Elasticsearch, Grafana, WordPress
+◦DevOps & Cloud: AWS, Jenkins, Artifactory
