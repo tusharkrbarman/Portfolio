@@ -583,7 +583,7 @@
       <div class="avatar-section">
         <div class="avatar-wrapper">
           <div class="avatar-container" role="button" tabindex="0">
-            <div class="avatar-placeholder">👤</div>
+            <img id="profileAvatar" src="resources/avatar-main.png" alt="Tushar" style="width: 100%; height: 100%; object-fit: cover; border-radius: inherit; display: block; position: absolute; inset: 0;" />
             <span class="avatar-glitch__scanlines"></span>
             <span class="avatar-glitch__rgb"></span>
           </div>
@@ -998,6 +998,22 @@
           statusEl.style.opacity = '1';
         }, 300);
       }, 4000);
+    }
+
+    // Toggle Profile Picture
+    const togglePfpBtn = document.querySelector('.toggle-pfp-btn');
+    const profileAvatar = document.getElementById('profileAvatar');
+    if (togglePfpBtn && profileAvatar) {
+      let isMain = true;
+      togglePfpBtn.addEventListener('click', () => {
+        isMain = !isMain;
+        profileAvatar.style.opacity = '0';
+        setTimeout(() => {
+          profileAvatar.src = isMain ? 'resources/avatar-main.png' : 'resources/avatar-casual.png';
+          profileAvatar.style.transition = 'opacity 0.2s';
+          profileAvatar.style.opacity = '1';
+        }, 200);
+      });
     }
 
     // Rock Lee onClick Animation
