@@ -1,0 +1,25 @@
+graph TD
+    Client([User/Browser])
+    
+    subgraph GitHub Pages Hosting
+        Frontend[Frontend: index.html / CSS / JS]
+    end
+
+    subgraph Render.com Compute Node
+        Backend[Backend API: Node.js]
+    end
+    
+    subgraph Supabase Cloud
+        DB[(PostgreSQL DB: Metrics)]
+        Storage[Blob Storage: assets]
+    end
+
+    Client <-->|Loads Initial UI| Frontend
+    Client -->|Cross-Origin API Fetch| Backend
+    
+    Backend -->|POST /visitors| DB
+    Backend -->|GET /resume| Storage
+    
+    DB -.->|Returns count| Backend
+    Storage -.->|Returns Public URL| Backend
+    Backend -.->|Sends Metric / Redirect| Client
