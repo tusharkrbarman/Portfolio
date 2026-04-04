@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tushar Kumar Barman – Portfolio</title>
   <meta name="description" content="Tushar Kumar Barman – GPU Software Development Engineer at Intel Corporation">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%2309090b'/%3E%3Ctext x='50' y='66' font-family='system-ui' font-weight='800' font-size='44' fill='%23fafafa' text-anchor='middle'%3ETK%3C/text%3E%3C/svg%3E">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tushar Kumar Barman – Portfolio">
+  <meta property="og:description" content="GPU Software Development Engineer at Intel | Infrastructure & Observability | Published Researcher at IEEE Cluster 2023">
+  <meta property="og:url" content="https://portfolio-lsq3.onrender.com">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tushar Kumar Barman – Portfolio">
+  <meta name="twitter:description" content="GPU Software Development Engineer at Intel | Infrastructure & Observability | Published Researcher">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..900&family=Geist+Mono:wght@400..900&display=swap" rel="stylesheet">
@@ -366,6 +374,122 @@
     /* Timeline tag hover */
     .timeline-tag { transition: all 0.2s ease; }
     .timeline-tag:hover { border-color: var(--muted); color: var(--foreground); background: rgba(128,128,128,0.08); }
+
+    /* More dropdown menu */
+    .more-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 0.75rem); right: 0; min-width: 10rem;
+      background: var(--background); border: 1px solid var(--border); border-radius: 0.5rem;
+      padding: 0.375rem; z-index: 60; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .dark .more-dropdown-menu { box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+    .more-dropdown:hover .more-dropdown-menu { display: block; }
+    .more-dropdown-menu a {
+      display: block; padding: 0.5rem 0.75rem; border-radius: 0.375rem;
+      font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted);
+      text-decoration: none; transition: all 0.15s;
+    }
+    .more-dropdown-menu a:hover { background: var(--accent); color: var(--foreground); }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+    @media (min-width: 640px) { .skills-grid { grid-template-columns: repeat(3, 1fr); } }
+    .skill-category h3 {
+      font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.75rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.375rem; }
+    .skill-tag {
+      font-family: var(--font-mono); font-size: 0.8125rem; padding: 0.375rem 0.75rem;
+      border: 1px solid var(--border); border-radius: 6px; color: var(--muted-foreground);
+      background: transparent; transition: all 0.25s ease; cursor: default; position: relative; overflow: hidden;
+    }
+    .skill-tag::before {
+      content: ''; position: absolute; inset: 0; opacity: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.08), rgba(168,85,247,0.08));
+      transition: opacity 0.25s;
+    }
+    .skill-tag:hover { border-color: var(--info); color: var(--foreground); transform: translateY(-1px); }
+    .skill-tag:hover::before { opacity: 1; }
+
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+    @media (min-width: 640px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    .project-card {
+      border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem;
+      background: var(--card); transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(168,85,247,0.06));
+      transition: opacity 0.3s;
+    }
+    .project-card:hover { border-color: var(--muted); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .dark .project-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .project-card:hover::before { opacity: 1; }
+    .project-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .project-card-title { font-weight: 700; font-size: 1rem; color: var(--foreground); position: relative; z-index: 1; }
+    .project-card-badge {
+      font-family: var(--font-mono); font-size: 0.625rem; padding: 0.2rem 0.5rem;
+      border-radius: 9999px; border: 1px solid var(--border); color: var(--muted);
+      white-space: nowrap; flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .project-card-desc { font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+    .project-card-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+    .project-card-tag { font-family: var(--font-mono); font-size: 0.6875rem; padding: 0.15rem 0.4rem; border: 1px solid var(--border); border-radius: 4px; color: var(--muted); }
+    .project-card-links { display: flex; gap: 0.75rem; position: relative; z-index: 1; }
+    .project-card-link {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .project-card-link:hover { color: var(--foreground); }
+    .project-card-link svg { width: 14px; height: 14px; }
+
+    /* Command Palette */
+    .cmd-overlay {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+      align-items: flex-start; justify-content: center; padding-top: 20vh;
+    }
+    .cmd-overlay.open { display: flex; }
+    .cmd-box {
+      width: 90%; max-width: 520px; background: var(--background);
+      border: 1px solid var(--border); border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden;
+      animation: cmdIn 0.15s ease-out;
+    }
+    @keyframes cmdIn { from { opacity: 0; transform: scale(0.96) translateY(-8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .cmd-input-wrap { display: flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1rem; border-bottom: 1px solid var(--border); }
+    .cmd-input-wrap svg { color: var(--muted); flex-shrink: 0; width: 16px; height: 16px; }
+    .cmd-input {
+      flex: 1; background: none; border: none; outline: none;
+      font-family: var(--font-sans); font-size: 0.9375rem; color: var(--foreground);
+    }
+    .cmd-input::placeholder { color: var(--muted); }
+    .cmd-esc { font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); padding: 0.2rem 0.4rem; border: 1px solid var(--border); border-radius: 4px; }
+    .cmd-list { max-height: 300px; overflow-y: auto; padding: 0.5rem; }
+    .cmd-item {
+      display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 0.75rem;
+      border-radius: 8px; cursor: pointer; transition: background 0.1s; text-decoration: none; color: var(--foreground);
+    }
+    .cmd-item:hover, .cmd-item.active { background: var(--accent); }
+    .cmd-item-icon { color: var(--muted); flex-shrink: 0; width: 16px; height: 16px; }
+    .cmd-item-text { font-size: 0.875rem; }
+    .cmd-item-hint { margin-left: auto; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); }
+    .cmd-empty { padding: 2rem; text-align: center; font-size: 0.875rem; color: var(--muted); }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed; right: 1.5rem; bottom: 2rem; z-index: 50;
+      width: 2.25rem; height: 2.25rem; border-radius: 9999px;
+      border: 1px solid var(--border); background: var(--background);
+      color: var(--muted); cursor: pointer; display: flex; align-items: center; justify-content: center;
+      opacity: 0; transform: translateY(10px); pointer-events: none;
+      transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { background: var(--accent); color: var(--foreground); border-color: var(--muted); }
+
     /* Rock Lee Animation */
     @keyframes rockLeeReady {
       0% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 0px transparent); }
@@ -419,6 +543,12 @@
         <a href="#projects">Projects</a>
         <div class="more-dropdown">
           <button class="more-btn">More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="more-dropdown-menu">
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Connect</a>
+          </div>
         </div>
       </nav>
       <div class="header-actions">
@@ -433,8 +563,9 @@
   </header>
 
   <div class="mobile-nav" id="mobileNav">
-    <a href="#">Home</a><a href="#projects">Projects</a><a href="#about">About</a>
-    <a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a>
+    <a href="#">Home</a><a href="#about">About</a><a href="#skills">Skills</a>
+    <a href="#projects">Projects</a><a href="#experience">Experience</a>
+    <a href="#education">Education</a><a href="#contact">Connect</a>
   </div>
 
   <main>
@@ -529,7 +660,138 @@
       <div class="corner-decor right" style="top: 100%;"><div class="corner-cross"></div></div>
     </div>
 
-    <!-- Experience -->
+    <!-- Skills -->
+    <section class="section animate-in" id="skills">
+      <div class="section-header"><h2 class="section-title">Skills</h2></div>
+      <div class="section-body">
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Languages</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Frameworks</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">NestJS</span>
+              <span class="skill-tag">Elasticsearch</span>
+              <span class="skill-tag">Grafana</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">ELK Stack</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>DevOps & Cloud</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">AWS</span>
+              <span class="skill-tag">Jenkins</span>
+              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag">Artifactory</span>
+              <span class="skill-tag">Visual Studio</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagonal separator -->
+    <div class="diagonal-pattern">
+      <div class="corner-decor left" style="top: 0;"><div class="corner-cross"></div></div>
+      <div class="corner-decor right" style="top: 0;"><div class="corner-cross"></div></div>
+      <div class="corner-decor left" style="top: 100%;"><div class="corner-cross"></div></div>
+      <div class="corner-decor right" style="top: 100%;"><div class="corner-cross"></div></div>
+    </div>
+
+    <!-- Projects -->
+    <section class="section animate-in" id="projects">
+      <div class="section-header"><h2 class="section-title">Projects</h2></div>
+      <div class="section-body">
+        <div class="projects-grid">
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-card-title">AI-Powered CI/CD Agent</span>
+              <span class="project-card-badge">Intel</span>
+            </div>
+            <p class="project-card-desc">Python-based AI agent that parses massive CI/CD test logs, extracts critical failure data, and uses OpenAI API to generate concise root-cause reports and auto-create JIRA tickets.</p>
+            <div class="project-card-tags">
+              <span class="project-card-tag">Python</span>
+              <span class="project-card-tag">OpenAI API</span>
+              <span class="project-card-tag">JIRA</span>
+              <span class="project-card-tag">CI/CD</span>
+            </div>
+            <div class="project-card-links">
+              <span class="project-card-link" style="cursor:default;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Internal</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-card-title">Observability Platform</span>
+              <span class="project-card-badge">Intel</span>
+            </div>
+            <p class="project-card-desc">Real-time telemetry pipeline for hybrid cloud environments, centralizing monitoring across 300+ distributed CI systems. Built dashboards adopted by 4+ teams, improving infra utilization by 20%.</p>
+            <div class="project-card-tags">
+              <span class="project-card-tag">NestJS</span>
+              <span class="project-card-tag">Elasticsearch</span>
+              <span class="project-card-tag">Grafana</span>
+              <span class="project-card-tag">Python</span>
+            </div>
+            <div class="project-card-links">
+              <span class="project-card-link" style="cursor:default;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Internal</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-card-title">SIEM on AWS with ELK</span>
+              <span class="project-card-badge">Personal</span>
+            </div>
+            <p class="project-card-desc">Cloud-based Intrusion Detection System built with Docker and the ELK Stack on AWS, enabling real-time threat detection and security event visualization.</p>
+            <div class="project-card-tags">
+              <span class="project-card-tag">AWS</span>
+              <span class="project-card-tag">Docker</span>
+              <span class="project-card-tag">ELK Stack</span>
+              <span class="project-card-tag">Security</span>
+            </div>
+            <div class="project-card-links">
+              <a href="https://github.com/callmetushar123" class="project-card-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-header">
+              <span class="project-card-title">BeeGFS HPC I/O Research</span>
+              <span class="project-card-badge">IEEE 2023</span>
+            </div>
+            <p class="project-card-desc">Published at IEEE Cluster 2023 — analyzed the impact of BeeGFS configuration on HPC I/O performance using ELK-based monitoring across distributed file systems.</p>
+            <div class="project-card-tags">
+              <span class="project-card-tag">BeeGFS</span>
+              <span class="project-card-tag">HPC</span>
+              <span class="project-card-tag">ELK</span>
+              <span class="project-card-tag">Research</span>
+            </div>
+            <div class="project-card-links">
+              <a href="https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010" class="project-card-link" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>Paper</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Diagonal separator -->
+    <div class="diagonal-pattern">
+      <div class="corner-decor left" style="top: 0;"><div class="corner-cross"></div></div>
+      <div class="corner-decor right" style="top: 0;"><div class="corner-cross"></div></div>
+      <div class="corner-decor left" style="top: 100%;"><div class="corner-cross"></div></div>
+      <div class="corner-decor right" style="top: 100%;"><div class="corner-cross"></div></div>
+    </div>
     <section class="section animate-in delay-4" id="experience">
       <div class="section-header"><h2 class="section-title">Experience</h2></div>
       <div class="section-body">
@@ -675,6 +937,23 @@
       <div class="dot-pattern-bg" style="min-height: 60px;"></div>
     </div>
   </div>
+
+  <!-- Command Palette -->
+  <div class="cmd-overlay" id="cmdOverlay">
+    <div class="cmd-box">
+      <div class="cmd-input-wrap">
+        <svg viewBox="0 0 16 16" fill="none"><path d="M10.278 11.514a5.824 5.824 0 1 1 1.235-1.235l3.209 3.208A.875.875 0 0 1 14.111 15a.875.875 0 0 1-.624-.278l-3.209-3.208Zm.623-4.69a4.077 4.077 0 1 1-8.154 0 4.077 4.077 0 0 1 8.154 0Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/></svg>
+        <input class="cmd-input" id="cmdInput" type="text" placeholder="Search or jump to..." autocomplete="off">
+        <span class="cmd-esc">ESC</span>
+      </div>
+      <div class="cmd-list" id="cmdList"></div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
 
   <script>
     // Theme initialization (pull string handles toggling)
@@ -975,6 +1254,98 @@
       } catch (err) {
         counterEl.textContent = '—';
       }
+    })();
+
+    // === Command Palette ===
+    (function() {
+      const overlay = document.getElementById('cmdOverlay');
+      const input = document.getElementById('cmdInput');
+      const list = document.getElementById('cmdList');
+      const searchBtn = document.querySelector('.search-btn');
+
+      const items = [
+        { text: 'About', hint: 'Section', href: '#about', icon: 'user' },
+        { text: 'Skills', hint: 'Section', href: '#skills', icon: 'code' },
+        { text: 'Projects', hint: 'Section', href: '#projects', icon: 'folder' },
+        { text: 'Experience', hint: 'Section', href: '#experience', icon: 'briefcase' },
+        { text: 'Education', hint: 'Section', href: '#education', icon: 'graduation' },
+        { text: 'Connect', hint: 'Section', href: '#contact', icon: 'link' },
+        { text: 'GitHub', hint: 'External', href: 'https://github.com/callmetushar123', icon: 'external' },
+        { text: 'LinkedIn', hint: 'External', href: 'https://www.linkedin.com/in/tusharkbarman19', icon: 'external' },
+        { text: 'Email', hint: 'Contact', href: 'mailto:tusharbarman123@gmail.com', icon: 'mail' },
+        { text: 'Resume', hint: 'Download', href: 'https://portfolio-lsq3.onrender.com/api/resume', icon: 'file' },
+        { text: 'Publication', hint: 'IEEE Cluster 2023', href: 'https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010', icon: 'external' },
+      ];
+
+      const iconSvg = (type) => {
+        const icons = {
+          user: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+          code: '<polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>',
+          folder: '<path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"/>',
+          briefcase: '<rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',
+          graduation: '<path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 6 3 6 3s3 0 6-3v-5"/>',
+          link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>',
+          external: '<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/>',
+          mail: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+          file: '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/>',
+        };
+        return `<svg class="cmd-item-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icons[type]||icons.link}</svg>`;
+      };
+
+      let activeIdx = 0;
+      function renderList(filter) {
+        const q = (filter||'').toLowerCase();
+        const filtered = q ? items.filter(i => i.text.toLowerCase().includes(q) || i.hint.toLowerCase().includes(q)) : items;
+        if (!filtered.length) { list.innerHTML = '<div class="cmd-empty">No results found</div>'; return; }
+        activeIdx = 0;
+        list.innerHTML = filtered.map((item, i) =>
+          `<a class="cmd-item${i===0?' active':''}" href="${item.href}" data-idx="${i}">${iconSvg(item.icon)}<span class="cmd-item-text">${item.text}</span><span class="cmd-item-hint">${item.hint}</span></a>`
+        ).join('');
+      }
+
+      function open() { overlay.classList.add('open'); input.value=''; renderList(''); setTimeout(()=>input.focus(),50); }
+      function close() { overlay.classList.remove('open'); }
+
+      if (searchBtn) searchBtn.addEventListener('click', open);
+      overlay.addEventListener('click', e => { if (e.target===overlay) close(); });
+      input.addEventListener('input', () => renderList(input.value));
+      input.addEventListener('keydown', e => {
+        const items = list.querySelectorAll('.cmd-item');
+        if (e.key==='ArrowDown') { e.preventDefault(); activeIdx=Math.min(activeIdx+1,items.length-1); items.forEach((el,i)=>el.classList.toggle('active',i===activeIdx)); items[activeIdx]?.scrollIntoView({block:'nearest'}); }
+        if (e.key==='ArrowUp') { e.preventDefault(); activeIdx=Math.max(activeIdx-1,0); items.forEach((el,i)=>el.classList.toggle('active',i===activeIdx)); items[activeIdx]?.scrollIntoView({block:'nearest'}); }
+        if (e.key==='Enter') { e.preventDefault(); const a=items[activeIdx]; if(a){ close(); if(a.href.startsWith('#')){document.querySelector(a.href)?.scrollIntoView({behavior:'smooth'})}else{window.open(a.href,'_blank')} } }
+        if (e.key==='Escape') close();
+      });
+      document.addEventListener('keydown', e => {
+        if ((e.ctrlKey||e.metaKey) && e.key==='k') { e.preventDefault(); overlay.classList.contains('open') ? close() : open(); }
+      });
+    })();
+
+    // === Back to Top ===
+    (function() {
+      const btn = document.getElementById('backToTop');
+      window.addEventListener('scroll', () => {
+        btn.classList.toggle('visible', window.scrollY > 500);
+      });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+
+    // === Active Nav Highlighting ===
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('nav a, .more-dropdown-menu a');
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            navLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              link.classList.toggle('active', href === '#' + id || (href === '#' && id === ''));
+            });
+          }
+        });
+      }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+      sections.forEach(s => obs.observe(s));
     })();
   </script>
 </body>
