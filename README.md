@@ -8,34 +8,7 @@ A high-performance, dark-mode native portfolio built with raw HTML/CSS and a mod
 
 The architecture is explicitly designed to be ultra-lightweight on the client side while maintaining robust persistent tracking and file serving on the backend.
 
-```mermaid
-graph TD
-    %% Define Nodes
-    Client([User/Browser])
-    
-    subgraph "Render.com (Web Host)"
-        Frontend[Frontend<br>index.html / CSS / JS]
-        Backend[Backend API<br>Node.js server.js]
-    end
-    
-    subgraph "Supabase Cloud"
-        DB[(PostgreSQL DB<br>Metrics Table)]
-        Storage[Blob Storage<br>portfolio_assets]
-    end
-
-    %% Flow Details
-    Client <-->|1. Loads Initial UI| Frontend
-    Client -->|2. Asynchronous Fetch| Backend
-    
-    %% API Routes
-    Backend -->|POST /api/visitors| DB
-    Backend -->|GET /api/resume| Storage
-    
-    %% Data Return
-    DB -.->|Returns new count| Backend
-    Storage -.->|Returns Public URL| Backend
-    Backend -.->|Sends metric / 302 Redirect| Client
-```
+![High Level Design Architecture](hld.png)
 
 ### 1. The Presentation Layer (Frontend)
 Located entirely inside `index.html`. 
