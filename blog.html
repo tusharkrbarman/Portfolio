@@ -1,40 +1,217 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog - Tushar Kumar Barman</title>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..900&family=Geist+Mono:wght@400..900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='14' fill='%2309090b'/%3E%3Ctext x='50' y='66' font-family='system-ui' font-weight='800' font-size='44' fill='%23fafafa' text-anchor='middle'%3ETK%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..900&family=Geist+Mono:wght@400..900&display=swap" rel="stylesheet">
   <style>
     :root {
       --background: #ffffff;
       --foreground: #09090b;
       --muted: #71717a;
-      --edge: #e4e4e7;
+      --muted-foreground: #52525b;
+      --border: #e4e4e7;
+      --edge: #d4d4d8;
+      --accent: #f4f4f5;
+      --accent-foreground: #18181b;
+      --card: #fafafa;
+      --card-border: #e4e4e7;
+      --pattern-foreground: rgba(0, 0, 0, 0.08);
+      --info: #3b82f6;
+      --success: #22c55e;
       --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
       --font-mono: 'Geist Mono', monospace;
     }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body { font-family: var(--font-sans); color: var(--foreground); background: var(--background); }
-    header { padding: 0.75rem 1rem; border-bottom: 1px solid var(--edge); position: sticky; top: 0; background: #fff; z-index: 50; }
-    .header-inner { max-width: 64rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 3rem; }
-    .logo { font-family: var(--font-mono); font-weight: 800; text-decoration: none; color: var(--foreground); }
-    nav a { font-family: var(--font-mono); font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-right: 1rem; }
-    nav a.active, nav a:hover { color: var(--foreground); }
-    main { max-width: 64rem; margin: 0 auto; padding: 1rem; }
-    .section { border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); padding: 1rem; margin: 1rem 0; border-radius: 8px; background: #fff; }
-    .section-header { padding-bottom: 0.5rem; }
-    .section-title { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 500; color: var(--foreground); }
-    .blog-post { margin: 1rem 0; padding-bottom: 1rem; border-bottom: 1px solid var(--edge); }
-    .blog-post-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
-    .blog-post-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); display:flex; gap:0.5rem; align-items: center; margin-bottom: 0.5rem; }
-    .blog-post-excerpt { color: #374151; line-height: 1.6; margin: 0.25rem 0 0.75rem; }
-    .blog-post-footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-    .connect-pill { display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-radius: 999px; border: 1px solid var(--edge); text-decoration: none; color: var(--foreground); font-family: var(--font-mono); font-size: 0.75rem; }
+    .dark {
+      --background: #09090b;
+      --foreground: #fafafa;
+      --muted: #a1a1aa;
+      --muted-foreground: #a1a1aa;
+      --border: #27272a;
+      --edge: #27272a;
+      --accent: #27272a;
+      --accent-foreground: #fafafa;
+      --card: #111113;
+      --card-border: #27272a;
+      --pattern-foreground: rgba(255, 255, 255, 0.08);
+      --info: #60a5fa;
+      --success: #4ade80;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--background);
+      color: var(--foreground);
+      line-height: 1.6;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    ::selection { background: var(--foreground); color: var(--background); }
+
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--background) 80%, transparent);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      padding: 0.5rem 0.5rem 0;
+    }
+    .header-inner {
+      max-width: calc(64rem - 1rem); margin: 0 auto; height: 3rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;
+      border-left: 1px solid var(--edge); border-right: 1px solid var(--edge);
+      padding: 0 1.25rem; position: relative;
+    }
+    .header-inner::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px; background: var(--edge); z-index: 1;
+    }
+    .logo { display: flex; align-items: center; text-decoration: none; color: var(--foreground); font-weight: 800; font-size: 1.25rem; font-family: var(--font-mono); letter-spacing: -0.02em; }
+    nav { display: flex; align-items: center; gap: 1.5rem; }
+    nav a { font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    nav a:hover, nav a.active { color: var(--foreground); }
+
+    .more-dropdown { position: relative; }
+    .more-btn {
+      display: flex; align-items: center; gap: 0.25rem;
+      font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500;
+      color: var(--muted); background: none; border: none; cursor: pointer; transition: color 0.3s;
+    }
+    .more-btn:hover { color: var(--foreground); }
+    .more-btn svg { transition: transform 0.3s; }
+    .more-dropdown:hover .more-btn svg { transform: rotate(180deg); }
+
+    main { max-width: 64rem; margin: 0 auto; padding: 0 0.5rem; }
+
+    .dot-pattern {
+      border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); position: relative;
+    }
+    .dot-pattern::before, .dot-pattern::after {
+      content: ''; position: absolute; left: 0; right: 0; height: 1px; background: var(--edge);
+    }
+    .dot-pattern::before { top: -1px; }
+    .dot-pattern::after { bottom: -1px; }
+    .dot-pattern-inner { overflow: hidden; padding: 1.25rem; }
+    .dot-pattern-bg {
+      height: 100%; min-height: 70px; width: 100%;
+      background: radial-gradient(var(--pattern-foreground) 1px, transparent 0);
+      background-size: 10px 10px; background-position: center;
+    }
+
+    .diagonal-pattern { position: relative; height: 1.5rem; width: 100%; border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); }
+    .diagonal-pattern::before {
+      content: ''; position: absolute; left: -100vw; z-index: 0; height: 1.5rem; width: 200vw;
+      background: repeating-linear-gradient(-45deg, var(--pattern-foreground), var(--pattern-foreground) 1px, transparent 1px, transparent 8px);
+    }
+
+    .section { border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); position: relative; }
+    .section::before, .section::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: var(--edge); }
+    .section::before { top: 0; }
+    .section::after { bottom: 0; }
+    .section-header { padding: 1rem 1.25rem 0.75rem; position: relative; }
+    .section-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--edge); }
+    .section-title { font-family: var(--font-sans); font-size: 1.75rem; font-weight: 300; letter-spacing: -0.01em; color: var(--muted); }
+    @media (min-width: 640px) { .section-title { font-size: 2rem; } }
+    .section-body { padding: 1.25rem; }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    @media (min-width: 640px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .blog-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      background: var(--card);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .blog-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0;
+      background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(168,85,247,0.06));
+      transition: opacity 0.3s;
+    }
+    .blog-card:hover { border-color: var(--muted); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+    .dark .blog-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+    .blog-card:hover::before { opacity: 1; }
+    .blog-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; position: relative; z-index: 1; }
+    .blog-card-title { font-weight: 700; font-size: 1rem; color: var(--foreground); position: relative; z-index: 1; }
+    .blog-card-badge {
+      font-family: var(--font-mono); font-size: 0.625rem; padding: 0.2rem 0.5rem;
+      border-radius: 9999px; border: 1px solid var(--border); color: var(--muted);
+      white-space: nowrap; flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .blog-card-badge.research { background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); color: var(--info); }
+    .blog-card-badge.article { background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.3); color: #a855f7; }
+    .blog-card-meta { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; position: relative; z-index: 1; }
+    .blog-card-excerpt { font-size: 0.875rem; color: var(--muted-foreground); line-height: 1.6; margin-bottom: 1rem; position: relative; z-index: 1; }
+    .blog-card-footer { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; position: relative; z-index: 1; }
+    .connect-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: 9999px;
+      background: transparent; color: var(--foreground); text-decoration: none;
+      font-family: var(--font-mono); font-size: 0.8125rem; transition: all 0.2s; cursor: pointer;
+    }
+    .connect-pill:hover { background: var(--accent); border-color: var(--muted); }
+    .connect-pill svg { flex-shrink: 0; width: 16px; height: 16px; }
     .social-share { display: flex; gap: 0.5rem; }
-    .social-link { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #eee; color: #374151; text-decoration: none; }
-    @media (max-width: 700px) { .blog-post-footer { flex-direction: column; align-items: flex-start; } .social-share { margin-top: 0.5rem; } }
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--accent); color: var(--muted); text-decoration: none; transition: all 0.2s;
+    }
+    .social-link:hover { background: var(--info); color: var(--foreground); transform: translateY(-2px); }
+    .social-link svg { width: 14px; height: 14px; }
+
+    .research-section .blog-grid { grid-template-columns: 1fr; }
+
+    footer {
+      max-width: 64rem; margin: 0 auto; padding: 0 0.5rem;
+    }
+    .footer-inner {
+      border-left: 1px solid var(--edge); border-right: 1px solid var(--edge);
+      padding: 1.5rem 1.25rem; display: flex; align-items: flex-end; justify-content: space-between; position: relative;
+    }
+    .footer-inner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--edge); }
+    .footer-text { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+    .footer-text p { margin-bottom: 0.125rem; }
+    .pixel-cat { image-rendering: pixelated; width: 40px; height: 40px; }
+
+    @media (max-width: 639px) {
+      nav { display: none; }
+    }
+    .mobile-menu-btn { display: none; width: 2rem; height: 2rem; border: none; background: transparent; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+    @media (max-width: 639px) { .mobile-menu-btn { display: flex; } }
+    .mobile-menu-btn span { display: block; width: 1rem; height: 1.5px; background: var(--foreground); border-radius: 1px; transition: all 0.3s; }
+    .mobile-nav { display: none; position: fixed; top: 3.5rem; left: 0; right: 0; bottom: 0; background: var(--background); z-index: 40; padding: 1.5rem; flex-direction: column; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-family: var(--font-mono); font-size: 1rem; color: var(--muted); text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid var(--border); transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--foreground); }
+
+    .more-dropdown-menu {
+      display: none; position: absolute; top: calc(100% + 0.75rem); right: 0; min-width: 10rem;
+      background: var(--background); border: 1px solid var(--border); border-radius: 0.5rem;
+      padding: 0.375rem; z-index: 60; box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .dark .more-dropdown-menu { box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+    .more-dropdown:hover .more-dropdown-menu { display: block; }
+    .more-dropdown-menu a {
+      display: block; padding: 0.5rem 0.75rem; border-radius: 0.375rem;
+      font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted);
+      text-decoration: none; transition: all 0.15s;
+    }
+    .more-dropdown-menu a:hover { background: var(--accent); color: var(--foreground); }
+
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .animate-in.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
   </style>
 </head>
 <body>
@@ -42,72 +219,170 @@
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Home">TK</a>
       <nav>
-        <a href="index.html" class="">Home</a>
+        <a href="index.html">Home</a>
         <a href="index.html#projects">Projects</a>
         <a href="blog.html" class="active">Blog</a>
-        <a href="index.html#experience">Experience</a>
+        <div class="more-dropdown">
+          <button class="more-btn">More <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="more-dropdown-menu">
+            <a href="index.html#skills">Skills</a>
+            <a href="index.html#experience">Experience</a>
+            <a href="index.html#education">Education</a>
+            <a href="index.html#contact">Connect</a>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
+
   <main>
-    <section class="section" id="writing">
-      <div class="section-header"><h2 class="section-title">Writing & Research</h2></div>
-      <div class="section-body">
-        <div class="blog-post">
-          <h3 class="blog-post-title">Impact of BeeGFS Configuration on HPC I/O Performance</h3>
-          <p class="blog-post-meta"><span>Published at IEEE Cluster 2023</span><span>•</span><span>September 2023</span></p>
-          <p class="blog-post-excerpt">This research explores how different BeeGFS parallel file system configurations affect I/O performance in high-performance computing environments. Using ELK-based monitoring (Elasticsearch, Logstash, Kibana), we analyzed telemetry from 300+ distributed systems to identify optimal chunk sizes, replication factors, and network tuning parameters for scientific workloads.</p>
-          <p class="blog-post-excerpt">Key findings include: 1) Optimal chunk size varies by application I/O pattern, 2) Network latency has greater impact than throughput for metadata-heavy workloads, 3) Adaptive replication strategies can reduce redundant data transfers by up to 40%. The full paper provides detailed benchmarks and recommendations for HPC administrators.</p>
+    <div class="dot-pattern"><div class="dot-pattern-inner"><div class="dot-pattern-bg"></div></div></div>
+
+    <div class="diagonal-pattern"></div>
+
+    <section class="section animate-in" id="research">
+      <div class="section-header"><h2 class="section-title">Research</h2></div>
+      <div class="section-body research-section">
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-card-header">
+              <h3 class="blog-card-title">Impact of BeeGFS Configuration on HPC I/O Performance</h3>
+              <span class="blog-card-badge research">IEEE Cluster 2023</span>
+            </div>
+            <p class="blog-card-meta">
+              <span>Published at IEEE Cluster 2023</span>
+              <span>•</span>
+              <span>September 2023</span>
+            </p>
+            <p class="blog-card-excerpt">This research explores how different BeeGFS parallel file system configurations affect I/O performance in high-performance computing environments. Using ELK-based monitoring (Elasticsearch, Logstash, Kibana), we analyzed telemetry from 300+ distributed systems to identify optimal chunk sizes, replication factors, and network tuning parameters for scientific workloads.</p>
+            <p class="blog-card-excerpt">Key findings include: 1) Optimal chunk size varies by application I/O pattern, 2) Network latency has greater impact than throughput for metadata-heavy workloads, 3) Adaptive replication strategies can reduce redundant data transfers by up to 40%.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="blog-posts-2">
+    <div class="diagonal-pattern"></div>
+
+    <section class="section animate-in delay-1" id="blog">
       <div class="section-header"><h2 class="section-title">Blog</h2></div>
       <div class="section-body">
-        <div class="blog-post">
-          <h3 class="blog-post-title">Getting Started with GPU Programming: A Beginner's Guide</h3>
-          <p class="blog-post-meta"><span>January 2026</span><span>•</span><span>5 min read</span></p>
-          <p class="blog-post-excerpt">Dive into the world of GPU programming with this comprehensive beginner's guide. Learn the fundamentals of parallel computing, CUDA basics, and how to get started with your first GPU-accelerated application. Whether you're new to GPU computing or looking to refresh your knowledge, this guide covers essential concepts and practical examples to help you harness the power of graphics processing units for general-purpose computing.</p>
-          <div class="blog-post-footer">
-            <a href="#" class="connect-pill">Read More →</a>
-            <div class="social-share">
-              <a href="#" class="social-link" aria-label="Share on Twitter">T</a>
-              <a href="#" class="social-link" aria-label="Share on LinkedIn">L</a>
-              <a href="#" class="social-link" aria-label="Share on Facebook">F</a>
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-card-header">
+              <h3 class="blog-card-title">Getting Started with GPU Programming</h3>
+              <span class="blog-card-badge article">Article</span>
+            </div>
+            <p class="blog-card-meta">
+              <span>January 2026</span>
+              <span>•</span>
+              <span>5 min read</span>
+            </p>
+            <p class="blog-card-excerpt">Dive into the world of GPU programming with this comprehensive beginner's guide. Learn the fundamentals of parallel computing, CUDA basics, and how to get started with your first GPU-accelerated application.</p>
+            <div class="blog-card-footer">
+              <a href="#" class="connect-pill">Read More →</a>
+              <div class="social-share">
+                <a href="#" class="social-link" aria-label="Share on Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Share on LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="blog-post">
-          <h3 class="blog-post-title">Building CI/CD Pipelines for Machine Learning Workflows</h3>
-          <p class="blog-post-meta"><span>December 2025</span><span>•</span><span>7 min read</span></p>
-          <p class="blog-post-excerpt">Explore how to create robust CI/CD pipelines specifically designed for machine learning workflows. This article covers testing strategies, model validation, deployment automation, and monitoring techniques for ML systems. Learn how to integrate tools like GitHub Actions, Docker, and Kubernetes to streamline your ML development lifecycle while ensuring reproducibility and scalability.</p>
-          <div class="blog-post-footer">
-            <a href="#" class="connect-pill">Read More →</a>
-            <div class="social-share">
-              <a href="#" class="social-link" aria-label="Share on Twitter">T</a>
-              <a href="#" class="social-link" aria-label="Share on LinkedIn">L</a>
-              <a href="#" class="social-link" aria-label="Share on Facebook">F</a>
+          <div class="blog-card">
+            <div class="blog-card-header">
+              <h3 class="blog-card-title">Building CI/CD Pipelines for Machine Learning</h3>
+              <span class="blog-card-badge article">Article</span>
+            </div>
+            <p class="blog-card-meta">
+              <span>December 2025</span>
+              <span>•</span>
+              <span>7 min read</span>
+            </p>
+            <p class="blog-card-excerpt">Explore how to create robust CI/CD pipelines specifically designed for machine learning workflows. This article covers testing strategies, model validation, deployment automation, and monitoring techniques for ML systems.</p>
+            <div class="blog-card-footer">
+              <a href="#" class="connect-pill">Read More →</a>
+              <div class="social-share">
+                <a href="#" class="social-link" aria-label="Share on Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Share on LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="blog-post">
-          <h3 class="blog-post-title">Observability in Distributed Systems: Best Practices and Tools</h3>
-          <p class="blog-post-meta"><span>November 2025</span><span>•</span><span>6 min read</span></p>
-          <p class="blog-post-excerpt">Discover essential observability practices for monitoring and troubleshooting distributed systems. From logging and metrics to tracing and alerting, this guide covers the three pillars of observability and how to implement them effectively. Learn about popular tools like Prometheus, Grafana, ELK stack, and Jaeger, and how to build a comprehensive observability strategy for microservices architectures.</p>
-          <div class="blog-post-footer">
-            <a href="#" class="connect-pill">Read More →</a>
-            <div class="social-share">
-              <a href="#" class="social-link" aria-label="Share on Twitter">T</a>
-              <a href="#" class="social-link" aria-label="Share on LinkedIn">L</a>
-              <a href="#" class="social-link" aria-label="Share on Facebook">F</a>
+          <div class="blog-card">
+            <div class="blog-card-header">
+              <h3 class="blog-card-title">Observability in Distributed Systems</h3>
+              <span class="blog-card-badge article">Article</span>
+            </div>
+            <p class="blog-card-meta">
+              <span>November 2025</span>
+              <span>•</span>
+              <span>6 min read</span>
+            </p>
+            <p class="blog-card-excerpt">Discover essential observability practices for monitoring and troubleshooting distributed systems. From logging and metrics to tracing and alerting, this guide covers the three pillars of observability.</p>
+            <div class="blog-card-footer">
+              <a href="#" class="connect-pill">Read More →</a>
+              <div class="social-share">
+                <a href="#" class="social-link" aria-label="Share on Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Share on LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-card-header">
+              <h3 class="blog-card-title">Building AI-Powered CI/CD Analysis Agents</h3>
+              <span class="blog-card-badge article">Article</span>
+            </div>
+            <p class="blog-card-meta">
+              <span>October 2025</span>
+              <span>•</span>
+              <span>8 min read</span>
+            </p>
+            <p class="blog-card-excerpt">Learn how to build intelligent CI/CD analysis agents that can automatically detect issues, suggest optimizations, and provide actionable insights for your development workflows.</p>
+            <div class="blog-card-footer">
+              <a href="#" class="connect-pill">Read More →</a>
+              <div class="social-share">
+                <a href="#" class="social-link" aria-label="Share on Twitter">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                </a>
+                <a href="#" class="social-link" aria-label="Share on LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+
+    <div class="diagonal-pattern"></div>
   </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-text">
+        <p>Built by Tushar Kumar Barman</p>
+        <p>© 2026 • GPU Software Engineer</p>
+      </div>
+      <img src="https://api.dicebear.com/7.x/pixel-art/svg?seed=tushar" alt="Pixel Cat" class="pixel-cat">
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.animate-in').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 100);
+    });
+  </script>
 </body>
 </html>
