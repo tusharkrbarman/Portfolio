@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog - Tushar Kumar Barman</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..900&family=Geist+Mono:wght@400..900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #ffffff;
+      --foreground: #09090b;
+      --muted: #71717a;
+      --edge: #e4e4e7;
+      --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); color: var(--foreground); background: var(--background); }
+    header { padding: 0.75rem 1rem; border-bottom: 1px solid var(--edge); position: sticky; top: 0; background: #fff; z-index: 50; }
+    .header-inner { max-width: 64rem; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 3rem; }
+    .logo { font-family: var(--font-mono); font-weight: 800; text-decoration: none; color: var(--foreground); }
+    nav a { font-family: var(--font-mono); font-size: 0.875rem; color: var(--muted); text-decoration: none; margin-right: 1rem; }
+    nav a.active, nav a:hover { color: var(--foreground); }
+    main { max-width: 64rem; margin: 0 auto; padding: 1rem; }
+    .section { border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); padding: 1rem; margin: 1rem 0; border-radius: 8px; background: #fff; }
+    .section-header { padding-bottom: 0.5rem; }
+    .section-title { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 500; color: var(--foreground); }
+    .blog-post { margin: 1rem 0; padding-bottom: 1rem; border-bottom: 1px solid var(--edge); }
+    .blog-post-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .blog-post-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); display:flex; gap:0.5rem; align-items: center; margin-bottom: 0.5rem; }
+    .blog-post-excerpt { color: #374151; line-height: 1.6; margin: 0.25rem 0 0.75rem; }
+    .blog-post-footer { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .connect-pill { display: inline-flex; align-items: center; padding: 0.25rem 0.5rem; border-radius: 999px; border: 1px solid var(--edge); text-decoration: none; color: var(--foreground); font-family: var(--font-mono); font-size: 0.75rem; }
+    .social-share { display: flex; gap: 0.5rem; }
+    .social-link { width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: #eee; color: #374151; text-decoration: none; }
+    @media (max-width: 700px) { .blog-post-footer { flex-direction: column; align-items: flex-start; } .social-share { margin-top: 0.5rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Home">TK</a>
+      <nav>
+        <a href="index.html" class="">Home</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="index.html#experience">Experience</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="section" id="writing">
+      <div class="section-header"><h2 class="section-title">Writing & Research</h2></div>
+      <div class="section-body">
+        <div class="blog-post">
+          <h3 class="blog-post-title">Impact of BeeGFS Configuration on HPC I/O Performance</h3>
+          <p class="blog-post-meta"><span>Published at IEEE Cluster 2023</span><span>•</span><span>September 2023</span></p>
+          <p class="blog-post-excerpt">This research explores how different BeeGFS parallel file system configurations affect I/O performance in high-performance computing environments. Using ELK-based monitoring (Elasticsearch, Logstash, Kibana), we analyzed telemetry from 300+ distributed systems to identify optimal chunk sizes, replication factors, and network tuning parameters for scientific workloads.</p>
+          <p class="blog-post-excerpt">Key findings include: 1) Optimal chunk size varies by application I/O pattern, 2) Network latency has greater impact than throughput for metadata-heavy workloads, 3) Adaptive replication strategies can reduce redundant data transfers by up to 40%. The full paper provides detailed benchmarks and recommendations for HPC administrators.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="blog-posts-2">
+      <div class="section-header"><h2 class="section-title">Blog</h2></div>
+      <div class="section-body">
+        <div class="blog-post">
+          <h3 class="blog-post-title">Getting Started with GPU Programming: A Beginner's Guide</h3>
+          <p class="blog-post-meta"><span>January 2026</span><span>•</span><span>5 min read</span></p>
+          <p class="blog-post-excerpt">Dive into the world of GPU programming with this comprehensive beginner's guide. Learn the fundamentals of parallel computing, CUDA basics, and how to get started with your first GPU-accelerated application. Whether you're new to GPU computing or looking to refresh your knowledge, this guide covers essential concepts and practical examples to help you harness the power of graphics processing units for general-purpose computing.</p>
+          <div class="blog-post-footer">
+            <a href="#" class="connect-pill">Read More →</a>
+            <div class="social-share">
+              <a href="#" class="social-link" aria-label="Share on Twitter">T</a>
+              <a href="#" class="social-link" aria-label="Share on LinkedIn">L</a>
+              <a href="#" class="social-link" aria-label="Share on Facebook">F</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <h3 class="blog-post-title">Building CI/CD Pipelines for Machine Learning Workflows</h3>
+          <p class="blog-post-meta"><span>December 2025</span><span>•</span><span>7 min read</span></p>
+          <p class="blog-post-excerpt">Explore how to create robust CI/CD pipelines specifically designed for machine learning workflows. This article covers testing strategies, model validation, deployment automation, and monitoring techniques for ML systems. Learn how to integrate tools like GitHub Actions, Docker, and Kubernetes to streamline your ML development lifecycle while ensuring reproducibility and scalability.</p>
+          <div class="blog-post-footer">
+            <a href="#" class="connect-pill">Read More →</a>
+            <div class="social-share">
+              <a href="#" class="social-link" aria-label="Share on Twitter">T</a>
+              <a href="#" class="social-link" aria-label="Share on LinkedIn">L</a>
+              <a href="#" class="social-link" aria-label="Share on Facebook">F</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-post">
+          <h3 class="blog-post-title">Observability in Distributed Systems: Best Practices and Tools</h3>
+          <p class="blog-post-meta"><span>November 2025</span><span>•</span><span>6 min read</span></p>
+          <p class="blog-post-excerpt">Discover essential observability practices for monitoring and troubleshooting distributed systems. From logging and metrics to tracing and alerting, this guide covers the three pillars of observability and how to implement them effectively. Learn about popular tools like Prometheus, Grafana, ELK stack, and Jaeger, and how to build a comprehensive observability strategy for microservices architectures.</p>
+          <div class="blog-post-footer">
+            <a href="#" class="connect-pill">Read More →</a>
+            <div class="social-share">
+              <a href="#" class="social-link" aria-label="Share on Twitter">T</a>
+              <a href="#" class="social-link" aria-label="Share on LinkedIn">L</a>
+              <a href="#" class="social-link" aria-label="Share on Facebook">F</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
