@@ -217,10 +217,14 @@
     }
     .more-dropdown-menu a:hover { background: var(--accent); color: var(--foreground); }
 
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-    .animate-in.visible { opacity: 1; transform: translateY(0); }
-    .delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; } .delay-3 { transition-delay: 0.3s; }
+     /* Bottom dot pattern */
+     .bottom-dots {
+       max-width: 64rem; margin: 0 auto; padding: 0 0.5rem;
+     }
+     .bottom-dots-inner { border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); padding: 1.25rem; position: relative; }
+     .bottom-dots-inner::before, .bottom-dots-inner::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: var(--edge); }
+     .bottom-dots-inner::before { top: 0; }
+     .bottom-dots-inner::after { bottom: 0; }
   </style>
 </head>
 <body>
@@ -304,7 +308,13 @@
          <img src="rock_lee.png" alt="Rock Lee" style="width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));" />
        </div>
      </div>
-   </footer>
+    </footer>
+
+    <div class="bottom-dots">
+      <div class="bottom-dots-inner">
+        <div class="dot-pattern-bg" style="min-height: 60px;"></div>
+      </div>
+    </div>
 
   <script>
     document.querySelectorAll('.animate-in').forEach((el, i) => {
