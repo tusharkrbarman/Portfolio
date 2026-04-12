@@ -346,10 +346,11 @@
     .quote-author::before, .quote-author::after { content: ''; width: 3rem; height: 1px; background: var(--border); }
 
     /* Diagonal Pattern */
-    .diagonal-pattern { position: relative; height: 1.5rem; width: 100%; border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); }
+    .diagonal-pattern { position: relative; height: 1.5rem; width: 100%; border-left: 1px solid var(--edge); border-right: 1px solid var(--edge); overflow: hidden; }
     .diagonal-pattern::before {
-      content: ''; position: absolute; left: -100vw; z-index: 0; height: 1.5rem; width: 200vw;
+      content: ''; position: absolute; left: 0; z-index: 0; height: 1.5rem; width: 200%;
       background: repeating-linear-gradient(-45deg, var(--pattern-foreground), var(--pattern-foreground) 1px, transparent 1px, transparent 8px);
+      transform: translateX(-50%);
     }
 
     /* Footer */
