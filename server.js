@@ -77,6 +77,8 @@ const server = http.createServer(async (req, res) => {
     '.html': 'text/html',
     '.js': 'application/javascript',
     '.json': 'application/json',
+    '.txt': 'text/plain',
+    '.xml': 'application/xml',
     '.png': 'image/png',
     '.jpg': 'image/jpeg',
     '.gif': 'image/gif',
