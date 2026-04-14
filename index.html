@@ -55,45 +55,6 @@
     ]
   }
   </script>
-  <!-- JSON-LD Structured Data for SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Tushar Kumar Barman",
-    "url": "https://portfolio-lsq3.onrender.com",
-    "sameAs": [
-      "https://github.com/callmetushar123",
-      "https://www.linkedin.com/in/tusharkbarman19",
-      "https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010"
-    ],
-    "jobTitle": "GPU Software Development Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Intel Corporation",
-      "url": "https://www.intel.com"
-    },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "BITS Pilani",
-      "url": "https://www.bits-pilani.ac.in"
-    },
-    "knowsAbout": [
-      "GPU Computing",
-      "Heterogeneous Computing",
-      "CI/CD",
-      "Observability",
-      "Infrastructure Engineering",
-      "Python",
-      "C++",
-      "NestJS",
-      "Elasticsearch",
-      "Grafana",
-      "Docker",
-      "AI/ML"
-    ]
-  }
-  </script>
   <style>
     :root {
       --background: #ffffff;
@@ -1227,15 +1188,34 @@
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mobileNav = document.getElementById('mobileNav');
     mobileMenuBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-      const spans = mobileMenuBtn.querySelectorAll('span');
-      if (mobileNav.classList.contains('open')) { spans[0].style.transform='rotate(45deg) translate(5px,5px)'; spans[1].style.opacity='0'; spans[2].style.transform='rotate(-45deg) translate(5px,-5px)'; }
-      else { spans[0].style.transform='none'; spans[1].style.opacity='1'; spans[2].style.transform='none'; }
+      try {
+        mobileNav.classList.toggle('open');
+        const spans = mobileMenuBtn.querySelectorAll('span');
+        if (mobileNav.classList.contains('open')) { spans[0].style.transform='rotate(45deg) translate(5px,5px)'; spans[1].style.opacity='0'; spans[2].style.transform='rotate(-45deg) translate(5px,-5px)'; }
+        else { spans[0].style.transform='none'; spans[1].style.opacity='1'; spans[2].style.transform='none'; }
+      } catch (error) {
+        console.error('Mobile menu toggle failed:', error);
+        mobileNav.style.display = mobileNav.classList.contains('open') ? 'flex' : 'none';
+      }
     });
-    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { mobileNav.classList.remove('open'); const s=mobileMenuBtn.querySelectorAll('span'); s[0].style.transform='none'; s[1].style.opacity='1'; s[2].style.transform='none'; }));
+    mobileNav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { try { mobileNav.classList.remove('open'); const s=mobileMenuBtn.querySelectorAll('span'); s[0].style.transform='none'; s[1].style.opacity='1'; s[2].style.transform='none'; } catch (error) { console.error('Mobile menu close failed:', error); } }));
 
     const scrollProgress = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => { const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100; scrollProgress.style.width = p + '%'; });
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          try {
+            const p = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = p + '%';
+          } catch (error) {
+            console.error('Scroll progress update failed:', error);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
 
     const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; } }); }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
     document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
@@ -1574,13 +1554,29 @@
 
       let activeIdx = 0;
       function renderList(filter) {
-        const q = (filter||'').toLowerCase();
+        const q = (filter||'').toLowerCase().trim();
+        if (q.length > 100) { list.innerHTML = '<div class="cmd-empty">Search query too long</div>'; return; }
+        if (!/^[a-z0-9\s]*$/.test(q)) { list.innerHTML = '<div class="cmd-empty">Invalid characters in search</div>'; return; }
         const filtered = q ? items.filter(i => i.text.toLowerCase().includes(q) || i.hint.toLowerCase().includes(q)) : items;
         if (!filtered.length) { list.innerHTML = '<div class="cmd-empty">No results found</div>'; return; }
         activeIdx = 0;
-        list.innerHTML = filtered.map((item, i) =>
-          `<a class="cmd-item${i===0?' active':''}" href="${item.href}" data-idx="${i}">${iconSvg(item.icon)}<span class="cmd-item-text">${item.text}</span><span class="cmd-item-hint">${item.hint}</span></a>`
-        ).join('');
+        list.innerHTML = '';
+        filtered.forEach((item, i) => {
+          const a = document.createElement('a');
+          a.className = `cmd-item${i===0?' active':''}`;
+          a.href = item.href;
+          a.dataset.idx = i;
+          a.innerHTML = iconSvg(item.icon);
+          const textSpan = document.createElement('span');
+          textSpan.className = 'cmd-item-text';
+          textSpan.textContent = item.text;
+          const hintSpan = document.createElement('span');
+          hintSpan.className = 'cmd-item-hint';
+          hintSpan.textContent = item.hint;
+          a.appendChild(textSpan);
+          a.appendChild(hintSpan);
+          list.appendChild(a);
+        });
       }
 
       function open() { overlay.classList.add('open'); input.value=''; renderList(''); setTimeout(()=>input.focus(),50); }
