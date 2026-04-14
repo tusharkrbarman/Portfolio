@@ -544,6 +544,12 @@
     .timeline-tag:hover { border-color: var(--muted); color: var(--foreground); background: rgba(128,128,128,0.08); }
 
     /* More dropdown menu */
+    .more-dropdown { position: relative; }
+    .more-dropdown:hover .more-btn svg { transform: rotate(180deg); }
+    .more-dropdown:hover .more-dropdown-menu,
+    .more-dropdown-menu.open {
+      display: block;
+    }
     .more-dropdown-menu {
       display: none; 
       position: absolute; 
@@ -558,9 +564,6 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
     .dark .more-dropdown-menu { box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
-    .more-dropdown-menu.open { display: block; }
-    .more-dropdown-menu.show { display: block; }
-    .more-btn[aria-expanded="true"] + .more-dropdown-menu { display: block; }
     .more-dropdown-menu a {
       display: block; 
       padding: 0.5rem 0.75rem; 
