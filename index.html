@@ -300,13 +300,16 @@
         </div>
       </div>
 
-      <!-- TILE 3: STAT POP SLIDER TILE (Teal, 1x1) -->
+      <!-- TILE 3: STAT POP SLIDER TILE (Teal, 1x1, Creative Impact Slides) -->
       <div class="tile bg-teal text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between relative overflow-hidden">
+        <!-- Glowing Ambient Circle Background -->
+        <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/10 blur-xl pointer-events-none"></div>
+
         <!-- Top Row -->
         <div class="flex items-center justify-between z-10">
           <div class="flex items-center gap-1.5 text-white/90">
-            <iconify-icon icon="ph:chart-bar-fill" class="text-lg"></iconify-icon>
-            <span id="statCategory" class="text-[10.5px] font-bold tracking-[0.16em] uppercase">SYSTEMS SLO</span>
+            <iconify-icon icon="ph:lightning-fill" class="text-white text-base"></iconify-icon>
+            <span id="statCategory" class="text-[10.5px] font-bold tracking-[0.16em] uppercase">CLOUD OBSERVABILITY</span>
           </div>
 
           <div class="flex items-center gap-1">
@@ -322,21 +325,25 @@
         <!-- STAT SLIDER TRACK -->
         <div class="overflow-hidden w-full my-auto z-10">
           <div id="statTrack" class="slider-track">
+            <!-- Slide 1 -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">1,000+</div>
-              <div class="text-[12.5px] text-white/90 font-medium leading-snug">Cloud systems monitored with Grafana SLA/SLO dashboards & GitHub Actions.</div>
+              <div class="text-[13px] text-white/95 font-medium leading-snug">Cloud nodes wrangled & monitored across Intel CI without missing a single beat.</div>
             </div>
+            <!-- Slide 2 -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">1M+</div>
-              <div class="text-[12.5px] text-white/90 font-medium leading-snug">Infrastructure log lines classified into labeled AIOps datasets for test systems.</div>
+              <div class="text-[13px] text-white/95 font-medium leading-snug">Infrastructure log lines trained into smart AIOps models to kill build failures early.</div>
             </div>
+            <!-- Slide 3 -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">8.95</div>
-              <div class="text-[12.5px] text-white/90 font-medium leading-snug">M.E. Computer Science GPA at BITS Pilani (Graduated in Top 10 of class).</div>
+              <div class="text-[13px] text-white/95 font-medium leading-snug">M.E. Computer Science GPA at BITS Pilani — Graduated in Top 10 of class.</div>
             </div>
+            <!-- Slide 4 -->
             <div class="slide-item">
-              <div class="bento-stat-num mb-1">10-Node</div>
-              <div class="text-[12.5px] text-white/90 font-medium leading-snug">Bare-metal BeeGFS HPC cluster provisioned with Ansible for IEEE Cluster 2023.</div>
+              <div class="bento-stat-num mb-1">IEEE</div>
+              <div class="text-[13px] text-white/95 font-medium leading-snug">Peer-reviewed HPC BeeGFS benchmark paper published at IEEE Cluster 2023.</div>
             </div>
           </div>
         </div>
@@ -591,7 +598,7 @@
     const totalStats = 4;
     const statTrack = document.getElementById('statTrack');
     const statProgress = document.getElementById('statProgress');
-    const statCategories = ['SYSTEMS SLO', 'AIOPS LOGS', 'BITS PILANI', 'HPC CLUSTER'];
+    const statCategories = ['CLOUD OBSERVABILITY', 'AIOPS INTEL', 'ACADEMIC RIGOR', 'RESEARCH PAPER'];
     const statCategoryEl = document.getElementById('statCategory');
 
     function setStat(index) {
