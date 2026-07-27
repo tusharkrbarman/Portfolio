@@ -240,12 +240,12 @@
             </div>
 
             <!-- Role Toggle Buttons -->
-            <div class="flex items-center gap-2">
-              <button onclick="setRole(0)" id="roleBtn-0" class="h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-teal text-white cursor-pointer transition-colors shadow-sm">
-                Full-Time SDE (Jul 2024 - Feb 2026)
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <button onclick="setRole(0)" id="roleBtn-0" class="h-7 px-3 rounded-full text-[11px] sm:text-[11.5px] font-semibold bg-teal text-white cursor-pointer transition-colors shadow-sm whitespace-nowrap">
+                Full-Time SDE <span class="hidden sm:inline">(Jul 2024 - Feb 2026)</span>
               </button>
-              <button onclick="setRole(1)" id="roleBtn-1" class="h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white">
-                DevOps Intern (Jan - Jun 2024)
+              <button onclick="setRole(1)" id="roleBtn-1" class="h-7 px-3 rounded-full text-[11px] sm:text-[11.5px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white whitespace-nowrap">
+                DevOps Intern <span class="hidden sm:inline">(Jan - Jun 2024)</span>
               </button>
             </div>
           </div>
@@ -256,14 +256,14 @@
               
               <!-- SLIDE 1: FULL-TIME SDE -->
               <div id="roleSlide-0" class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[300px]">
-                <div class="flex items-center justify-between mb-2">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-2">
                   <div>
-                    <h3 class="font-display font-bold text-[19px] text-ink leading-tight">Software Development Engineer</h3>
-                    <p class="text-[13px] font-semibold text-tealdeep">Intel Corporation — DevOps and Platform Engineering</p>
+                    <h3 class="font-display font-bold text-[18px] sm:text-[19px] text-ink leading-tight">Software Development Engineer</h3>
+                    <p class="text-[12.5px] sm:text-[13px] font-semibold text-tealdeep">Intel Corporation — DevOps and Platform Engineering</p>
                   </div>
-                  <div class="text-right shrink-0">
-                    <span class="text-[12px] font-mono text-inksoft block">Jul 2024 — Feb 2026</span>
-                    <span class="text-[11px] font-semibold text-teal">Hyderabad, India</span>
+                  <div class="sm:text-right shrink-0">
+                    <span class="text-[11.5px] sm:text-[12px] font-mono text-inksoft block">Jul 2024 — Feb 2026</span>
+                    <span class="text-[11px] font-semibold text-teal block sm:inline">Hyderabad, India</span>
                   </div>
                 </div>
 
@@ -281,14 +281,14 @@
 
               <!-- SLIDE 2: INFRASTRUCTURE & DEVOPS INTERN -->
               <div id="roleSlide-1" class="slide-item exp-scroll pr-3 overflow-y-hidden max-h-[300px]">
-                <div class="flex items-center justify-between mb-2">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 mb-2">
                   <div>
-                    <h3 class="font-display font-bold text-[19px] text-ink leading-tight">Infrastructure and DevOps Intern</h3>
-                    <p class="text-[13px] font-semibold text-apricotdeep">Intel Corporation — Platform Infrastructure</p>
+                    <h3 class="font-display font-bold text-[18px] sm:text-[19px] text-ink leading-tight">Infrastructure and DevOps Intern</h3>
+                    <p class="text-[12.5px] sm:text-[13px] font-semibold text-apricotdeep">Intel Corporation — Platform Infrastructure</p>
                   </div>
-                  <div class="text-right shrink-0">
-                    <span class="text-[12px] font-mono text-inksoft block">Jan 2024 — Jun 2024</span>
-                    <span class="text-[11px] font-semibold text-apricotdeep">Hyderabad, India</span>
+                  <div class="sm:text-right shrink-0">
+                    <span class="text-[11.5px] sm:text-[12px] font-mono text-inksoft block">Jan 2024 — Jun 2024</span>
+                    <span class="text-[11px] font-semibold text-apricotdeep block sm:inline">Hyderabad, India</span>
                   </div>
                 </div>
 
@@ -709,9 +709,9 @@
         const dot = document.getElementById(`dot-${i}`);
         if (btn) {
           if (i === currentRole) {
-            btn.className = "h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-teal text-white cursor-pointer transition-colors shadow-sm";
+            btn.className = "h-7 px-3 rounded-full text-[11px] sm:text-[11.5px] font-semibold bg-teal text-white cursor-pointer transition-colors shadow-sm whitespace-nowrap";
           } else {
-            btn.className = "h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white";
+            btn.className = "h-7 px-3 rounded-full text-[11px] sm:text-[11.5px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white whitespace-nowrap";
           }
         }
         if (dot) {
