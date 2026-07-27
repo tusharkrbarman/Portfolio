@@ -407,7 +407,7 @@
           <div class="flex items-center justify-between pt-2.5 border-t border-white/10 text-[12px] font-mono text-white/60 z-10">
             <div class="flex items-center gap-1.5">
               <iconify-icon icon="ph:github-logo-bold" class="text-sm text-teal"></iconify-icon>
-              <span>Live GitHub Sync</span>
+              <span>Syncs Every 6 Hours</span>
             </div>
             <span id="githubCommitTime" class="text-[11.5px] text-teal font-semibold">Pushed 5m ago</span>
           </div>
@@ -748,41 +748,90 @@
     updateClock();
     setInterval(updateClock, 10000);
 
-    // Live GitHub Commit Fetcher
+    // GitHub 6-Hour Periodic Sync & LocalStorage Cacher
     async function fetchLatestGithubCommit() {
-      try {
-        const res = await fetch('https://api.github.com/users/tusharkrbarman/events/public');
-        if (!res.ok) return;
-        const events = await res.json();
-        const pushEvent = events.find(e => e.type === 'PushEvent');
-        if (pushEvent && pushEvent.payload && pushEvent.payload.commits && pushEvent.payload.commits.length > 0) {
-          const repoName = pushEvent.repo.name;
-          const commitMsg = pushEvent.payload.commits[pushEvent.payload.commits.length - 1].message;
-          const createdAt = new Date(pushEvent.created_at);
-          
-          const repoNameEl = document.getElementById('githubRepoName');
-          const repoLinkEl = document.getElementById('githubRepoLink');
-          const commitMsgEl = document.getElementById('githubCommitMsg');
-          const commitTimeEl = document.getElementById('githubCommitTime');
+      const CACHE_KEY = 'github_commit_cache';
+      const CACHE_DURATION_MS = 6 * 60 * 60 * 1000; // 6 hours
+      const now = Date.now();
 
-          if (repoNameEl) repoNameEl.textContent = repoName;
-          if (repoLinkEl) repoLinkEl.href = `https://github.com/${repoName}`;
-          if (commitMsgEl) commitMsgEl.textContent = commitMsg;
-          
-          const diffMs = new Date() - createdAt;
+      function updateDOM(repoName, commitMsg, createdAt) {
+        const repoNameEl = document.getElementById('githubRepoName');
+        const repoLinkEl = document.getElementById('githubRepoLink');
+        const commitMsgEl = document.getElementById('githubCommitMsg');
+        const commitTimeEl = document.getElementById('githubCommitTime');
+
+        if (repoNameEl) repoNameEl.textContent = repoName;
+        if (repoLinkEl) repoLinkEl.href = `https://github.com/${repoName}`;
+        if (commitMsgEl) commitMsgEl.textContent = commitMsg;
+
+        if (commitTimeEl && createdAt) {
+          const diffMs = now - new Date(createdAt);
           const diffMins = Math.floor(diffMs / 60000);
           const diffHours = Math.floor(diffMins / 60);
           let timeAgo = `${diffMins}m ago`;
           if (diffHours > 0) timeAgo = `${diffHours}h ago`;
-          if (diffHours >= 24) timeAgo = `${Math.floor(diffHours/24)}d ago`;
-          
-          if (commitTimeEl) commitTimeEl.textContent = `Pushed ${timeAgo}`;
+          if (diffHours >= 24) timeAgo = `${Math.floor(diffHours / 24)}d ago`;
+          commitTimeEl.textContent = `Pushed ${timeAgo}`;
+        }
+      }
+
+      // Check localStorage cache first for instant render
+      try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (parsed && parsed.timestamp && (now - parsed.timestamp < CACHE_DURATION_MS)) {
+            updateDOM(parsed.repoName, parsed.commitMsg, parsed.created_at);
+            return; // Cache is valid & fresh!
+          }
+        }
+      } catch (e) {
+        console.warn('Cache read error:', e);
+      }
+
+      // Fetch fresh data from server endpoint or GitHub API directly
+      try {
+        let data = null;
+        try {
+          const localRes = await fetch('/api/github/latest-commit');
+          if (localRes.ok) data = await localRes.json();
+        } catch (e) {}
+
+        if (!data || !data.commitMsg) {
+          const ghRes = await fetch('https://api.github.com/users/tusharkrbarman/events/public');
+          if (ghRes.ok) {
+            const events = await ghRes.json();
+            const pushEvent = events.find(e => e.type === 'PushEvent');
+            if (pushEvent && pushEvent.payload && pushEvent.payload.commits && pushEvent.payload.commits.length > 0) {
+              data = {
+                repoName: pushEvent.repo.name,
+                commitMsg: pushEvent.payload.commits[pushEvent.payload.commits.length - 1].message,
+                created_at: pushEvent.created_at
+              };
+            }
+          }
+        }
+
+        if (data && data.repoName && data.commitMsg) {
+          updateDOM(data.repoName, data.commitMsg, data.created_at);
+          // Store in localStorage
+          localStorage.setItem(CACHE_KEY, JSON.stringify({
+            repoName: data.repoName,
+            commitMsg: data.commitMsg,
+            created_at: data.created_at,
+            timestamp: now
+          }));
         }
       } catch (err) {
-        console.warn('GitHub API fetch notice:', err);
+        console.warn('GitHub periodic fetch notice:', err);
       }
     }
+
+    // Initial load
     fetchLatestGithubCommit();
+
+    // Auto-refresh every 6 hours (21,600,000 ms)
+    setInterval(fetchLatestGithubCommit, 6 * 60 * 60 * 1000);
   </script>
 
 </body>

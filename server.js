@@ -39,6 +39,55 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
+  // GitHub 6-hour Cached Latest Commit API
+  let cachedCommit = null;
+  let cacheTime = 0;
+  const CACHE_DURATION_MS = 6 * 60 * 60 * 1000; // 6 hours
+
+  if (req.url === '/api/github/latest-commit' && req.method === 'GET') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    const now = Date.now();
+
+    if (cachedCommit && (now - cacheTime < CACHE_DURATION_MS)) {
+      res.end(JSON.stringify(cachedCommit));
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.github.com/users/tusharkrbarman/events/public', {
+        headers: { 'User-Agent': 'Node-Portfolio-Server' }
+      });
+      if (!response.ok) throw new Error(`GitHub API error ${response.status}`);
+      const events = await response.json();
+      const pushEvent = events.find(e => e.type === 'PushEvent');
+      if (pushEvent && pushEvent.payload && pushEvent.payload.commits && pushEvent.payload.commits.length > 0) {
+        const repoName = pushEvent.repo.name;
+        const commitMsg = pushEvent.payload.commits[pushEvent.payload.commits.length - 1].message;
+        cachedCommit = {
+          repoName,
+          commitMsg,
+          created_at: pushEvent.created_at,
+          cachedAt: now
+        };
+        cacheTime = now;
+        res.end(JSON.stringify(cachedCommit));
+        return;
+      }
+    } catch (err) {
+      console.warn('GitHub API server fetch error:', err.message);
+    }
+
+    // Fallback if API fails or rate limited
+    const fallback = cachedCommit || {
+      repoName: 'tusharkrbarman/Portfolio',
+      commitMsg: 'feat: Restructure Bento Grid into signature bento.me split layout',
+      created_at: new Date().toISOString(),
+      cachedAt: now
+    };
+    res.end(JSON.stringify(fallback));
+    return;
+  }
+
   // Visitor counter API - GET
   if (req.url === '/api/visitors' && req.method === 'GET') {
     if (!supabase) return res.writeHead(200), res.end(JSON.stringify({ count: 0 }));
