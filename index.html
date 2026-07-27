@@ -465,35 +465,23 @@
         <!-- TWO 1x1 TILES ROW 1 -->
         <div class="grid grid-cols-2 gap-4">
           
-          <!-- TILE 7: SPOTIFY NOW PLAYING (Dark Charcoal, 1x1) -->
-          <div class="tile bg-ink text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between h-[180px]">
+          <!-- TILE 7: MULTILINGUAL GREETINGS TILE (Dark Charcoal Fill, 1x1) -->
+          <a href="mailto:tusharbarman123@gmail.com" class="tile bg-ink text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between hover:no-underline h-[180px] group relative overflow-hidden">
             <div class="flex items-center justify-between text-teal">
-              <div class="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.14em] uppercase text-teal">
-                <iconify-icon icon="ph:spotify-logo-fill" class="text-base"></iconify-icon>
-                <span>NOW PLAYING</span>
-              </div>
+              <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-teal">SAY HELLO</span>
+              <iconify-icon icon="ph:hand-waving-fill" class="text-teal text-xl group-hover:rotate-12 transition-transform"></iconify-icon>
             </div>
 
-            <div class="flex items-center gap-3">
-              <div class="w-11 h-11 rounded-xl bg-teal/20 border border-teal/30 text-teal flex items-center justify-center shrink-0">
-                <iconify-icon icon="ph:music-notes-fill" class="text-xl"></iconify-icon>
-              </div>
-              <div class="min-w-0">
-                <h4 class="font-display font-bold text-[15px] text-white truncate">Midnight City</h4>
-                <p class="text-[12px] text-white/60 truncate">M83 — Synthwave</p>
-              </div>
+            <div>
+              <div id="greetingLang" class="text-[11px] font-semibold text-white/60 uppercase tracking-wider mb-0.5">English</div>
+              <h3 id="greetingText" class="font-display font-extrabold text-[27px] leading-tight text-white transition-all duration-300">Hello 👋</h3>
             </div>
 
-            <div class="flex items-end justify-between text-[11px] text-white/50 font-mono pt-1">
-              <div class="flex items-end gap-1 h-4">
-                <span class="w-1 bg-teal rounded-full h-full eq-bar-1"></span>
-                <span class="w-1 bg-teal rounded-full h-full eq-bar-2"></span>
-                <span class="w-1 bg-teal rounded-full h-full eq-bar-3"></span>
-                <span class="w-1 bg-teal rounded-full h-full eq-bar-4"></span>
-              </div>
-              <span>2:41</span>
+            <div class="flex items-center justify-between text-[11.5px] font-semibold text-teal pt-1">
+              <span>Send Email</span>
+              <iconify-icon icon="ph:arrow-up-right-bold" class="text-sm"></iconify-icon>
             </div>
-          </div>
+          </a>
 
           <!-- TILE 8: STAT POP CAROUSEL TILE (Teal Fill, 1x1) -->
           <div class="tile bg-teal text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between relative overflow-hidden h-[180px]">
@@ -578,21 +566,16 @@
             </div>
           </div>
 
-          <!-- TILE 10: MULTILINGUAL GREETING TILE (Warm Apricot Fill, 1x1) -->
-          <a href="mailto:tusharbarman123@gmail.com" class="tile bg-apricot text-ink rounded-[26px] shadow-soft p-5 flex flex-col justify-between hover:no-underline h-[180px] group relative overflow-hidden">
+          <!-- TILE 10: IEEE PUBLICATION TILE (Warm Apricot Fill, 1x1) -->
+          <a href="https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010" target="_blank" class="tile bg-apricot text-ink rounded-[26px] shadow-soft p-5 flex flex-col justify-between hover:no-underline h-[180px]">
             <div class="flex items-center justify-between">
-              <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-ink/80">SAY HELLO</span>
-              <iconify-icon icon="ph:hand-waving-fill" class="text-ink text-xl group-hover:rotate-12 transition-transform"></iconify-icon>
+              <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-ink/80">IEEE CLUSTER 2023</span>
+              <iconify-icon icon="ph:file-text-fill" class="text-ink text-xl"></iconify-icon>
             </div>
 
             <div>
-              <div id="greetingLang" class="text-[11px] font-semibold text-ink/75 uppercase tracking-wider mb-0.5">English</div>
-              <h3 id="greetingText" class="font-display font-extrabold text-[28px] leading-tight text-ink transition-all duration-300">Hello 👋</h3>
-            </div>
-
-            <div class="flex items-center justify-between text-[11.5px] font-semibold text-ink/80 pt-1">
-              <span>Send Email</span>
-              <iconify-icon icon="ph:arrow-up-right-bold" class="text-sm"></iconify-icon>
+              <h3 class="font-display font-bold text-[17px] leading-tight text-ink mb-1">BeeGFS HPC I/O Paper</h3>
+              <p class="text-[12px] font-semibold text-ink/80 line-clamp-2">10-node bare-metal HPC cluster provisioned with Ansible & benchmarked with IOR & DLIO.</p>
             </div>
           </a>
 
