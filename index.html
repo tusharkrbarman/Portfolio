@@ -95,7 +95,7 @@
       width: 100%;
       min-width: 100%;
       flex-shrink: 0;
-      box-sizing: border-border;
+      box-sizing: border-box;
     }
 
     /* Custom Scrollbar inside Experience Slide */
@@ -171,7 +171,7 @@
         <div class="my-3">
           <h1 class="bento-name text-ink mb-1">Tushar Kumar Barman</h1>
           <p class="text-[15.5px] font-semibold text-tealdeep mb-2.5">Software Development Engineer | DevOps & Platform Engineering</p>
-          <p class="text-[14.5px] leading-relaxed text-inksoft">
+          <p class="text-[14.2px] leading-relaxed text-inksoft">
             Software Engineer with 2+ years of experience building cloud platforms, CI systems, and developer tools at Intel. Hands-on with AWS, Kubernetes, Terraform, Python, and observability. Built provisioning services and golden-image pipelines, deployed AI inference workloads on Kubernetes, and created dashboards that helped teams monitor CI reliability across 1,000+ systems.
           </p>
         </div>
@@ -197,10 +197,10 @@
         </div>
       </div>
 
-      <!-- TILE 2: INTEL WORK EXPERIENCE SLIDER CARD (2-wide, Row-Span-2: PERFECT NO OVERLAP & NO CLIPPING) -->
+      <!-- TILE 2: INTEL WORK EXPERIENCE SLIDER CARD (2-wide, Row-Span-2) -->
       <div class="tile md:col-span-2 md:row-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
         
-        <!-- Clean Uncrowded Header Controls -->
+        <!-- Header Controls for Role Slider -->
         <div class="mb-3 pb-3 border-b border-line z-10">
           <div class="flex items-center justify-between mb-2.5">
             <div class="flex items-center gap-2">
@@ -234,7 +234,7 @@
         <div class="overflow-hidden w-full flex-1">
           <div id="sliderTrack" class="slider-track h-full">
             
-            <!-- SLIDE 1: FULL-TIME SDE (ALL 7 RESUME BULLETS COMPLETE & NO CLIPPING) -->
+            <!-- SLIDE 1: FULL-TIME SDE -->
             <div class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[340px]">
               <div class="flex items-center justify-between mb-2">
                 <div>
@@ -247,7 +247,7 @@
                 </div>
               </div>
 
-              <!-- Complete Bullets List (No line-clamp / No right clipping) -->
+              <!-- Complete Bullets List -->
               <ul class="text-[13px] text-inksoft space-y-2.5 mt-3 list-disc pl-4 leading-relaxed w-full">
                 <li><strong class="text-ink">AWS EKS AI Inference Platform:</strong> Validated scalable CPU-based AI inference on a private AWS EKS/Kubernetes platform by deploying FastAPI, OpenVINO, and OVMS; provisioned the cluster with Terraform and tested ALB routing, readiness probes, metrics-server, Horizontal Pod Autoscaling (HPA), and failure recovery.</li>
                 <li><strong class="text-ink">FastAPI Machine Provisioning Service:</strong> Simplified Jenkins validation by building a FastAPI provisioning service that reserved machines, deployed operating systems, and tracked request status; defined the AWS stack in Terraform and shipped it on ECS Fargate with ALB, IAM, SQS, DynamoDB, CloudWatch, and GitHub Actions.</li>
@@ -259,7 +259,7 @@
               </ul>
             </div>
 
-            <!-- SLIDE 2: INFRASTRUCTURE & DEVOPS INTERN (ALL 2 RESUME BULLETS COMPLETE) -->
+            <!-- SLIDE 2: INFRASTRUCTURE & DEVOPS INTERN -->
             <div class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[340px]">
               <div class="flex items-center justify-between mb-2">
                 <div>
@@ -294,25 +294,71 @@
           </div>
 
           <div class="flex items-center gap-2">
-            <button onclick="setRole(0)" id="dot-0" class="w-3 h-3 rounded-full bg-teal transition-all cursor-pointer" title="Full-Time SDE"></button>
-            <button onclick="setRole(1)" id="dot-1" class="w-2.5 h-2.5 rounded-full bg-canvas border border-line transition-all cursor-pointer" title="DevOps Intern"></button>
+            <button onclick="setRole(0)" id="dot-0" class="w-3 h-3 rounded-full bg-teal transition-all cursor-pointer"></button>
+            <button onclick="setRole(1)" id="dot-1" class="w-2.5 h-2.5 rounded-full bg-canvas border border-line transition-all cursor-pointer"></button>
           </div>
         </div>
       </div>
 
-      <!-- TILE 3: STAT POP TILE (Teal, 1x1) -->
-      <div class="tile bg-teal text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between">
-        <div class="flex items-center justify-between">
-          <iconify-icon icon="ph:cloud-fill" class="text-white/85 text-xl"></iconify-icon>
-          <div class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[11px] font-semibold flex items-center gap-1">
-            <iconify-icon icon="ph:trend-up-bold" class="text-xs"></iconify-icon>
-            Intel CI
+      <!-- TILE 3: STAT POP SLIDER TILE (Teal, 1x1, Multi-Metric Carousel) -->
+      <div class="tile bg-teal text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between relative overflow-hidden">
+        <!-- Top Row with Category Tag & Navigation Arrows -->
+        <div class="flex items-center justify-between z-10">
+          <div class="flex items-center gap-1.5 text-white/90">
+            <iconify-icon icon="ph:chart-bar-fill" class="text-lg"></iconify-icon>
+            <span id="statCategory" class="text-[10.5px] font-bold tracking-[0.16em] uppercase">IMPACT METRIC</span>
+          </div>
+
+          <div class="flex items-center gap-1">
+            <button onclick="prevStat()" class="w-6 h-6 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer" title="Previous Metric">
+              <iconify-icon icon="ph:caret-left-bold" class="text-xs"></iconify-icon>
+            </button>
+            <button onclick="nextStat()" class="w-6 h-6 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition-colors cursor-pointer" title="Next Metric">
+              <iconify-icon icon="ph:caret-right-bold" class="text-xs"></iconify-icon>
+            </button>
           </div>
         </div>
 
-        <div>
-          <div class="bento-stat-num mb-1">1,000+</div>
-          <div class="text-[13px] text-white/85 font-medium">Cloud systems monitored with Grafana SLOs</div>
+        <!-- STAT SLIDER TRACK -->
+        <div class="overflow-hidden w-full my-auto z-10">
+          <div id="statTrack" class="slider-track">
+            
+            <!-- STAT 1: 1,000+ CLOUD SYSTEMS -->
+            <div class="slide-item">
+              <div class="bento-stat-num mb-1">1,000+</div>
+              <div class="text-[12.5px] text-white/90 font-medium leading-snug">Cloud systems monitored with Grafana SLA/SLO dashboards & GitHub Actions.</div>
+            </div>
+
+            <!-- STAT 2: 1M+ LOG LINES CLASSIFIED -->
+            <div class="slide-item">
+              <div class="bento-stat-num mb-1">1M+</div>
+              <div class="text-[12.5px] text-white/90 font-medium leading-snug">Infrastructure log lines classified into labeled AIOps datasets for test systems.</div>
+            </div>
+
+            <!-- STAT 3: 8.95 GPA BITS PILANI -->
+            <div class="slide-item">
+              <div class="bento-stat-num mb-1">8.95</div>
+              <div class="text-[12.5px] text-white/90 font-medium leading-snug">M.E. Computer Science GPA at BITS Pilani (Graduated in Top 10 of class).</div>
+            </div>
+
+            <!-- STAT 4: 10-NODE BARE-METAL HPC CLUSTER -->
+            <div class="slide-item">
+              <div class="bento-stat-num mb-1">10-Node</div>
+              <div class="text-[12.5px] text-white/90 font-medium leading-snug">Bare-metal BeeGFS HPC cluster provisioned with Ansible for IEEE Cluster 2023.</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bottom Stat Navigation Dots -->
+        <div class="flex items-center justify-between z-10 pt-1">
+          <span id="statProgress" class="text-[10px] font-mono text-white/70">1 of 4</span>
+          <div class="flex items-center gap-1">
+            <button onclick="setStat(0)" id="statDot-0" class="w-2 h-2 rounded-full bg-white cursor-pointer"></button>
+            <button onclick="setStat(1)" id="statDot-1" class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer"></button>
+            <button onclick="setStat(2)" id="statDot-2" class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer"></button>
+            <button onclick="setStat(3)" id="statDot-3" class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer"></button>
+          </div>
         </div>
       </div>
 
@@ -487,7 +533,7 @@
   <script>
     // Intel Role Slider state
     let currentRole = 0;
-    const totalRoles = 2; // Role 1: Full-Time SDE (Jul 2024 - Feb 2026), Role 2: DevOps Intern (Jan 2024 - Jun 2024)
+    const totalRoles = 2; // Role 1: Full-Time SDE, Role 2: DevOps Intern
     const sliderTrack = document.getElementById('sliderTrack');
     const slideIndicator = document.getElementById('slideIndicator');
     const roleText = document.getElementById('roleText');
@@ -532,6 +578,51 @@
     function prevSlide() {
       setRole((currentRole - 1 + totalRoles) % totalRoles);
     }
+
+    // Stat Tile Slider logic (4 Metrics: 1,000+, 1M+, 8.95 GPA, 10-Node HPC)
+    let currentStat = 0;
+    const totalStats = 4;
+    const statTrack = document.getElementById('statTrack');
+    const statProgress = document.getElementById('statProgress');
+    const statCategories = ['SYSTEMS SLO', 'AIOPS LOGS', 'BITS PILANI', 'HPC CLUSTER'];
+    const statCategoryEl = document.getElementById('statCategory');
+
+    function setStat(index) {
+      currentStat = index;
+      if (statTrack) {
+        statTrack.style.transform = `translateX(-${currentStat * 100}%)`;
+      }
+      if (statProgress) {
+        statProgress.textContent = `${currentStat + 1} of ${totalStats}`;
+      }
+      if (statCategoryEl) {
+        statCategoryEl.textContent = statCategories[currentStat] || 'IMPACT METRIC';
+      }
+
+      for (let i = 0; i < totalStats; i++) {
+        const sDot = document.getElementById(`statDot-${i}`);
+        if (sDot) {
+          if (i === currentStat) {
+            sDot.className = "w-2.5 h-2.5 rounded-full bg-white transition-all cursor-pointer";
+          } else {
+            sDot.className = "w-1.5 h-1.5 rounded-full bg-white/40 transition-all cursor-pointer";
+          }
+        }
+      }
+    }
+
+    function nextStat() {
+      setStat((currentStat + 1) % totalStats);
+    }
+
+    function prevStat() {
+      setStat((currentStat - 1 + totalStats) % totalStats);
+    }
+
+    // Auto rotate Stat Pop tile every 6 seconds
+    setInterval(() => {
+      nextStat();
+    }, 6000);
 
     // Copy Profile Link function
     function copyProfileLink() {
