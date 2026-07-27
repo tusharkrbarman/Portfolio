@@ -249,7 +249,7 @@
             <div id="sliderTrack" class="slider-track h-full">
               
               <!-- SLIDE 1: FULL-TIME SDE -->
-              <div class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[300px]">
+              <div id="roleSlide-0" class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[300px]">
                 <div class="flex items-center justify-between mb-2">
                   <div>
                     <h3 class="font-display font-bold text-[19px] text-ink leading-tight">Software Development Engineer</h3>
@@ -274,7 +274,7 @@
               </div>
 
               <!-- SLIDE 2: INFRASTRUCTURE & DEVOPS INTERN -->
-              <div class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[300px]">
+              <div id="roleSlide-1" class="slide-item exp-scroll pr-3 overflow-y-hidden max-h-[300px]">
                 <div class="flex items-center justify-between mb-2">
                   <div>
                     <h3 class="font-display font-bold text-[19px] text-ink leading-tight">Infrastructure and DevOps Intern</h3>
@@ -643,6 +643,19 @@
       }
       if (roleText) {
         roleText.textContent = currentRole === 0 ? 'Role 1 of 2: Full-Time SDE' : 'Role 2 of 2: DevOps Intern';
+      }
+
+      // Hide inactive slide scrollbar to prevent boundary line bleeding
+      const s0 = document.getElementById('roleSlide-0');
+      const s1 = document.getElementById('roleSlide-1');
+      if (s0 && s1) {
+        if (currentRole === 0) {
+          s0.style.overflowY = 'auto';
+          s1.style.overflowY = 'hidden';
+        } else {
+          s0.style.overflowY = 'hidden';
+          s1.style.overflowY = 'auto';
+        }
       }
 
       // Update Role Buttons & Dots
