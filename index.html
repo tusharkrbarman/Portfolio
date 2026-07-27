@@ -409,7 +409,6 @@
               <iconify-icon icon="ph:github-logo-bold" class="text-sm text-teal"></iconify-icon>
               <span>Syncs Every 6 Hours</span>
             </div>
-            <span id="githubCommitTime" class="text-[11.5px] text-teal font-semibold">Pushed 5m ago</span>
           </div>
         </div>
 
@@ -772,21 +771,10 @@
         const repoNameEl = document.getElementById('githubRepoName');
         const repoLinkEl = document.getElementById('githubRepoLink');
         const commitMsgEl = document.getElementById('githubCommitMsg');
-        const commitTimeEl = document.getElementById('githubCommitTime');
 
         if (repoNameEl) repoNameEl.textContent = repoName;
         if (repoLinkEl) repoLinkEl.href = `https://github.com/${repoName}`;
         if (commitMsgEl) commitMsgEl.textContent = commitMsg;
-
-        if (commitTimeEl && createdAt) {
-          const diffMs = now - new Date(createdAt);
-          const diffMins = Math.floor(diffMs / 60000);
-          const diffHours = Math.floor(diffMins / 60);
-          let timeAgo = `${diffMins}m ago`;
-          if (diffHours > 0) timeAgo = `${diffHours}h ago`;
-          if (diffHours >= 24) timeAgo = `${Math.floor(diffHours / 24)}d ago`;
-          commitTimeEl.textContent = `Pushed ${timeAgo}`;
-        }
       }
 
       // Check localStorage cache first for instant render
