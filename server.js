@@ -24,10 +24,8 @@ const server = http.createServer(async (req, res) => {
 
   // Redirect for Resume stored in Supabase Bucket
   if (req.url === '/api/resume' && req.method === 'GET') {
-    if (!supabase) {
-      res.writeHead(302, { 'Location': '/Tushar2.pdf' }); // fallback to local
-      return res.end();
-    }
+    res.writeHead(302, { 'Location': '/Tushar_Barman_Resume.pdf' }); // direct local fallback
+    return res.end();
     const { data } = supabase.storage.from('portfolio_assets').getPublicUrl('Tushar2.pdf');
     if (data && data.publicUrl) {
       res.writeHead(302, { 'Location': data.publicUrl });
