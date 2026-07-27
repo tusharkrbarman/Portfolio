@@ -567,15 +567,24 @@
           </div>
 
           <!-- TILE 10: IEEE PUBLICATION TILE (Warm Apricot Fill, 1x1) -->
-          <a href="https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010" target="_blank" class="tile bg-apricot text-ink rounded-[26px] shadow-soft p-5 flex flex-col justify-between hover:no-underline h-[180px]">
-            <div class="flex items-center justify-between">
+          <a href="https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010" target="_blank" class="tile bg-apricot text-ink rounded-[26px] shadow-soft p-5 flex flex-col justify-between hover:no-underline h-[180px] group relative overflow-hidden">
+            <!-- Top Row -->
+            <div class="flex items-center justify-between z-10">
               <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-ink/80">IEEE CLUSTER 2023</span>
-              <iconify-icon icon="ph:file-text-fill" class="text-ink text-xl"></iconify-icon>
+              <div class="w-7 h-7 rounded-full bg-ink/10 group-hover:bg-ink group-hover:text-white flex items-center justify-center transition-colors text-ink">
+                <iconify-icon icon="ph:arrow-up-right-bold" class="text-xs"></iconify-icon>
+              </div>
             </div>
 
-            <div>
-              <h3 class="font-display font-bold text-[17px] leading-tight text-ink mb-1">BeeGFS HPC I/O Paper</h3>
-              <p class="text-[12px] font-semibold text-ink/80 line-clamp-2">10-node bare-metal HPC cluster provisioned with Ansible & benchmarked with IOR & DLIO.</p>
+            <!-- Middle Body -->
+            <div class="my-auto z-10">
+              <h3 class="font-display font-extrabold text-[18px] leading-tight text-ink mb-1 group-hover:underline">BeeGFS HPC I/O Paper</h3>
+              <p class="text-[12px] font-medium text-ink/85 leading-snug">10-node bare-metal HPC cluster benchmarked with IOR & DLIO.</p>
+            </div>
+
+            <!-- Footer Badge -->
+            <div class="flex items-center justify-between text-[11px] font-semibold text-ink/80 z-10 pt-1">
+              <span class="px-2.5 py-0.5 rounded-full bg-ink/10 text-ink text-[10px] font-extrabold uppercase tracking-wider">Research Publication</span>
             </div>
           </a>
 
