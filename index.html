@@ -31,6 +31,7 @@
             tealtint: '#e7f5f1',
             apricot: '#fb923c',
             apricotdeep: '#e07a1f',
+            apricottint: '#fff4eb',
           },
           fontFamily: {
             display: ['Bricolage Grotesque', 'sans-serif'],
@@ -159,7 +160,7 @@
     <!-- BENTO GRID (Signature Bento Split: White Cards Left | Color Accents Right) -->
     <main class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 items-start">
 
-      <!-- LEFT SIDE (2 COLUMNS): PURE WHITE CARDS -->
+      <!-- LEFT SIDE (2 COLUMNS): PURE WHITE CARDS (Profile, Experience & Skills) -->
       <div class="flex flex-col gap-4">
 
         <!-- TILE 1: PROFILE ANCHOR TILE (White, 2x2 footprint) -->
@@ -313,57 +314,7 @@
           </div>
         </div>
 
-        <!-- TILE 3: FEATURED PROJECT 1 — AI SPAM DETECTION (White) -->
-        <div class="tile bg-white border border-line rounded-[26px] shadow-soft p-6 flex items-center gap-5">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-ink via-slate-900 to-ink text-teal flex items-center justify-center shrink-0 shadow-soft ring-1 ring-line relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-tr from-teal/15 to-apricot/15"></div>
-            <iconify-icon icon="ph:shield-checkered-fill" class="text-2xl text-teal relative z-10"></iconify-icon>
-            <div class="absolute -bottom-0.5 -right-0.5 px-1.5 py-0.2 rounded-tl-lg bg-apricot text-ink text-[9px] font-extrabold uppercase tracking-widest z-10">AI</div>
-          </div>
-
-          <div class="flex-1 min-w-0">
-            <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft mb-1">AI / ML PROJECT</div>
-            <h3 class="font-display font-semibold text-[18px] text-ink truncate mb-1.5">AI Spam Detection Engine</h3>
-            <p class="text-[13px] text-inksoft line-clamp-2 mb-2">Machine learning classification pipeline & NLP model built in Python to filter spam messages with high accuracy.</p>
-            
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11px] font-semibold text-ink">Python</span>
-              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11px] font-semibold text-ink">Machine Learning</span>
-              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11px] font-semibold text-ink">NLP & Scikit-Learn</span>
-            </div>
-          </div>
-
-          <a href="https://github.com/tusharkrbarman/SpamDetection" target="_blank" class="w-11 h-11 rounded-full bg-ink text-white flex items-center justify-center shrink-0 hover:-translate-y-0.5 transition-transform" title="View Repository">
-            <iconify-icon icon="ph:arrow-up-right-bold" class="text-lg"></iconify-icon>
-          </a>
-        </div>
-
-        <!-- TILE 4: FEATURED PROJECT 2 — LEARNBETTER (White) -->
-        <div class="tile bg-white border border-line rounded-[26px] shadow-soft p-6 flex items-center gap-5">
-          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-ink via-slate-900 to-ink text-teal flex items-center justify-center shrink-0 shadow-soft ring-1 ring-line relative overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-tr from-teal/15 to-apricot/15"></div>
-            <iconify-icon icon="ph:graduation-cap-fill" class="text-2xl text-teal relative z-10"></iconify-icon>
-            <div class="absolute -bottom-0.5 -right-0.5 px-1.5 py-0.2 rounded-tl-lg bg-apricot text-ink text-[9px] font-extrabold uppercase tracking-widest z-10">AI</div>
-          </div>
-
-          <div class="flex-1 min-w-0">
-            <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft mb-1">AI / EDTECH PLATFORM</div>
-            <h3 class="font-display font-semibold text-[18px] text-ink truncate mb-1.5">LearnBetter — AI Learning Platform</h3>
-            <p class="text-[13px] text-inksoft line-clamp-2 mb-2">Interactive AI learning platform built to personalize study workflows, generate smart notes, and accelerate skill acquisition.</p>
-            
-            <div class="flex items-center gap-2 flex-wrap">
-              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11px] font-semibold text-ink">Python & LLMs</span>
-              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11px] font-semibold text-ink">FastAPI & AI Agents</span>
-              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11px] font-semibold text-ink">React / Web</span>
-            </div>
-          </div>
-
-          <a href="https://github.com/tusharkrbarman/learnbetter" target="_blank" class="w-11 h-11 rounded-full bg-ink text-white flex items-center justify-center shrink-0 hover:-translate-y-0.5 transition-transform" title="View Repository">
-            <iconify-icon icon="ph:arrow-up-right-bold" class="text-lg"></iconify-icon>
-          </a>
-        </div>
-
-        <!-- TILE 5: COMPREHENSIVE SKILLS MATRIX (White) -->
+        <!-- TILE 3: COMPREHENSIVE SKILLS MATRIX (White) -->
         <div class="tile bg-white border border-line rounded-[26px] shadow-soft p-6 flex flex-col justify-center">
           <div class="flex items-center justify-between mb-3">
             <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft">TECHNICAL SKILLS MATRIX</div>
@@ -418,10 +369,10 @@
       </div>
 
 
-      <!-- RIGHT SIDE (2 COLUMNS): ACCENT COLOR & GRAPHIC TILES -->
+      <!-- RIGHT SIDE (2 COLUMNS): ACCENT COLOR & GRAPHIC TILES (Live GitHub, Colored Projects & Accents) -->
       <div class="flex flex-col gap-4">
 
-        <!-- TILE 6: LIVE GITHUB ACTIVITY TILE (2-wide Dark Charcoal) -->
+        <!-- TILE 4: LIVE GITHUB ACTIVITY TILE (Dark Charcoal Fill, 2-wide) -->
         <div class="tile bg-ink text-white rounded-[26px] shadow-soft p-6 flex flex-col justify-between relative overflow-hidden h-[210px]">
           <!-- Ambient Glow Background -->
           <div class="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-teal/15 blur-3xl pointer-events-none"></div>
@@ -460,6 +411,56 @@
             </div>
             <span id="githubCommitTime" class="text-[11.5px] text-teal font-semibold">Pushed 5m ago</span>
           </div>
+        </div>
+
+        <!-- TILE 5: FEATURED PROJECT 1 — AI SPAM DETECTION (Colored Soft Teal Tint Fill, 2-wide) -->
+        <div class="tile bg-tealtint border border-teal/20 rounded-[26px] shadow-soft p-6 flex items-center gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-ink via-slate-900 to-ink text-teal flex items-center justify-center shrink-0 shadow-soft ring-1 ring-line relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-tr from-teal/15 to-apricot/15"></div>
+            <iconify-icon icon="ph:shield-checkered-fill" class="text-2xl text-teal relative z-10"></iconify-icon>
+            <div class="absolute -bottom-0.5 -right-0.5 px-1.5 py-0.2 rounded-tl-lg bg-apricot text-ink text-[9px] font-extrabold uppercase tracking-widest z-10">AI</div>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-tealdeep mb-1">AI / ML PROJECT</div>
+            <h3 class="font-display font-semibold text-[18px] text-ink truncate mb-1.5">AI Spam Detection Engine</h3>
+            <p class="text-[13px] text-inksoft line-clamp-2 mb-2">Machine learning classification pipeline & NLP model built in Python to filter spam messages with high accuracy.</p>
+            
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-1 rounded-full bg-white/80 border border-teal/20 text-[11px] font-semibold text-ink">Python</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/80 border border-teal/20 text-[11px] font-semibold text-ink">Machine Learning</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/80 border border-teal/20 text-[11px] font-semibold text-ink">NLP & Scikit-Learn</span>
+            </div>
+          </div>
+
+          <a href="https://github.com/tusharkrbarman/SpamDetection" target="_blank" class="w-11 h-11 rounded-full bg-ink text-white flex items-center justify-center shrink-0 hover:-translate-y-0.5 transition-transform" title="View Repository">
+            <iconify-icon icon="ph:arrow-up-right-bold" class="text-lg"></iconify-icon>
+          </a>
+        </div>
+
+        <!-- TILE 6: FEATURED PROJECT 2 — LEARNBETTER (Colored Soft Warm Apricot Tint Fill, 2-wide) -->
+        <div class="tile bg-apricottint border border-apricot/30 rounded-[26px] shadow-soft p-6 flex items-center gap-5">
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-ink via-slate-900 to-ink text-teal flex items-center justify-center shrink-0 shadow-soft ring-1 ring-line relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-tr from-teal/15 to-apricot/15"></div>
+            <iconify-icon icon="ph:graduation-cap-fill" class="text-2xl text-teal relative z-10"></iconify-icon>
+            <div class="absolute -bottom-0.5 -right-0.5 px-1.5 py-0.2 rounded-tl-lg bg-apricot text-ink text-[9px] font-extrabold uppercase tracking-widest z-10">AI</div>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-apricotdeep mb-1">AI / EDTECH PLATFORM</div>
+            <h3 class="font-display font-semibold text-[18px] text-ink truncate mb-1.5">LearnBetter — AI Learning Platform</h3>
+            <p class="text-[13px] text-inksoft line-clamp-2 mb-2">Interactive AI learning platform built to personalize study workflows, generate smart notes, and accelerate skill acquisition.</p>
+            
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-1 rounded-full bg-white/80 border border-apricot/20 text-[11px] font-semibold text-ink">Python & LLMs</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/80 border border-apricot/20 text-[11px] font-semibold text-ink">FastAPI & AI Agents</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/80 border border-apricot/20 text-[11px] font-semibold text-ink">React / Web</span>
+            </div>
+          </div>
+
+          <a href="https://github.com/tusharkrbarman/learnbetter" target="_blank" class="w-11 h-11 rounded-full bg-ink text-white flex items-center justify-center shrink-0 hover:-translate-y-0.5 transition-transform" title="View Repository">
+            <iconify-icon icon="ph:arrow-up-right-bold" class="text-lg"></iconify-icon>
+          </a>
         </div>
 
         <!-- TWO 1x1 TILES ROW 1 -->
@@ -744,6 +745,9 @@
         clockEl.textContent = `${hours}:${minutes}`;
       }
     }
+    updateClock();
+    setInterval(updateClock, 10000);
+
     // Live GitHub Commit Fetcher
     async function fetchLatestGithubCommit() {
       try {
