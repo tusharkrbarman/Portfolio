@@ -37,58 +37,40 @@
       box-shadow: none !important; /* Strict Brutalist Rule: NO drop shadows */
     }
 
-    body {
+    html, body {
+      width: 100%;
+      min-height: 100vh;
       background-color: var(--bg-main);
       color: var(--bg-black);
       font-family: var(--font-sans);
-      height: 100vh;
-      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body {
       display: flex;
       flex-direction: column;
-      -webkit-font-smoothing: antialiased;
     }
 
     /* TYPOGRAPHY UTILITIES */
-    .serif-title {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
+    .serif-title { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; }
+    .serif-header { font-family: var(--font-serif); font-weight: 500; }
+    .sans-body { font-family: var(--font-sans); font-weight: 400; }
+    .sans-light { font-family: var(--font-sans); font-weight: 300; }
+    .sans-medium { font-family: var(--font-sans); font-weight: 500; }
+    .mono-code { font-family: var(--font-mono); }
 
-    .serif-header {
-      font-family: var(--font-serif);
-      font-weight: 500;
-    }
-
-    .sans-body {
-      font-family: var(--font-sans);
-      font-weight: 400;
-    }
-
-    .sans-light {
-      font-family: var(--font-sans);
-      font-weight: 300;
-    }
-
-    .sans-medium {
-      font-family: var(--font-sans);
-      font-weight: 500;
-    }
-
-    .mono-code {
-      font-family: var(--font-mono);
-    }
-
-    /* TOP TOOLBAR (76px Height) */
+    /* TOP TOOLBAR */
     .top-toolbar {
-      height: 76px;
+      min-height: 76px;
       background-color: var(--bg-white);
       border-bottom: var(--border-black);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 1.5rem;
-      flex-shrink: 0;
+      padding: 0.75rem 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
       z-index: 40;
     }
 
@@ -96,34 +78,36 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .brand-mark {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       letter-spacing: -0.02em;
-      margin-right: 0.75rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      white-space: nowrap;
     }
 
     .brand-mark-square {
       width: 18px;
       height: 18px;
       background-color: var(--bg-black);
+      flex-shrink: 0;
     }
 
     .icon-btn-group {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
     }
 
     .icon-btn {
-      height: 44px;
-      padding: 0 0.85rem;
+      height: 40px;
+      padding: 0 0.75rem;
       background-color: var(--bg-white);
       border: var(--border-black);
       display: flex;
@@ -135,6 +119,7 @@
       font-size: 0.75rem;
       font-weight: 500;
       transition: background-color 0.15s, color 0.15s;
+      white-space: nowrap;
     }
 
     .icon-btn:hover, .icon-btn.active {
@@ -144,9 +129,9 @@
 
     .v-separator {
       width: 1px;
-      height: 32px;
+      height: 28px;
       background-color: var(--bg-black);
-      margin: 0 0.5rem;
+      margin: 0 0.25rem;
     }
 
     .toolbar-middle {
@@ -156,21 +141,22 @@
     }
 
     .visitor-telemetry-btn {
-      height: 44px;
-      padding: 0 1.25rem;
+      height: 40px;
+      padding: 0 1rem;
       background-color: var(--bg-black);
       color: var(--bg-white);
       border: var(--border-black);
       font-family: var(--font-mono);
       font-weight: 500;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s;
+      white-space: nowrap;
     }
 
     .visitor-telemetry-btn:hover {
@@ -183,29 +169,32 @@
       height: 8px;
       background-color: #22c55e;
       border: 1px solid var(--bg-white);
+      flex-shrink: 0;
     }
 
     .toolbar-right {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .action-btn {
-      height: 44px;
-      padding: 0 1.15rem;
+      height: 40px;
+      padding: 0 1rem;
       background-color: var(--bg-white);
       color: var(--bg-black);
       border: var(--border-black);
       font-family: var(--font-sans);
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.4rem;
       text-decoration: none;
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s;
+      white-space: nowrap;
     }
 
     .action-btn:hover {
@@ -217,7 +206,6 @@
     .workspace-container {
       flex: 1;
       display: flex;
-      overflow: hidden;
       position: relative;
     }
 
@@ -226,56 +214,58 @@
       flex: 1;
       background-color: var(--bg-main);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 2.25rem;
+      justify-content: flex-start;
+      padding: 2rem;
       position: relative;
-      overflow: auto;
+      overflow-y: auto;
     }
 
-    /* 16:10 ASPECT RATIO CONTAINER */
+    /* CANVAS VIEWPORT */
     .canvas-viewport {
       width: 100%;
       max-width: 960px;
-      aspect-ratio: 16 / 10;
       background-color: var(--bg-white);
       border: var(--border-black);
       position: relative;
       display: flex;
       flex-direction: column;
-      overflow: hidden;
     }
 
     /* MOCKUP INTERFACE INSIDE CANVAS */
     .mockup-header {
-      height: 52px;
+      min-height: 52px;
       border-bottom: 1px solid var(--gray-200);
-      padding: 0 1.5rem;
+      padding: 0.75rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       background-color: var(--bg-white);
+      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     .mockup-brand {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       letter-spacing: -0.01em;
     }
 
     .mockup-nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.25rem;
       list-style: none;
+      flex-wrap: wrap;
     }
 
     .mockup-nav-item {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--gray-600);
-      padding: 0.5rem 0.25rem;
+      padding: 0.25rem;
       cursor: pointer;
       text-decoration: none;
       position: relative;
@@ -288,12 +278,10 @@
     }
 
     .mockup-body {
-      flex: 1;
-      padding: 2.25rem;
+      padding: 2rem;
       display: flex;
       flex-direction: column;
       gap: 1.75rem;
-      overflow-y: auto;
       background-color: var(--bg-white);
       position: relative;
     }
@@ -307,7 +295,7 @@
 
     .mockup-eyebrow {
       font-family: var(--font-serif);
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gray-600);
@@ -315,9 +303,9 @@
 
     .mockup-h1 {
       font-family: var(--font-sans);
-      font-weight: 300; /* Thin 300 weight header per spec */
-      font-size: 2.35rem;
-      line-height: 1.15;
+      font-weight: 300;
+      font-size: 2.25rem;
+      line-height: 1.18;
       letter-spacing: -0.03em;
     }
 
@@ -331,13 +319,14 @@
 
     .mockup-cta-group {
       display: flex;
-      gap: 1rem;
+      gap: 0.85rem;
       margin-top: 0.25rem;
+      flex-wrap: wrap;
     }
 
     .mockup-btn-primary {
-      height: 44px;
-      padding: 0 1.5rem;
+      height: 42px;
+      padding: 0 1.35rem;
       background-color: var(--bg-black);
       color: var(--bg-white);
       border: var(--border-black);
@@ -357,8 +346,8 @@
     }
 
     .mockup-btn-secondary {
-      height: 44px;
-      padding: 0 1.5rem;
+      height: 42px;
+      padding: 0 1.35rem;
       background-color: var(--bg-white);
       color: var(--bg-black);
       border: var(--border-black);
@@ -380,13 +369,13 @@
     .mockup-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.15rem;
+      gap: 1rem;
       margin-top: 0.5rem;
     }
 
     .mockup-card {
       border: 1px solid var(--gray-200);
-      padding: 1.15rem;
+      padding: 1.1rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -402,7 +391,7 @@
     .mockup-card-title {
       font-family: var(--font-serif);
       font-weight: 500;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .mockup-card-desc {
@@ -424,7 +413,7 @@
       font-family: var(--font-mono);
       font-size: 10px;
       border: 1px solid var(--bg-black);
-      padding: 0.15rem 0.4rem;
+      padding: 0.12rem 0.35rem;
       text-transform: uppercase;
     }
 
@@ -440,7 +429,7 @@
       animation: pulse-border 2s infinite ease-in-out;
       pointer-events: none;
       z-index: 30;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .corner-handle {
@@ -457,16 +446,16 @@
 
     .selection-label {
       position: absolute;
-      top: -30px;
+      top: -28px;
       left: -2px;
-      height: 28px;
+      height: 26px;
       background-color: var(--bg-black);
       color: var(--bg-white);
       font-family: var(--font-serif);
       font-weight: 500;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.08em;
-      padding: 0 0.75rem;
+      padding: 0 0.65rem;
       display: flex;
       align-items: center;
       text-transform: uppercase;
@@ -474,47 +463,46 @@
 
     /* FLOATING CONTEXT MENU */
     @keyframes menu-in {
-      from { opacity: 0; transform: translateY(-8px); }
+      from { opacity: 0; transform: translateY(-6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .context-menu {
       position: absolute;
-      width: 260px;
+      width: 250px;
       background-color: var(--bg-white);
       border: var(--border-black);
       z-index: 50;
       animation: menu-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .menu-header {
-      padding: 0.75rem 1rem;
+      padding: 0.65rem 0.85rem;
       border-bottom: var(--border-black);
     }
 
     .menu-title {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.15rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.1rem;
     }
 
     .menu-subtitle {
       font-family: var(--font-sans);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--gray-600);
     }
 
-    .menu-list {
-      list-style: none;
-    }
+    .menu-list { list-style: none; }
 
     .menu-item {
-      height: 42px;
-      padding: 0 1rem;
+      height: 40px;
+      padding: 0 0.85rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -532,30 +520,29 @@
     .menu-item-left {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.55rem;
     }
 
     .menu-item-icon {
-      width: 16px;
-      height: 16px;
+      width: 15px;
+      height: 15px;
       stroke: currentColor;
     }
 
     .menu-item-text {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
 
     .menu-item kbd {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       border: 1px solid currentColor;
-      padding: 0.15rem 0.35rem;
+      padding: 0.1rem 0.3rem;
       text-transform: uppercase;
     }
 
-    /* Menu item hover state inversion */
     .menu-item:hover {
       background-color: var(--bg-black);
       color: var(--bg-white);
@@ -565,9 +552,9 @@
       stroke: var(--bg-white);
     }
 
-    /* RIGHT SIDEBAR (ANNOTATIONS / CAREER LOGS) */
+    /* RIGHT SIDEBAR (CAREER LOGS & ANNOTATIONS) */
     .right-sidebar {
-      width: 384px;
+      width: 360px;
       background-color: var(--bg-white);
       border-left: var(--border-black);
       display: flex;
@@ -577,11 +564,11 @@
     }
 
     .sidebar-header {
-      padding: 1.15rem 1.25rem;
+      padding: 1rem 1.15rem;
       border-bottom: var(--border-black);
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.75rem;
     }
 
     .sidebar-title-row {
@@ -593,23 +580,23 @@
     .sidebar-title {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     .status-chips-group {
       display: flex;
-      gap: 0.35rem;
+      gap: 0.3rem;
       flex-wrap: wrap;
     }
 
     .status-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.3rem 0.5rem;
+      gap: 0.3rem;
+      padding: 0.25rem 0.45rem;
       border: 1px solid var(--bg-black);
       font-family: var(--font-sans);
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.05em;
       cursor: pointer;
@@ -621,51 +608,34 @@
       color: var(--bg-white);
     }
 
-    .chip-square-todo {
-      width: 7px;
-      height: 7px;
-      border: 1px solid currentColor;
-    }
+    .chip-square-todo { width: 6px; height: 6px; border: 1px solid currentColor; }
+    .chip-square-progress { width: 6px; height: 6px; background-color: var(--gray-400); }
+    .chip-square-done { width: 6px; height: 6px; background-color: var(--bg-black); }
 
-    .chip-square-progress {
-      width: 7px;
-      height: 7px;
-      background-color: var(--gray-400);
-    }
+    .status-chip.active .chip-square-done { background-color: var(--bg-white); }
 
-    .chip-square-done {
-      width: 7px;
-      height: 7px;
-      background-color: var(--bg-black);
-    }
-
-    .status-chip.active .chip-square-done {
-      background-color: var(--bg-white);
-    }
-
-    /* ANNOTATION SCROLLABLE LIST */
     .sidebar-body {
       flex: 1;
       overflow-y: auto;
       padding: 1.15rem;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 0.75rem;
     }
 
     .annotation-card {
-      padding: 1.15rem;
+      padding: 1rem;
       background-color: var(--bg-white);
-      border: var(--border-black); /* 2px black border when active */
+      border: var(--border-black);
       display: flex;
       flex-direction: column;
-      gap: 0.65rem;
+      gap: 0.55rem;
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s;
     }
 
     .annotation-card.inactive {
-      border: 1px solid var(--gray-200); /* 1px gray when inactive */
+      border: 1px solid var(--gray-200);
     }
 
     .annotation-card-top {
@@ -675,13 +645,13 @@
     }
 
     .annotation-index-box {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       background-color: var(--bg-black);
       color: var(--bg-white);
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -695,7 +665,7 @@
     .annotation-card-title {
       font-family: var(--font-sans);
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--bg-black);
     }
 
@@ -710,78 +680,115 @@
     .annotation-tags-row {
       display: flex;
       gap: 0.35rem;
-      margin-top: 0.15rem;
+      margin-top: 0.1rem;
       flex-wrap: wrap;
     }
 
     .annotation-tag-box {
-      padding: 0.15rem 0.4rem;
+      padding: 0.12rem 0.38rem;
       border: 1px solid var(--bg-black);
       font-family: var(--font-sans);
       font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
-    /* Annotation Card Hover Inversion */
     .annotation-card:hover {
       background-color: var(--bg-black);
       color: var(--bg-white);
       border-color: var(--bg-black);
     }
 
-    .annotation-card:hover .annotation-card-title {
-      color: var(--bg-white);
-    }
-
-    .annotation-card:hover .annotation-card-desc {
-      color: #CCCCCC;
-    }
-
-    .annotation-card:hover .annotation-tag-box {
-      border-color: var(--bg-white);
-      color: var(--bg-white);
-    }
+    .annotation-card:hover .annotation-card-title { color: var(--bg-white); }
+    .annotation-card:hover .annotation-card-desc { color: #CCCCCC; }
+    .annotation-card:hover .annotation-tag-box { border-color: var(--bg-white); color: var(--bg-white); }
 
     /* CONTEXTUAL HINT BAR */
     .hint-bar {
-      position: absolute;
-      bottom: 1.75rem;
-      left: 50%;
-      transform: translateX(-50%);
+      margin-top: 1.5rem;
       background-color: var(--bg-white);
       border: var(--border-black);
-      padding: 10px 20px;
+      padding: 8px 16px;
       display: flex;
       align-items: center;
-      gap: 1.25rem;
+      gap: 1rem;
       z-index: 40;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .hint-item {
       font-family: var(--font-sans);
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--bg-black);
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.35rem;
     }
 
     .hint-item kbd {
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 9px;
       border: 1px solid var(--bg-black);
-      padding: 0.12rem 0.4rem;
+      padding: 0.1rem 0.35rem;
+    }
+
+    /* RESPONSIVE MEDIA QUERIES FOR SMOOTH SCROLLING & ZERO JITTER */
+    @media (max-width: 1024px) {
+      body {
+        overflow-y: auto;
+      }
+      .workspace-container {
+        flex-direction: column;
+        overflow: visible;
+      }
+      .canvas-area {
+        padding: 1.25rem;
+        overflow: visible;
+      }
+      .right-sidebar {
+        width: 100%;
+        border-left: none;
+        border-top: var(--border-black);
+      }
+      .sidebar-body {
+        max-height: 450px;
+      }
+      .context-menu {
+        display: none; /* Hide floating overlay on small screens to eliminate jitter */
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mockup-h1 {
+        font-size: 1.75rem;
+      }
+      .mockup-grid {
+        grid-template-columns: 1fr;
+      }
+      .top-toolbar {
+        justify-content: center;
+      }
+      .toolbar-left, .toolbar-middle, .toolbar-right {
+        justify-content: center;
+        width: 100%;
+      }
+      .mockup-body {
+        padding: 1.25rem;
+      }
+      .selection-overlay {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- TOP TOOLBAR (76px Height) -->
+  <!-- TOP TOOLBAR -->
   <header class="top-toolbar">
     <!-- Left Section -->
     <div class="toolbar-left">
@@ -825,7 +832,7 @@
     <!-- MAIN CANVAS AREA -->
     <main class="canvas-area">
 
-      <!-- 16:10 ASPECT RATIO VIEWPORT -->
+      <!-- CANVAS VIEWPORT -->
       <div class="canvas-viewport" id="canvasViewport">
 
         <!-- MOCKUP HEADER -->
@@ -955,7 +962,7 @@
 
     </main>
 
-    <!-- RIGHT SIDEBAR (CAREER LOGS & ANNOTATIONS - 384px) -->
+    <!-- RIGHT SIDEBAR (CAREER LOGS & ANNOTATIONS) -->
     <aside class="right-sidebar">
       
       <!-- SIDEBAR HEADER -->
@@ -990,7 +997,7 @@
       <!-- ANNOTATIONS SCROLLABLE LIST -->
       <div class="sidebar-body" id="annotationList">
         
-        <!-- CARD 1 (ACTIVE / 2px BLACK BORDER) -->
+        <!-- CARD 1 -->
         <div class="annotation-card" data-status="intel" id="card-1">
           <div class="annotation-card-top">
             <div class="annotation-index-box">01</div>
@@ -1072,23 +1079,25 @@
     const viewport = document.getElementById('canvasViewport');
 
     function updateSelection(targetEl, typeName, cardId) {
-      if (!targetEl) return;
+      if (!targetEl || window.innerWidth < 768) return;
       const targetRect = targetEl.getBoundingClientRect();
       const viewportRect = viewport.getBoundingClientRect();
 
       const relativeTop = targetRect.top - viewportRect.top;
       const relativeLeft = targetRect.left - viewportRect.left;
 
-      // Update Overlay Position
+      // Update Overlay Position smoothly
       overlay.style.top = relativeTop + 'px';
       overlay.style.left = relativeLeft + 'px';
       overlay.style.width = targetRect.width + 'px';
       overlay.style.height = targetRect.height + 'px';
       label.textContent = typeName;
 
-      // Update Context Menu Position
-      menu.style.top = (relativeTop + targetRect.height + 12) + 'px';
-      menu.style.left = Math.min(relativeLeft, viewportRect.width - 270) + 'px';
+      // Update Context Menu Position smoothly
+      if (window.innerWidth >= 1024) {
+        menu.style.top = (relativeTop + targetRect.height + 12) + 'px';
+        menu.style.left = Math.min(relativeLeft, viewportRect.width - 260) + 'px';
+      }
 
       // Highlight matching Annotation Card
       document.querySelectorAll('.annotation-card').forEach(card => {
