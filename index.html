@@ -3,1156 +3,409 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tushar Kumar Barman — DevOps, Cloud Platform & AI Engineer</title>
-  <meta name="description" content="Tushar Kumar Barman – Software Engineer with 2+ years experience building cloud platforms, CI systems, and developer tools at Intel. AWS, Kubernetes, Terraform, Python, Observability.">
+  <title>Tushar Kumar Barman (tushar.barman) — Bento Portfolio</title>
+  <meta name="description" content="Tushar Kumar Barman - Software Development Engineer @ Intel. Cloud platforms, Kubernetes, AWS, FastAPI, and AI infrastructure.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Iconify / Phosphor Icons -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <!-- Google Fonts: Bricolage Grotesque & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#f2f3f5',
+            ink: '#17181c',
+            inksoft: '#5b5e68',
+            line: 'rgba(23,24,28,0.09)',
+            teal: '#0f9d8f',
+            tealdeep: '#0b7d72',
+            tealtint: '#e7f5f1',
+            apricot: '#fb923c',
+            apricotdeep: '#e07a1f',
+          },
+          fontFamily: {
+            display: ['Bricolage Grotesque', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          boxShadow: {
+            soft: '0 14px 34px -18px rgba(20,22,28,0.18)',
+            lift: '0 22px 50px -22px rgba(20,22,28,0.28)',
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
-    /* SpecOS Brutalist Monochrome Core Tokens */
-    :root {
-      --bg-main: #F9FAFB;
-      --bg-white: #FFFFFF;
-      --bg-black: #000000;
-      --gray-50: #F9FAFB;
-      --gray-200: #E5E7EB;
-      --gray-400: #9CA3AF;
-      --gray-600: #4B5563;
-      --gray-800: #1F2937;
-      
-      --border-black: 2px solid #000000;
-      --border-thin: 1px solid #000000;
-      --border-gray: 1px solid #E5E7EB;
-      
-      --font-serif: 'IBM Plex Serif', Georgia, serif;
-      --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      border-radius: 0 !important; /* Strict Brutalist Rule: NO rounded corners */
-      box-shadow: none !important; /* Strict Brutalist Rule: NO drop shadows */
-    }
-
-    html, body {
-      width: 100%;
-      min-height: 100vh;
-      background-color: var(--bg-main);
-      color: var(--bg-black);
-      font-family: var(--font-sans);
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
+    /* Dotted background pattern */
     body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* TYPOGRAPHY UTILITIES */
-    .serif-title { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; }
-    .serif-header { font-family: var(--font-serif); font-weight: 500; }
-    .sans-body { font-family: var(--font-sans); font-weight: 400; }
-    .sans-light { font-family: var(--font-sans); font-weight: 300; }
-    .sans-medium { font-family: var(--font-sans); font-weight: 500; }
-    .mono-code { font-family: var(--font-mono); }
-
-    /* TOP TOOLBAR */
-    .top-toolbar {
-      min-height: 76px;
-      background-color: var(--bg-white);
-      border-bottom: var(--border-black);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1.5rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-      z-index: 40;
-    }
-
-    .toolbar-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-    }
-
-    .brand-mark {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 1.1rem;
-      letter-spacing: -0.02em;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      white-space: nowrap;
-    }
-
-    .brand-mark-square {
-      width: 18px;
-      height: 18px;
-      background-color: var(--bg-black);
-      flex-shrink: 0;
-    }
-
-    .icon-btn-group {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .icon-btn {
-      height: 40px;
-      padding: 0 0.75rem;
-      background-color: var(--bg-white);
-      border: var(--border-black);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--bg-black);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      transition: background-color 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
-
-    .icon-btn:hover, .icon-btn.active {
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-    }
-
-    .v-separator {
-      width: 1px;
-      height: 28px;
-      background-color: var(--bg-black);
-      margin: 0 0.25rem;
-    }
-
-    .toolbar-middle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .visitor-telemetry-btn {
-      height: 40px;
-      padding: 0 1rem;
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-      border: var(--border-black);
-      font-family: var(--font-mono);
-      font-weight: 500;
-      font-size: 0.78rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      cursor: pointer;
-      transition: background-color 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
-
-    .visitor-telemetry-btn:hover {
-      background-color: var(--bg-white);
-      color: var(--bg-black);
-    }
-
-    .telemetry-pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: #22c55e;
-      border: 1px solid var(--bg-white);
-      flex-shrink: 0;
-    }
-
-    .toolbar-right {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .action-btn {
-      height: 40px;
-      padding: 0 1rem;
-      background-color: var(--bg-white);
-      color: var(--bg-black);
-      border: var(--border-black);
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.15s, color 0.15s;
-      white-space: nowrap;
-    }
-
-    .action-btn:hover {
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-    }
-
-    /* MAIN WORKSPACE LAYOUT */
-    .workspace-container {
-      flex: 1;
-      display: flex;
-      position: relative;
-    }
-
-    /* MAIN CANVAS AREA */
-    .canvas-area {
-      flex: 1;
-      background-color: var(--bg-main);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 2rem;
-      position: relative;
-      overflow-y: auto;
-    }
-
-    /* CANVAS VIEWPORT */
-    .canvas-viewport {
-      width: 100%;
-      max-width: 960px;
-      background-color: var(--bg-white);
-      border: var(--border-black);
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* MOCKUP INTERFACE INSIDE CANVAS */
-    .mockup-header {
-      min-height: 52px;
-      border-bottom: 1px solid var(--gray-200);
-      padding: 0.75rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: var(--bg-white);
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .mockup-brand {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-
-    .mockup-nav {
-      display: flex;
-      gap: 1.25rem;
-      list-style: none;
-      flex-wrap: wrap;
-    }
-
-    .mockup-nav-item {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 0.85rem;
-      color: var(--gray-600);
-      padding: 0.25rem;
-      cursor: pointer;
-      text-decoration: none;
-      position: relative;
-    }
-
-    .mockup-nav-item:hover {
-      color: var(--bg-black);
-      outline: 1px dashed var(--bg-black);
-      outline-offset: 4px;
-    }
-
-    .mockup-body {
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-      background-color: var(--bg-white);
-      position: relative;
-    }
-
-    .mockup-hero {
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-      max-width: 720px;
-    }
-
-    .mockup-eyebrow {
-      font-family: var(--font-serif);
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gray-600);
-    }
-
-    .mockup-h1 {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 2.25rem;
-      line-height: 1.18;
-      letter-spacing: -0.03em;
-    }
-
-    .mockup-sub {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 0.95rem;
-      color: var(--gray-600);
-      line-height: 1.55;
-    }
-
-    .mockup-cta-group {
-      display: flex;
-      gap: 0.85rem;
-      margin-top: 0.25rem;
-      flex-wrap: wrap;
-    }
-
-    .mockup-btn-primary {
-      height: 42px;
-      padding: 0 1.35rem;
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-      border: var(--border-black);
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.875rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mockup-btn-primary:hover {
-      outline: 1px dashed var(--bg-black);
-      outline-offset: 3px;
-    }
-
-    .mockup-btn-secondary {
-      height: 42px;
-      padding: 0 1.35rem;
-      background-color: var(--bg-white);
-      color: var(--bg-black);
-      border: var(--border-black);
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.875rem;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mockup-btn-secondary:hover {
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-    }
-
-    .mockup-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .mockup-card {
-      border: 1px solid var(--gray-200);
-      padding: 1.1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      cursor: pointer;
-      transition: outline 0.15s;
-    }
-
-    .mockup-card:hover {
-      outline: 1px dashed var(--bg-black);
-      outline-offset: 2px;
-    }
-
-    .mockup-card-title {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
-    .mockup-card-desc {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 0.78rem;
-      color: var(--gray-600);
-      line-height: 1.45;
-    }
-
-    .mockup-card-tags {
-      display: flex;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .mockup-tag {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      border: 1px solid var(--bg-black);
-      padding: 0.12rem 0.35rem;
-      text-transform: uppercase;
-    }
-
-    /* SELECTION OVERLAY WITH HANDLES */
-    @keyframes pulse-border {
-      0%, 100% { border-color: #000000; }
-      50% { border-color: #555555; }
-    }
-
-    .selection-overlay {
-      position: absolute;
-      border: 2px solid #000000;
-      animation: pulse-border 2s infinite ease-in-out;
-      pointer-events: none;
-      z-index: 30;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .corner-handle {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background-color: var(--bg-black);
-    }
-
-    .handle-tl { top: -5px; left: -5px; }
-    .handle-tr { top: -5px; right: -5px; }
-    .handle-bl { bottom: -5px; left: -5px; }
-    .handle-br { bottom: -5px; right: -5px; }
-
-    .selection-label {
-      position: absolute;
-      top: -28px;
-      left: -2px;
-      height: 26px;
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      padding: 0 0.65rem;
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-    }
-
-    /* FLOATING CONTEXT MENU */
-    @keyframes menu-in {
-      from { opacity: 0; transform: translateY(-6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .context-menu {
-      position: absolute;
-      width: 250px;
-      background-color: var(--bg-white);
-      border: var(--border-black);
-      z-index: 50;
-      animation: menu-in 200ms cubic-bezier(0.16, 1, 0.3, 1);
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .menu-header {
-      padding: 0.65rem 0.85rem;
-      border-bottom: var(--border-black);
-    }
-
-    .menu-title {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 0.88rem;
-      margin-bottom: 0.1rem;
-    }
-
-    .menu-subtitle {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gray-600);
-    }
-
-    .menu-list { list-style: none; }
-
-    .menu-item {
-      height: 40px;
-      padding: 0 0.85rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      transition: background-color 0.15s, color 0.15s;
-      position: relative;
-      text-decoration: none;
-      color: var(--bg-black);
-    }
-
-    .menu-item.primary-action {
-      border-left: 4px solid var(--bg-black);
-    }
-
-    .menu-item-left {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
-    .menu-item-icon {
-      width: 15px;
-      height: 15px;
-      stroke: currentColor;
-    }
-
-    .menu-item-text {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 0.82rem;
-    }
-
-    .menu-item kbd {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      border: 1px solid currentColor;
-      padding: 0.1rem 0.3rem;
-      text-transform: uppercase;
-    }
-
-    .menu-item:hover {
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-    }
-
-    .menu-item:hover svg {
-      stroke: var(--bg-white);
-    }
-
-    /* RIGHT SIDEBAR (CAREER LOGS & ANNOTATIONS) */
-    .right-sidebar {
-      width: 360px;
-      background-color: var(--bg-white);
-      border-left: var(--border-black);
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      z-index: 30;
-    }
-
-    .sidebar-header {
-      padding: 1rem 1.15rem;
-      border-bottom: var(--border-black);
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .sidebar-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .sidebar-title {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 1.05rem;
-    }
-
-    .status-chips-group {
-      display: flex;
-      gap: 0.3rem;
-      flex-wrap: wrap;
-    }
-
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.25rem 0.45rem;
-      border: 1px solid var(--bg-black);
-      font-family: var(--font-sans);
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      cursor: pointer;
-      background: var(--bg-white);
-    }
-
-    .status-chip.active {
-      background: var(--bg-black);
-      color: var(--bg-white);
-    }
-
-    .chip-square-todo { width: 6px; height: 6px; border: 1px solid currentColor; }
-    .chip-square-progress { width: 6px; height: 6px; background-color: var(--gray-400); }
-    .chip-square-done { width: 6px; height: 6px; background-color: var(--bg-black); }
-
-    .status-chip.active .chip-square-done { background-color: var(--bg-white); }
-
-    .sidebar-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: 1.15rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .annotation-card {
-      padding: 1rem;
-      background-color: var(--bg-white);
-      border: var(--border-black);
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      cursor: pointer;
-      transition: background-color 0.15s, color 0.15s;
-    }
-
-    .annotation-card.inactive {
-      border: 1px solid var(--gray-200);
-    }
-
-    .annotation-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .annotation-index-box {
-      width: 26px;
-      height: 26px;
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .annotation-card:hover .annotation-index-box {
-      background-color: var(--bg-white);
-      color: var(--bg-black);
-    }
-
-    .annotation-card-title {
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.85rem;
-      color: var(--bg-black);
-    }
-
-    .annotation-card-desc {
-      font-family: var(--font-sans);
-      font-weight: 300;
-      font-size: 0.75rem;
-      color: var(--gray-600);
-      line-height: 1.45;
-    }
-
-    .annotation-tags-row {
-      display: flex;
-      gap: 0.35rem;
-      margin-top: 0.1rem;
-      flex-wrap: wrap;
-    }
-
-    .annotation-tag-box {
-      padding: 0.12rem 0.38rem;
-      border: 1px solid var(--bg-black);
-      font-family: var(--font-sans);
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .annotation-card:hover {
-      background-color: var(--bg-black);
-      color: var(--bg-white);
-      border-color: var(--bg-black);
-    }
-
-    .annotation-card:hover .annotation-card-title { color: var(--bg-white); }
-    .annotation-card:hover .annotation-card-desc { color: #CCCCCC; }
-    .annotation-card:hover .annotation-tag-box { border-color: var(--bg-white); color: var(--bg-white); }
-
-    /* CONTEXTUAL HINT BAR */
-    .hint-bar {
-      margin-top: 1.5rem;
-      background-color: var(--bg-white);
-      border: var(--border-black);
-      padding: 8px 16px;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      z-index: 40;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .hint-item {
-      font-family: var(--font-sans);
-      font-size: 10px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--bg-black);
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .hint-item kbd {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      border: 1px solid var(--bg-black);
-      padding: 0.1rem 0.35rem;
-    }
-
-    /* RESPONSIVE MEDIA QUERIES FOR SMOOTH SCROLLING & ZERO JITTER */
-    @media (max-width: 1024px) {
-      body {
-        overflow-y: auto;
-      }
-      .workspace-container {
-        flex-direction: column;
-        overflow: visible;
-      }
-      .canvas-area {
-        padding: 1.25rem;
-        overflow: visible;
-      }
-      .right-sidebar {
-        width: 100%;
-        border-left: none;
-        border-top: var(--border-black);
-      }
-      .sidebar-body {
-        max-height: 450px;
-      }
-      .context-menu {
-        display: none; /* Hide floating overlay on small screens to eliminate jitter */
-      }
-    }
-
-    @media (max-width: 768px) {
-      .mockup-h1 {
-        font-size: 1.75rem;
-      }
-      .mockup-grid {
-        grid-template-columns: 1fr;
-      }
-      .top-toolbar {
-        justify-content: center;
-      }
-      .toolbar-left, .toolbar-middle, .toolbar-right {
-        justify-content: center;
-        width: 100%;
-      }
-      .mockup-body {
-        padding: 1.25rem;
-      }
-      .selection-overlay {
-        display: none;
-      }
+      background-color: #f2f3f5;
+      background-image: radial-gradient(rgba(23, 24, 28, 0.035) 1px, transparent 0);
+      background-size: 24px 24px;
+      color: #17181c;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Bento Tile Base & Lift Effect */
+    .tile {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+      will-change: transform;
+    }
+    
+    .tile:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 22px 50px -22px rgba(20, 22, 28, 0.28);
+    }
+
+    /* Equalizer Bar Animation */
+    @keyframes eqBar {
+      0%, 100% { transform: scaleY(0.3); }
+      50% { transform: scaleY(1); }
+    }
+    .eq-bar-1 { animation: eqBar 1.2s ease-in-out infinite; }
+    .eq-bar-2 { animation: eqBar 0.9s ease-in-out infinite 0.2s; }
+    .eq-bar-3 { animation: eqBar 1.4s ease-in-out infinite 0.4s; }
+    .eq-bar-4 { animation: eqBar 1.1s ease-in-out infinite 0.1s; }
+
+    /* Force explicit size for Bricolage display headers */
+    .bento-name {
+      font-family: 'Bricolage Grotesque', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 34px !important;
+      line-height: 1.1 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .bento-stat-num {
+      font-family: 'Bricolage Grotesque', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 38px !important;
+      line-height: 1 !important;
+      letter-spacing: -0.03em !important;
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen p-4 sm:p-6 md:p-8 flex flex-col justify-between">
 
-  <!-- TOP TOOLBAR -->
-  <header class="top-toolbar">
-    <!-- Left Section -->
-    <div class="toolbar-left">
-      <div class="brand-mark">
-        <div class="brand-mark-square"></div>
-        <span>TUSHAR_BARMAN // SPEC_OS</span>
+  <div class="max-w-[1120px] mx-auto w-full flex-1 flex flex-col">
+
+    <!-- TOP BAR -->
+    <header class="flex items-center justify-between mb-6 sm:mb-8">
+      <!-- Left: Monogram + Wordmark -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-ink text-white flex items-center justify-center font-display font-bold text-base shadow-soft">
+          TB
+        </div>
+        <span class="font-semibold text-[15px] tracking-tight text-ink">tushar.barman</span>
       </div>
 
-      <div class="v-separator"></div>
+      <!-- Right: Action Pills -->
+      <div class="flex items-center gap-2.5">
+        <button id="copyBtn" onclick="copyProfileLink()" class="h-10 px-4 rounded-full bg-white border border-line text-[13px] font-semibold text-ink shadow-soft flex items-center gap-2 hover:-translate-y-0.5 transition-transform cursor-pointer">
+          <iconify-icon icon="ph:link-bold" class="text-base"></iconify-icon>
+          <span id="copyText">Copy link</span>
+        </button>
 
-      <div class="icon-btn-group">
-        <button class="icon-btn active" title="System Specification">SPEC</button>
-        <button class="icon-btn" title="Cloud & Platform">CLOUD</button>
-        <button class="icon-btn" title="AI & Observability">AI_OPS</button>
+        <button onclick="shareProfile()" class="w-10 h-10 rounded-full bg-white border border-line text-ink shadow-soft flex items-center justify-center hover:-translate-y-0.5 transition-transform cursor-pointer" title="Share Profile">
+          <iconify-icon icon="ph:share-network-bold" class="text-lg"></iconify-icon>
+        </button>
       </div>
-    </div>
+    </header>
 
-    <!-- Middle Section: Live Visitor Telemetry Status -->
-    <div class="toolbar-middle">
-      <button class="visitor-telemetry-btn" id="telemetryBtn">
-        <span class="telemetry-pulse-dot"></span>
-        <span>LIVE TELEMETRY // VISITORS: <span id="visitorCount">1,248</span></span>
-      </button>
-    </div>
+    <!-- BENTO GRID (4 Columns Desktop, 4x4 Tiling Layout) -->
+    <main class="grid grid-cols-1 md:grid-cols-4 auto-rows-[176px] gap-4 mb-8">
 
-    <!-- Right Section -->
-    <div class="toolbar-right">
-      <a href="https://portfolio-lsq3.onrender.com/api/resume" target="_blank" class="action-btn">
-        <span>Resume PDF</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-      </a>
-      <a href="https://github.com/tusharkrbarman" target="_blank" class="action-btn">
-        <span>GitHub</span>
-      </a>
-    </div>
-  </header>
-
-  <!-- MAIN WORKSPACE CONTAINING CANVAS & RIGHT SIDEBAR -->
-  <div class="workspace-container">
-
-    <!-- MAIN CANVAS AREA -->
-    <main class="canvas-area">
-
-      <!-- CANVAS VIEWPORT -->
-      <div class="canvas-viewport" id="canvasViewport">
-
-        <!-- MOCKUP HEADER -->
-        <header class="mockup-header">
-          <div class="mockup-brand">TUSHAR KUMAR BARMAN</div>
-          <ul class="mockup-nav">
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="1">Overview</li>
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="2">Intel Platform SDE</li>
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="3">Systems & Pipelines</li>
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="4">Education & Paper</li>
-          </ul>
-        </header>
-
-        <!-- MOCKUP BODY -->
-        <div class="mockup-body">
-
-          <!-- HERO SECTION -->
-          <div class="mockup-hero" id="heroTarget" data-type="DEVOPS_AND_PLATFORM_ENGINEER" data-index="1">
-            <span class="mockup-eyebrow">DEVOPS_AND_PLATFORM_ENGINEER // INTEL_CORP</span>
-            <h1 class="mockup-h1">Cloud Platforms, Kubernetes & AI Workload Infrastructure</h1>
-            <p class="mockup-sub">Software Engineer with 2+ years experience building AWS EKS platforms, FastAPI machine provisioning services, Packer golden-image pipelines, and Grafana observability dashboards across 1,000+ cloud systems at Intel.</p>
-
-            <div class="mockup-cta-group">
-              <a href="https://github.com/tusharkrbarman" target="_blank" class="mockup-btn-primary" data-type="BUTTON" data-index="1">
-                GitHub @tusharkrbarman
-              </a>
-              <a href="https://portfolio-lsq3.onrender.com/api/resume" target="_blank" class="mockup-btn-secondary" data-type="BUTTON" data-index="4">
-                Download Resume PDF
-              </a>
+      <!-- TILE 1: PROFILE ANCHOR TILE (2x2) -->
+      <div class="tile md:col-span-2 md:row-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 sm:p-7 flex flex-col justify-between">
+        <!-- Top Row: Avatar & Availability Pill -->
+        <div class="flex items-start justify-between">
+          <div class="relative">
+            <div class="w-[86px] h-[86px] rounded-full ring-4 ring-canvas overflow-hidden bg-gradient-to-tr from-teal to-apricot p-0.5">
+              <div class="w-full h-full rounded-full bg-ink flex items-center justify-center text-white font-display font-bold text-2xl">
+                TB
+              </div>
             </div>
           </div>
 
-          <!-- THREE-COLUMN FEATURED SYSTEMS GRID -->
-          <div class="mockup-grid">
-            
-            <div class="mockup-card" data-type="SYSTEM" data-index="1">
-              <div class="mockup-card-title">01 // AWS EKS AI Inference Platform</div>
-              <div class="mockup-card-desc">Validated CPU-based AI inference with FastAPI, OpenVINO & OVMS on Kubernetes with Terraform & HPA.</div>
-              <div class="mockup-card-tags">
-                <span class="mockup-tag">AWS EKS</span>
-                <span class="mockup-tag">OpenVINO</span>
-                <span class="mockup-tag">Terraform</span>
-              </div>
-            </div>
-
-            <div class="mockup-card" data-type="SYSTEM" data-index="2">
-              <div class="mockup-card-title">02 // FastAPI Provisioning on ECS Fargate</div>
-              <div class="mockup-card-desc">Machine reservation service on ECS Fargate with ALB, IAM, SQS, DynamoDB & GitHub Actions.</div>
-              <div class="mockup-card-tags">
-                <span class="mockup-tag">FastAPI</span>
-                <span class="mockup-tag">ECS Fargate</span>
-                <span class="mockup-tag">DynamoDB</span>
-              </div>
-            </div>
-
-            <div class="mockup-card" data-type="SYSTEM" data-index="3">
-              <div class="mockup-card-title">03 // Packer Golden Image Pipeline</div>
-              <div class="mockup-card-desc">Standardized Windows/Linux test environments with AWS EC2 WIMs & Artifactory versioning for 1,000+ nodes.</div>
-              <div class="mockup-card-tags">
-                <span class="mockup-tag">Packer</span>
-                <span class="mockup-tag">Grafana SLO</span>
-                <span class="mockup-tag">PXE</span>
-              </div>
-            </div>
-
+          <div class="h-8 px-3 rounded-full bg-tealtint text-tealdeep text-[12px] font-semibold flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+            Available for projects
           </div>
-
         </div>
 
-        <!-- ACTIVE SELECTION OVERLAY WITH HANDLES -->
-        <div class="selection-overlay" id="selectionOverlay" style="top: 80px; left: 35px; width: 720px; height: 185px;">
-          <div class="corner-handle handle-tl"></div>
-          <div class="corner-handle handle-tr"></div>
-          <div class="corner-handle handle-bl"></div>
-          <div class="corner-handle handle-br"></div>
-          <div class="selection-label" id="selectionLabel">PLATFORM_ENGINEER</div>
+        <!-- Name & Bio -->
+        <div class="my-3">
+          <h1 class="bento-name text-ink mb-1">Tushar Kumar Barman</h1>
+          <p class="text-[16px] font-medium text-inksoft mb-2.5">Platform Engineer & DevOps Specialist</p>
+          <p class="text-[15px] leading-relaxed text-inksoft max-w-[27rem]">
+            I build scalable cloud platforms, Kubernetes EKS inference workloads, and golden-image pipelines across 1,000+ systems at Intel. M.E. CS from BITS Pilani.
+          </p>
         </div>
 
-        <!-- FLOATING CONTEXT MENU -->
-        <div class="context-menu" id="contextMenu" style="top: 280px; left: 35px;">
-          <div class="menu-header">
-            <div class="menu-title">Tushar Kumar Barman</div>
-            <div class="menu-subtitle">PLATFORM_SDE // INTEL_CORP</div>
-          </div>
-          <ul class="menu-list">
-            <a href="https://github.com/tusharkrbarman" target="_blank" class="menu-item primary-action">
-              <div class="menu-item-left">
-                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
-                <span class="menu-item-text">GitHub @tusharkrbarman</span>
-              </div>
-              <kbd>CMD+G</kbd>
-            </a>
-            <a href="https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010" target="_blank" class="menu-item">
-              <div class="menu-item-left">
-                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-                <span class="menu-item-text">IEEE Cluster 2023 Paper</span>
-              </div>
-              <kbd>CMD+P</kbd>
-            </a>
-            <a href="mailto:tusharbarman123@gmail.com" class="menu-item">
-              <div class="menu-item-left">
-                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke-width="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke-width="2"/></svg>
-                <span class="menu-item-text">tusharbarman123@gmail.com</span>
-              </div>
-              <kbd>CMD+M</kbd>
-            </a>
-          </ul>
+        <!-- Social Icon Buttons -->
+        <div class="flex items-center gap-2.5 pt-2">
+          <a href="https://x.com/tusharbarman" target="_blank" class="w-11 h-11 rounded-2xl bg-canvas border border-line flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors">
+            <iconify-icon icon="ph:x-logo-bold" class="text-lg"></iconify-icon>
+          </a>
+          <a href="https://github.com/tusharkrbarman" target="_blank" class="w-11 h-11 rounded-2xl bg-canvas border border-line flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors">
+            <iconify-icon icon="ph:github-logo-bold" class="text-lg"></iconify-icon>
+          </a>
+          <a href="https://www.linkedin.com/in/tusharkbarman19" target="_blank" class="w-11 h-11 rounded-2xl bg-canvas border border-line flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors">
+            <iconify-icon icon="ph:linkedin-logo-bold" class="text-lg"></iconify-icon>
+          </a>
+          <a href="mailto:tusharbarman123@gmail.com" class="w-11 h-11 rounded-2xl bg-canvas border border-line flex items-center justify-center text-ink hover:bg-ink hover:text-white transition-colors">
+            <iconify-icon icon="ph:envelope-simple-bold" class="text-lg"></iconify-icon>
+          </a>
         </div>
-
       </div>
 
-      <!-- FLOATING CONTEXTUAL HINT BAR -->
-      <div class="hint-bar">
-        <div class="hint-item">
-          <kbd>CMD + K</kbd>
-          <span>COMMAND PALETTE</span>
+      <!-- TILE 2: WORKSPACE PHOTO TILE (2-wide) -->
+      <div class="tile md:col-span-2 rounded-[26px] shadow-soft relative overflow-hidden bg-ink min-h-[176px]">
+        <!-- Full-bleed background texture/gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#12b3a4_1px,transparent_1px)] [background-size:16px_16px] opacity-20"></div>
+        
+        <div class="absolute top-4 right-4 z-20 flex gap-2">
+          <span class="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md text-white text-[11px] font-mono border border-white/10">AWS EKS</span>
+          <span class="px-2.5 py-1 rounded-full bg-white/10 backdrop-blur-md text-white text-[11px] font-mono border border-white/10">Terraform</span>
         </div>
-        <div class="hint-item">
-          <kbd>TAB</kbd>
-          <span>FILTER LOGS</span>
+
+        <!-- Glass Caption Chip -->
+        <div class="absolute bottom-5 left-5 z-20">
+          <div class="h-9 px-3.5 rounded-full bg-white/90 backdrop-blur-md text-ink text-[12.5px] font-semibold flex items-center gap-2 shadow-soft">
+            <iconify-icon icon="ph:coffee-fill" class="text-apricot text-base"></iconify-icon>
+            On the desk today
+          </div>
         </div>
-        <div class="hint-item">
-          <kbd>ESC</kbd>
-          <span>DESELECT</span>
+      </div>
+
+      <!-- TILE 3: NOW PLAYING TILE (Dark Charcoal, 1x1) -->
+      <div class="tile bg-ink text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between">
+        <!-- Top Eyebrow -->
+        <div class="flex items-center gap-2 text-teal">
+          <iconify-icon icon="ph:spotify-logo-fill" class="text-lg"></iconify-icon>
+          <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase">NOW PLAYING</span>
         </div>
+
+        <!-- Middle Track Info -->
+        <div class="flex items-center gap-3 my-auto">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-teal to-tealdeep flex items-center justify-center shrink-0">
+            <iconify-icon icon="ph:music-notes-fill" class="text-white text-lg"></iconify-icon>
+          </div>
+          <div class="min-w-0">
+            <div class="text-[14px] font-semibold truncate text-white">Lofi Systems Radio</div>
+            <div class="text-[12.5px] text-white/55 truncate">Chilled Code Beats</div>
+          </div>
+        </div>
+
+        <!-- Bottom Equalizer + Timestamp -->
+        <div class="flex items-center justify-between pt-1">
+          <div class="flex items-end gap-1 h-3.5">
+            <span class="w-1 h-full bg-teal rounded-full origin-bottom eq-bar-1"></span>
+            <span class="w-1 h-full bg-teal rounded-full origin-bottom eq-bar-2"></span>
+            <span class="w-1 h-full bg-teal rounded-full origin-bottom eq-bar-3"></span>
+            <span class="w-1 h-full bg-teal rounded-full origin-bottom eq-bar-4"></span>
+          </div>
+          <span class="text-[12px] text-white/45 font-mono">2:41</span>
+        </div>
+      </div>
+
+      <!-- TILE 4: STAT POP TILE (Teal, 1x1) -->
+      <div class="tile bg-teal text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between">
+        <!-- Top Row -->
+        <div class="flex items-center justify-between">
+          <iconify-icon icon="ph:cloud-fill" class="text-white/85 text-xl"></iconify-icon>
+          <div class="px-2 py-0.5 rounded-full bg-white/20 text-white text-[11px] font-semibold flex items-center gap-1">
+            <iconify-icon icon="ph:trend-up-bold" class="text-xs"></iconify-icon>
+            +180
+          </div>
+        </div>
+
+        <!-- Bottom Stat -->
+        <div>
+          <div class="bento-stat-num mb-1">1,000+</div>
+          <div class="text-[13px] text-white/85 font-medium">cloud systems managed</div>
+        </div>
+      </div>
+
+      <!-- TILE 5: FEATURED PROJECT TILE (2-wide) -->
+      <div class="tile md:col-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 flex items-center gap-5">
+        <!-- Icon Thumb -->
+        <div class="w-14 h-14 rounded-2xl bg-tealtint text-tealdeep flex items-center justify-center shrink-0">
+          <iconify-icon icon="ph:cpu-fill" class="text-2xl"></iconify-icon>
+        </div>
+
+        <!-- Middle Info -->
+        <div class="flex-1 min-w-0">
+          <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft mb-1">LATEST PROJECT</div>
+          <h3 class="font-display font-semibold text-[19px] text-ink truncate mb-2">AWS EKS AI Inference Platform</h3>
+          
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">FastAPI</span>
+            <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">OpenVINO</span>
+            <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Terraform</span>
+            <span class="px-2.5 py-1 rounded-full bg-tealtint text-tealdeep text-[11.5px] font-semibold">Live</span>
+          </div>
+        </div>
+
+        <!-- Right Arrow Button -->
+        <a href="https://github.com/tusharkrbarman" target="_blank" class="w-11 h-11 rounded-full bg-ink text-white flex items-center justify-center shrink-0 hover:-translate-y-0.5 transition-transform" title="View Project">
+          <iconify-icon icon="ph:arrow-up-right-bold" class="text-lg"></iconify-icon>
+        </a>
+      </div>
+
+      <!-- TILE 6: MAP TILE (Teal-tint, 1x1) -->
+      <div class="tile bg-tealtint rounded-[26px] shadow-soft relative overflow-hidden flex flex-col justify-between p-4 min-h-[176px]">
+        <!-- Full-tile Inline SVG Street Grid -->
+        <svg class="absolute inset-0 w-full h-full object-cover pointer-events-none" viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice">
+          <line x1="-10" y1="40" x2="210" y2="160" stroke="#0f9d8f" stroke-width="12" opacity="0.22"/>
+          <line x1="40" y1="-10" x2="160" y2="210" stroke="#0f9d8f" stroke-width="10" opacity="0.22"/>
+          <line x1="-10" y1="120" x2="210" y2="80" stroke="#0f9d8f" stroke-width="6" opacity="0.14"/>
+          <line x1="120" y1="-10" x2="80" y2="210" stroke="#0f9d8f" stroke-width="6" opacity="0.14"/>
+        </svg>
+
+        <!-- Centered Apricot Pin -->
+        <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+          <div class="relative flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-apricot/25 animate-ping absolute"></div>
+            <div class="w-5 h-5 rounded-full bg-apricot ring-4 ring-white shadow-lift relative"></div>
+          </div>
+        </div>
+
+        <div class="z-20"></div>
+
+        <!-- Bottom Strip -->
+        <div class="z-20 flex items-center justify-between">
+          <div class="h-8 px-3 rounded-full bg-white/90 backdrop-blur-md text-ink text-[12px] font-semibold flex items-center gap-1.5 shadow-soft">
+            <iconify-icon icon="ph:map-pin-fill" class="text-apricotdeep text-sm"></iconify-icon>
+            Hyderabad, IN
+          </div>
+          <span id="localClock" class="text-[12px] font-semibold text-tealdeep font-mono">14:22</span>
+        </div>
+      </div>
+
+      <!-- TILE 7: NEWSLETTER TILE (Apricot, 1x1) -->
+      <div class="tile bg-apricot text-ink rounded-[26px] shadow-soft p-5 flex flex-col justify-between">
+        <!-- Top Row -->
+        <div class="flex items-center justify-between">
+          <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-ink/70">IEEE RESEARCH</span>
+          <iconify-icon icon="ph:file-text-fill" class="text-ink text-xl"></iconify-icon>
+        </div>
+
+        <!-- Bottom Title -->
+        <div>
+          <h3 class="font-display font-bold text-[19px] leading-tight text-ink mb-1">IEEE Cluster 2023 Paper</h3>
+          <p class="text-[12.5px] font-semibold text-ink/70">BeeGFS HPC I/O Benchmark</p>
+        </div>
+      </div>
+
+      <!-- TILE 8: TOOLBOX TILE (2-wide) -->
+      <div class="tile md:col-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 flex flex-col justify-center">
+        <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft mb-3">TOOLBOX</div>
+        
+        <div class="flex flex-wrap gap-2">
+          <div class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[13px] font-semibold text-ink flex items-center gap-2">
+            <iconify-icon icon="ph:cloud-bold" class="text-teal text-base"></iconify-icon>
+            AWS EKS & ECS
+          </div>
+          <div class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[13px] font-semibold text-ink flex items-center gap-2">
+            <iconify-icon icon="ph:code-bold" class="text-apricotdeep text-base"></iconify-icon>
+            Python & C++
+          </div>
+          <div class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[13px] font-semibold text-ink flex items-center gap-2">
+            <iconify-icon icon="ph:stack-bold" class="text-teal text-base"></iconify-icon>
+            FastAPI & REST
+          </div>
+          <div class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[13px] font-semibold text-ink flex items-center gap-2">
+            <iconify-icon icon="ph:terminal-window-bold" class="text-ink text-base"></iconify-icon>
+            Terraform & Packer
+          </div>
+          <div class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[13px] font-semibold text-ink flex items-center gap-2">
+            <iconify-icon icon="ph:chart-line-up-bold" class="text-teal text-base"></iconify-icon>
+            Grafana SLOs
+          </div>
+          <div class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[13px] font-semibold text-ink flex items-center gap-2">
+            <iconify-icon icon="ph:robot-bold" class="text-apricotdeep text-base"></iconify-icon>
+            OpenVINO & OVMS
+          </div>
+        </div>
+      </div>
+
+      <!-- TILE 9: EMAIL-CTA TILE (Dark Charcoal, 2-wide) -->
+      <div class="tile md:col-span-2 bg-ink text-white rounded-[26px] shadow-lift p-6 flex items-center justify-between gap-4 relative overflow-hidden">
+        <!-- Soft Teal Glow Blob -->
+        <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-teal/20 blur-3xl pointer-events-none"></div>
+
+        <!-- Left Text -->
+        <div class="z-10">
+          <h3 class="font-display font-bold text-[23px] text-white leading-tight mb-1">Let's make something</h3>
+          <p class="text-[13.5px] text-white/60">Open for platform engineering & cloud systems projects.</p>
+        </div>
+
+        <!-- Right Button -->
+        <a href="mailto:tusharbarman123@gmail.com" class="h-12 px-6 rounded-full bg-teal hover:bg-tealdeep text-white font-semibold text-[15px] flex items-center gap-2 shrink-0 shadow-soft hover:-translate-y-0.5 transition-all z-10">
+          Say hello
+          <iconify-icon icon="ph:arrow-right-bold" class="text-base"></iconify-icon>
+        </a>
       </div>
 
     </main>
 
-    <!-- RIGHT SIDEBAR (CAREER LOGS & ANNOTATIONS) -->
-    <aside class="right-sidebar">
-      
-      <!-- SIDEBAR HEADER -->
-      <div class="sidebar-header">
-        <div class="sidebar-title-row">
-          <h2 class="sidebar-title">CAREER_LOGS (05)</h2>
-        </div>
-
-        <div class="status-chips-group">
-          <button class="status-chip active" data-filter="all">
-            <span>ALL</span>
-          </button>
-          <button class="status-chip" data-filter="intel">
-            <span class="chip-square-todo"></span>
-            <span>INTEL</span>
-          </button>
-          <button class="status-chip" data-filter="skills">
-            <span class="chip-square-progress"></span>
-            <span>SKILLS</span>
-          </button>
-          <button class="status-chip" data-filter="research">
-            <span class="chip-square-done"></span>
-            <span>PAPER</span>
-          </button>
-          <button class="status-chip" data-filter="edu">
-            <span class="chip-square-done"></span>
-            <span>EDU</span>
-          </button>
-        </div>
+    <!-- FOOTER -->
+    <footer class="flex items-center justify-between text-[12.5px] text-inksoft pt-2 pb-4">
+      <div>© 2026 Tushar Kumar Barman</div>
+      <div class="flex items-center gap-1">
+        Made with <iconify-icon icon="ph:heart-fill" class="text-apricot text-sm"></iconify-icon> and a bento grid
       </div>
-
-      <!-- ANNOTATIONS SCROLLABLE LIST -->
-      <div class="sidebar-body" id="annotationList">
-        
-        <!-- CARD 1 -->
-        <div class="annotation-card" data-status="intel" id="card-1">
-          <div class="annotation-card-top">
-            <div class="annotation-index-box">01</div>
-            <div class="annotation-card-title">Software Development Engineer</div>
-          </div>
-          <p class="annotation-card-desc">Jul 2024 — Feb 2026 // Intel Corporation (Hyderabad). Scaled AI inference on AWS EKS with OpenVINO/OVMS; built FastAPI machine provisioning on ECS Fargate & Packer golden images for 1,000+ nodes.</p>
-          <div class="annotation-tags-row">
-            <span class="annotation-tag-box">DEVOPS</span>
-            <span class="annotation-tag-box">AWS_EKS</span>
-            <span class="annotation-tag-box">FASTAPI</span>
-          </div>
-        </div>
-
-        <!-- CARD 2 -->
-        <div class="annotation-card inactive" data-status="intel" id="card-2">
-          <div class="annotation-card-top">
-            <div class="annotation-index-box">02</div>
-            <div class="annotation-card-title">Infrastructure & DevOps Intern</div>
-          </div>
-          <p class="annotation-card-desc">Jan 2024 — Jun 2024 // Intel Corporation (Hyderabad). Fixed production Grafana dashboards & built AIOps failure detection models classifying 1M+ infrastructure log lines.</p>
-          <div class="annotation-tags-row">
-            <span class="annotation-tag-box">GRAFANA</span>
-            <span class="annotation-tag-box">AIOPS</span>
-          </div>
-        </div>
-
-        <!-- CARD 3 -->
-        <div class="annotation-card inactive" data-status="research" id="card-3">
-          <div class="annotation-card-top">
-            <div class="annotation-index-box">03</div>
-            <div class="annotation-card-title">IEEE Cluster 2023 Publication</div>
-          </div>
-          <p class="annotation-card-desc">Does Varying BeeGFS Configuration Affect I/O Performance of HPC Workloads? Configured 10-node bare-metal cluster with Ansible & benchmarked with IOR, DLIO, HACC-IO.</p>
-          <div class="annotation-tags-row">
-            <span class="annotation-tag-box">IEEE_CLUSTER</span>
-            <span class="annotation-tag-box">BEEGFS</span>
-            <span class="annotation-tag-box">ANSIBLE</span>
-          </div>
-        </div>
-
-        <!-- CARD 4 -->
-        <div class="annotation-card inactive" data-status="skills" id="card-4">
-          <div class="annotation-card-top">
-            <div class="annotation-index-box">04</div>
-            <div class="annotation-card-title">Technical Skill Stack</div>
-          </div>
-          <p class="annotation-card-desc">AI (Agents, MCP, OpenVINO, OVMS), Cloud (AWS EKS/ECS, Kubernetes, Terraform, Packer, Argo CD, Jenkins), Backend (FastAPI, Redis, DynamoDB, PostgreSQL, Kafka), Languages (Python, C++, TypeScript, SQL, Bash).</p>
-          <div class="annotation-tags-row">
-            <span class="annotation-tag-box">AWS</span>
-            <span class="annotation-tag-box">KUBERNETES</span>
-            <span class="annotation-tag-box">TERRAFORM</span>
-          </div>
-        </div>
-
-        <!-- CARD 5 -->
-        <div class="annotation-card inactive" data-status="edu" id="card-5">
-          <div class="annotation-card-top">
-            <div class="annotation-index-box">05</div>
-            <div class="annotation-card-title">BITS Pilani — ME Computer Science</div>
-          </div>
-          <p class="annotation-card-desc">Aug 2022 — Jun 2024 // GPA: 8.95. BE in Computer Science from Assam Engineering College (76.55%, Aug 2017 — Sep 2021).</p>
-          <div class="annotation-tags-row">
-            <span class="annotation-tag-box">BITS_PILANI</span>
-            <span class="annotation-tag-box">GPA_8.95</span>
-          </div>
-        </div>
-
-      </div>
-
-    </aside>
+    </footer>
 
   </div>
 
   <script>
-    // SpecOS Interactive Handle & Context Menu Logic
-    const overlay = document.getElementById('selectionOverlay');
-    const label = document.getElementById('selectionLabel');
-    const menu = document.getElementById('contextMenu');
-    const viewport = document.getElementById('canvasViewport');
+    // Copy Profile Link function
+    function copyProfileLink() {
+      navigator.clipboard.writeText(window.location.href);
+      const copyText = document.getElementById('copyText');
+      copyText.textContent = 'Copied!';
+      setTimeout(() => {
+        copyText.textContent = 'Copy link';
+      }, 2000);
+    }
 
-    function updateSelection(targetEl, typeName, cardId) {
-      if (!targetEl || window.innerWidth < 768) return;
-      const targetRect = targetEl.getBoundingClientRect();
-      const viewportRect = viewport.getBoundingClientRect();
-
-      const relativeTop = targetRect.top - viewportRect.top;
-      const relativeLeft = targetRect.left - viewportRect.left;
-
-      // Update Overlay Position smoothly
-      overlay.style.top = relativeTop + 'px';
-      overlay.style.left = relativeLeft + 'px';
-      overlay.style.width = targetRect.width + 'px';
-      overlay.style.height = targetRect.height + 'px';
-      label.textContent = typeName;
-
-      // Update Context Menu Position smoothly
-      if (window.innerWidth >= 1024) {
-        menu.style.top = (relativeTop + targetRect.height + 12) + 'px';
-        menu.style.left = Math.min(relativeLeft, viewportRect.width - 260) + 'px';
-      }
-
-      // Highlight matching Annotation Card
-      document.querySelectorAll('.annotation-card').forEach(card => {
-        card.classList.add('inactive');
-      });
-      const activeCard = document.getElementById('card-' + cardId);
-      if (activeCard) {
-        activeCard.classList.remove('inactive');
+    // Share Profile function
+    function shareProfile() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Tushar Kumar Barman — Bento Portfolio',
+          url: window.location.href
+        });
+      } else {
+        copyProfileLink();
       }
     }
 
-    // Attach click handlers to mock elements
-    document.addEventListener('click', (e) => {
-      const target = e.target.closest('[data-type]');
-      if (target) {
-        const type = target.getAttribute('data-type');
-        const index = target.getAttribute('data-index') || '1';
-        updateSelection(target, type, index);
+    // Live Local Clock for Map Tile
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const clockEl = document.getElementById('localClock');
+      if (clockEl) {
+        clockEl.textContent = `${hours}:${minutes}`;
       }
-    });
-
-    // Fetch Live Visitor Count from Render API
-    (async function fetchVisitors() {
-      const countEl = document.getElementById('visitorCount');
-      if (!countEl) return;
-      try {
-        const res = await fetch('https://portfolio-lsq3.onrender.com/api/visitors');
-        const data = await res.json();
-        if (data && data.count) {
-          countEl.textContent = data.count.toLocaleString();
-        }
-      } catch (err) {
-        countEl.textContent = '1,248+';
-      }
-    })();
-
-    // Status Filter Chips
-    const chips = document.querySelectorAll('.status-chip');
-    const cards = document.querySelectorAll('.annotation-card');
-
-    chips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-
-        const filter = chip.getAttribute('data-filter');
-        cards.forEach(card => {
-          if (filter === 'all' || card.getAttribute('data-status') === filter) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
-    });
+    }
+    updateClock();
+    setInterval(updateClock, 10000);
   </script>
 
 </body>
