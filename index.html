@@ -141,6 +141,18 @@
           <span class="font-semibold text-[15px] tracking-tight text-ink block leading-tight">tushar.barman</span>
           <span class="text-[12px] text-inksoft font-medium">DevOps & Platform SDE @ Intel</span>
         </div>
+      <!-- Right: Daily Motivational Quote Tile -->
+      <div class="hidden md:flex items-center gap-2.5 bg-white border border-line rounded-full shadow-soft px-3.5 py-1.5 max-w-[440px] group transition-all">
+        <div class="w-7 h-7 rounded-full bg-apricot/20 text-apricotdeep flex items-center justify-center shrink-0">
+          <iconify-icon icon="ph:quotes-bold" class="text-sm"></iconify-icon>
+        </div>
+        <div class="min-w-0 flex-1">
+          <div class="text-[9.5px] font-bold tracking-[0.14em] uppercase text-tealdeep flex items-center gap-1">
+            <span>DAILY FOCUS</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-teal animate-pulse"></span>
+          </div>
+          <p id="quoteText" class="text-[11.5px] font-medium text-ink truncate transition-all duration-300">"First, solve the problem. Then, write the code."</p>
+        </div>
       </div>
     </header>
 
@@ -757,6 +769,30 @@
     setInterval(() => {
       nextStat();
     }, 6000);
+
+    // Daily Motivational Quotes Cycler
+    const quotes = [
+      { text: '"First, solve the problem. Then, write the code."', author: 'John Johnson' },
+      { text: '"Simplicity is prerequisite for reliability."', author: 'Edsger W. Dijkstra' },
+      { text: '"Make it work, make it right, make it fast."', author: 'Kent Beck' },
+      { text: '"Talk is cheap. Show me the code."', author: 'Linus Torvalds' },
+      { text: '"Any fool can write code. Good engineers build platforms."', author: 'Software Engineering' },
+      { text: '"The best error message is the one that never shows up."', author: 'Thomas Fuchs' },
+      { text: '"Code is like humor. When you have to explain it, it’s bad."', author: 'Cory House' }
+    ];
+
+    let quoteIndex = 0;
+    function cycleQuotes() {
+      const quoteEl = document.getElementById('quoteText');
+      if (!quoteEl) return;
+      quoteEl.classList.add('opacity-0');
+      setTimeout(() => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        quoteEl.textContent = quotes[quoteIndex].text;
+        quoteEl.classList.remove('opacity-0');
+      }, 300);
+    }
+    setInterval(cycleQuotes, 6000);
 
     // Copy Profile Link function
     function copyProfileLink() {
