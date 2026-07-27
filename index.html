@@ -86,13 +86,32 @@
     /* Sliding Track Transitions */
     .slider-track {
       display: flex;
+      width: 100%;
       transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
 
     .slide-item {
+      width: 100%;
       min-width: 100%;
       flex-shrink: 0;
+      box-sizing: border-border;
+    }
+
+    /* Custom Scrollbar inside Experience Slide */
+    .exp-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .exp-scroll::-webkit-scrollbar-track {
+      background: rgba(23, 24, 28, 0.05);
+      border-radius: 4px;
+    }
+    .exp-scroll::-webkit-scrollbar-thumb {
+      background: rgba(15, 157, 143, 0.4);
+      border-radius: 4px;
+    }
+    .exp-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(15, 157, 143, 0.8);
     }
   </style>
 </head>
@@ -178,84 +197,90 @@
         </div>
       </div>
 
-      <!-- TILE 2: INTEL WORK EXPERIENCE SLIDER CARD (2-wide, Row-Span-2: 100% UNTRUNCATED TEXT) -->
+      <!-- TILE 2: INTEL WORK EXPERIENCE SLIDER CARD (2-wide, Row-Span-2: PERFECT NO OVERLAP & NO CLIPPING) -->
       <div class="tile md:col-span-2 md:row-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
-        <!-- Header Controls for Role Slider -->
-        <div class="flex items-center justify-between mb-3 pb-2 border-b border-line z-10">
-          <div class="flex items-center gap-2">
-            <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft">INTEL WORK EXPERIENCE</span>
-            <span id="slideIndicator" class="text-[11px] font-semibold text-tealdeep bg-tealtint px-2.5 py-0.5 rounded-full">Role 1 of 2</span>
+        
+        <!-- Clean Uncrowded Header Controls -->
+        <div class="mb-3 pb-3 border-b border-line z-10">
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft">INTEL WORK EXPERIENCE</span>
+              <span id="slideIndicator" class="text-[11px] font-semibold text-tealdeep bg-tealtint px-2.5 py-0.5 rounded-full">Role 1 of 2</span>
+            </div>
+
+            <!-- Arrows -->
+            <div class="flex items-center gap-1.5">
+              <button onclick="prevSlide()" class="w-7 h-7 rounded-full border border-line bg-canvas hover:bg-ink hover:text-white flex items-center justify-center transition-colors text-ink cursor-pointer" title="Previous Role">
+                <iconify-icon icon="ph:caret-left-bold" class="text-sm"></iconify-icon>
+              </button>
+              <button onclick="nextSlide()" class="w-7 h-7 rounded-full border border-line bg-canvas hover:bg-ink hover:text-white flex items-center justify-center transition-colors text-ink cursor-pointer" title="Next Role">
+                <iconify-icon icon="ph:caret-right-bold" class="text-sm"></iconify-icon>
+              </button>
+            </div>
           </div>
 
-          <!-- Navigation Role Tabs / Arrows -->
-          <div class="flex items-center gap-1.5">
-            <button onclick="setRole(0)" id="roleBtn-0" class="h-7 px-3 rounded-full text-[11px] font-semibold bg-teal text-white cursor-pointer transition-colors">
-              Full-Time SDE
+          <!-- Role Toggle Buttons -->
+          <div class="flex items-center gap-2">
+            <button onclick="setRole(0)" id="roleBtn-0" class="h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-teal text-white cursor-pointer transition-colors shadow-sm">
+              Full-Time SDE (Jul 2024 - Feb 2026)
             </button>
-            <button onclick="setRole(1)" id="roleBtn-1" class="h-7 px-3 rounded-full text-[11px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white">
-              Internship
-            </button>
-
-            <button onclick="prevSlide()" class="w-7 h-7 rounded-full border border-line bg-canvas hover:bg-ink hover:text-white flex items-center justify-center transition-colors text-ink cursor-pointer ml-1" title="Previous Role">
-              <iconify-icon icon="ph:caret-left-bold" class="text-sm"></iconify-icon>
-            </button>
-            <button onclick="nextSlide()" class="w-7 h-7 rounded-full border border-line bg-canvas hover:bg-ink hover:text-white flex items-center justify-center transition-colors text-ink cursor-pointer" title="Next Role">
-              <iconify-icon icon="ph:caret-right-bold" class="text-sm"></iconify-icon>
+            <button onclick="setRole(1)" id="roleBtn-1" class="h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white">
+              DevOps Intern (Jan - Jun 2024)
             </button>
           </div>
         </div>
 
-        <!-- SLIDER OVERFLOW CONTAINER -->
+        <!-- SLIDER OVERFLOW CONTAINER WITH UNTRUNCATED FULL TEXT -->
         <div class="overflow-hidden w-full flex-1">
           <div id="sliderTrack" class="slider-track h-full">
             
-            <!-- SLIDE 1: FULL-TIME SDE (ALL 7 RESUME BULLETS COMPLETE) -->
-            <div class="slide-item pr-2 overflow-y-auto max-h-[380px]">
-              <div class="flex items-center justify-between mb-1.5">
+            <!-- SLIDE 1: FULL-TIME SDE (ALL 7 RESUME BULLETS COMPLETE & NO CLIPPING) -->
+            <div class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[340px]">
+              <div class="flex items-center justify-between mb-2">
                 <div>
-                  <h3 class="font-display font-bold text-[19px] text-ink">Software Development Engineer</h3>
-                  <p class="text-[13px] font-semibold text-tealdeep">Intel Corporation — DevOps & Platform Engineering</p>
+                  <h3 class="font-display font-bold text-[19px] text-ink leading-tight">Software Development Engineer</h3>
+                  <p class="text-[13px] font-semibold text-tealdeep">Intel Corporation — DevOps and Platform Engineering</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right shrink-0">
                   <span class="text-[12px] font-mono text-inksoft block">Jul 2024 — Feb 2026</span>
                   <span class="text-[11px] font-semibold text-teal">Hyderabad, India</span>
                 </div>
               </div>
 
-              <!-- Complete Bullets List -->
-              <ul class="text-[13px] text-inksoft space-y-2 mt-3 list-disc pl-4 leading-relaxed">
-                <li><strong class="text-ink">AWS EKS AI Inference Platform:</strong> Validated scalable CPU-based AI inference on private AWS EKS/Kubernetes by deploying FastAPI, OpenVINO, and OVMS; provisioned cluster with Terraform, ALB routing, readiness probes, metrics-server, and HPA.</li>
-                <li><strong class="text-ink">FastAPI Machine Provisioning:</strong> Simplified Jenkins validation by building a FastAPI provisioning service deploying OS and tracking status; defined AWS stack in Terraform on ECS Fargate with ALB, SQS, DynamoDB & GitHub Actions.</li>
-                <li><strong class="text-ink">OneCloud & GTAX Telemetry:</strong> Gave platform teams a consistent view of reservations by building GitHub Actions collectors that normalized provider responses into Elasticsearch.</li>
-                <li><strong class="text-ink">Intel oneAPI CI Pipelines:</strong> Safeguarded Intel oneAPI releases with Jenkins CI pipelines bringing together cross-team components, acceptance tests, Coverity, and BDBA security scans.</li>
-                <li><strong class="text-ink">Packer Golden Images:</strong> Reduced environment drift by standardizing Windows/Linux test environments with Packer golden images, AWS EC2 WIM creation, Artifactory versioning, and PXE deployment.</li>
-                <li><strong class="text-ink">Grafana SLA/SLO Observability:</strong> Improved capacity planning across 1,000+ cloud systems with Grafana SLA/SLO dashboards tracking utilization & GitHub failures.</li>
-                <li><strong class="text-ink">Intel DPC++/C++ Compiler IDE Extensions:</strong> Developed Visual Studio and Eclipse compiler extensions for project-property controls, resolving MSBuild regressions with WinDBG.</li>
+              <!-- Complete Bullets List (No line-clamp / No right clipping) -->
+              <ul class="text-[13px] text-inksoft space-y-2.5 mt-3 list-disc pl-4 leading-relaxed w-full">
+                <li><strong class="text-ink">AWS EKS AI Inference Platform:</strong> Validated scalable CPU-based AI inference on a private AWS EKS/Kubernetes platform by deploying FastAPI, OpenVINO, and OVMS; provisioned the cluster with Terraform and tested ALB routing, readiness probes, metrics-server, Horizontal Pod Autoscaling (HPA), and failure recovery.</li>
+                <li><strong class="text-ink">FastAPI Machine Provisioning Service:</strong> Simplified Jenkins validation by building a FastAPI provisioning service that reserved machines, deployed operating systems, and tracked request status; defined the AWS stack in Terraform and shipped it on ECS Fargate with ALB, IAM, SQS, DynamoDB, CloudWatch, and GitHub Actions.</li>
+                <li><strong class="text-ink">OneCloud & GTAX Telemetry Collectors:</strong> Gave platform teams a consistent view of OneCloud and GTAX reservations by building GitHub Actions collectors that normalized provider responses and published clean telemetry to Elasticsearch.</li>
+                <li><strong class="text-ink">Intel oneAPI CI Release Pipelines:</strong> Safeguarded Intel oneAPI releases with Jenkins CI pipelines that brought together cross-team components, acceptance tests, Coverity and BDBA security scans, and market-readiness checks.</li>
+                <li><strong class="text-ink">Packer Golden Images:</strong> Reduced environment drift and validation failures by standardizing Windows and Linux test environments with Packer-built golden images, AWS EC2-based WIM creation, Artifactory versioning, and repeatable OneCloud/PXE deployment.</li>
+                <li><strong class="text-ink">Grafana SLA/SLO Observability:</strong> Improved capacity planning and issue detection across 1,000+ cloud systems with Grafana SLA/SLO dashboards tracking utilization, GitHub failures, and compute lost to dirty images.</li>
+                <li><strong class="text-ink">Intel DPC++/C++ Compiler IDE Extensions:</strong> Developed and released Intel DPC++/C++ IDE extensions for Visual Studio and Eclipse, giving developers project-property controls for compiler flags; resolved MSBuild and package-loading regressions using WinDBG and trace logs, and expanded CI coverage for subsequent releases.</li>
               </ul>
             </div>
 
             <!-- SLIDE 2: INFRASTRUCTURE & DEVOPS INTERN (ALL 2 RESUME BULLETS COMPLETE) -->
-            <div class="slide-item pr-2 overflow-y-auto max-h-[380px]">
-              <div class="flex items-center justify-between mb-1.5">
+            <div class="slide-item exp-scroll pr-3 overflow-y-auto max-h-[340px]">
+              <div class="flex items-center justify-between mb-2">
                 <div>
-                  <h3 class="font-display font-bold text-[19px] text-ink">Infrastructure & DevOps Intern</h3>
+                  <h3 class="font-display font-bold text-[19px] text-ink leading-tight">Infrastructure and DevOps Intern</h3>
                   <p class="text-[13px] font-semibold text-apricotdeep">Intel Corporation — Platform Infrastructure</p>
                 </div>
-                <div class="text-right">
+                <div class="text-right shrink-0">
                   <span class="text-[12px] font-mono text-inksoft block">Jan 2024 — Jun 2024</span>
                   <span class="text-[11px] font-semibold text-apricotdeep">Hyderabad, India</span>
                 </div>
               </div>
 
               <!-- Complete Bullets List -->
-              <ul class="text-[13.5px] text-inksoft space-y-3 mt-4 list-disc pl-4 leading-relaxed">
-                <li><strong class="text-ink">Grafana Observability Dashboard Fixes:</strong> Resolved data-quality, visualization, and reporting-script defects in production Grafana observability dashboards, helping engineering teams make more dependable CI capacity decisions.</li>
-                <li><strong class="text-ink">1M+ AIOps Log Classification:</strong> Strengthened AIOps failure detection by classifying 1M+ infrastructure log lines into curated, labeled datasets for build and test systems.</li>
+              <ul class="text-[13.5px] text-inksoft space-y-3.5 mt-3.5 list-disc pl-4 leading-relaxed w-full">
+                <li><strong class="text-ink">Grafana Observability Dashboard Fixes:</strong> Resolved data-quality, visualization, and reporting-script defects in production Grafana observability dashboards, helping teams make more dependable CI capacity decisions.</li>
+                <li><strong class="text-ink">1M+ AIOps Infrastructure Log Classification:</strong> Strengthened AIOps failure detection by classifying 1M+ infrastructure log lines into curated, labeled datasets for build and test systems.</li>
               </ul>
 
               <div class="mt-6 p-4 rounded-2xl bg-tealtint border border-teal/20">
-                <div class="text-[12px] font-bold text-tealdeep uppercase tracking-wider mb-1">Key Impact</div>
-                <p class="text-[13px] text-inksoft">Improved data quality across production monitoring dashboards and delivered labeled datasets driving predictive failure analysis for Intel build nodes.</p>
+                <div class="text-[12px] font-bold text-tealdeep uppercase tracking-wider mb-1">Key Impact & Deliverables</div>
+                <p class="text-[13px] text-inksoft">Eliminated reporting script errors across core Grafana dashboards and generated labeled log datasets accelerating automated AIOps failure detection for Intel CI nodes.</p>
               </div>
             </div>
 
@@ -263,9 +288,9 @@
         </div>
 
         <!-- Footer Control Dots -->
-        <div class="flex items-center justify-between pt-3 border-t border-line mt-3 z-10">
+        <div class="flex items-center justify-between pt-2.5 border-t border-line mt-2 z-10">
           <div class="text-[12px] font-medium text-inksoft">
-            <span id="roleText">Role 1: Full-Time SDE</span>
+            <span id="roleText">Role 1 of 2: Full-Time SDE</span>
           </div>
 
           <div class="flex items-center gap-2">
@@ -462,7 +487,7 @@
   <script>
     // Intel Role Slider state
     let currentRole = 0;
-    const totalRoles = 2; // Role 1: Full-Time SDE, Role 2: DevOps Intern
+    const totalRoles = 2; // Role 1: Full-Time SDE (Jul 2024 - Feb 2026), Role 2: DevOps Intern (Jan 2024 - Jun 2024)
     const sliderTrack = document.getElementById('sliderTrack');
     const slideIndicator = document.getElementById('slideIndicator');
     const roleText = document.getElementById('roleText');
@@ -476,18 +501,18 @@
         slideIndicator.textContent = `Role ${currentRole + 1} of ${totalRoles}`;
       }
       if (roleText) {
-        roleText.textContent = currentRole === 0 ? 'Role 1: Full-Time SDE (Jul 2024 - Feb 2026)' : 'Role 2: DevOps Intern (Jan 2024 - Jun 2024)';
+        roleText.textContent = currentRole === 0 ? 'Role 1 of 2: Full-Time SDE' : 'Role 2 of 2: DevOps Intern';
       }
 
-      // Update Role Buttons
+      // Update Role Buttons & Dots
       for (let i = 0; i < totalRoles; i++) {
         const btn = document.getElementById(`roleBtn-${i}`);
         const dot = document.getElementById(`dot-${i}`);
         if (btn) {
           if (i === currentRole) {
-            btn.className = "h-7 px-3 rounded-full text-[11px] font-semibold bg-teal text-white cursor-pointer transition-colors";
+            btn.className = "h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-teal text-white cursor-pointer transition-colors shadow-sm";
           } else {
-            btn.className = "h-7 px-3 rounded-full text-[11px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white";
+            btn.className = "h-7 px-3.5 rounded-full text-[11.5px] font-semibold bg-canvas text-ink border border-line cursor-pointer transition-colors hover:bg-ink hover:text-white";
           }
         }
         if (dot) {
