@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpecOS — Brutalist Monochrome Operating Workspace</title>
+  <title>Tushar Kumar Barman — SpecOS Brutalist Portfolio</title>
+  <meta name="description" content="Tushar Kumar Barman – GPU Software Development Engineer at Intel Corporation, M.E. CS graduate from BITS Pilani.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -78,7 +79,7 @@
       font-family: var(--font-mono);
     }
 
-    /* TOP TOOLBAR */
+    /* TOP TOOLBAR (76px Height) */
     .top-toolbar {
       height: 76px;
       background-color: var(--bg-white);
@@ -100,17 +101,17 @@
     .brand-mark {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       letter-spacing: -0.02em;
-      margin-right: 1rem;
+      margin-right: 0.75rem;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
     .brand-mark-square {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       background-color: var(--bg-black);
     }
 
@@ -130,6 +131,9 @@
       justify-content: center;
       cursor: pointer;
       color: var(--bg-black);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
       transition: background-color 0.15s, color 0.15s;
     }
 
@@ -139,8 +143,8 @@
     }
 
     .icon-btn svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       stroke: currentColor;
     }
 
@@ -157,15 +161,15 @@
       justify-content: center;
     }
 
-    .ai-scan-btn {
+    .visitor-telemetry-btn {
       height: 44px;
-      padding: 0 1.5rem;
+      padding: 0 1.25rem;
       background-color: var(--bg-black);
       color: var(--bg-white);
       border: var(--border-black);
-      font-family: var(--font-sans);
+      font-family: var(--font-mono);
       font-weight: 500;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       display: flex;
@@ -175,9 +179,16 @@
       transition: background-color 0.15s, color 0.15s;
     }
 
-    .ai-scan-btn:hover {
+    .visitor-telemetry-btn:hover {
       background-color: var(--bg-white);
       color: var(--bg-black);
+    }
+
+    .telemetry-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #22c55e;
+      border: 1px solid var(--bg-white);
     }
 
     .toolbar-right {
@@ -188,7 +199,7 @@
 
     .action-btn {
       height: 44px;
-      padding: 0 1.25rem;
+      padding: 0 1.15rem;
       background-color: var(--bg-white);
       color: var(--bg-black);
       border: var(--border-black);
@@ -198,6 +209,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+      text-decoration: none;
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s;
     }
@@ -222,7 +234,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2.5rem;
+      padding: 2.25rem;
       position: relative;
       overflow: auto;
     }
@@ -252,8 +264,8 @@
     }
 
     .mockup-brand {
-      font-family: var(--font-sans);
-      font-weight: 300; /* Thin font-weight 300 header */
+      font-family: var(--font-serif);
+      font-weight: 600;
       font-size: 1.1rem;
       letter-spacing: -0.01em;
     }
@@ -271,6 +283,7 @@
       color: var(--gray-600);
       padding: 0.5rem 0.25rem;
       cursor: pointer;
+      text-decoration: none;
       position: relative;
     }
 
@@ -282,10 +295,10 @@
 
     .mockup-body {
       flex: 1;
-      padding: 2.5rem;
+      padding: 2.25rem;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 1.75rem;
       overflow-y: auto;
       background-color: var(--bg-white);
       position: relative;
@@ -294,14 +307,14 @@
     .mockup-hero {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      max-width: 600px;
+      gap: 0.85rem;
+      max-width: 680px;
     }
 
     .mockup-eyebrow {
       font-family: var(--font-serif);
       font-size: 0.75rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--gray-600);
     }
@@ -309,23 +322,23 @@
     .mockup-h1 {
       font-family: var(--font-sans);
       font-weight: 300; /* Thin 300 weight header per spec */
-      font-size: 2.75rem;
-      line-height: 1.1;
+      font-size: 2.5rem;
+      line-height: 1.12;
       letter-spacing: -0.03em;
     }
 
     .mockup-sub {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--gray-600);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .mockup-cta-group {
       display: flex;
       gap: 1rem;
-      margin-top: 0.5rem;
+      margin-top: 0.25rem;
     }
 
     .mockup-btn-primary {
@@ -338,6 +351,7 @@
       font-weight: 500;
       font-size: 0.875rem;
       cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -358,21 +372,27 @@
       font-weight: 500;
       font-size: 0.875rem;
       cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
+    .mockup-btn-secondary:hover {
+      background-color: var(--bg-black);
+      color: var(--bg-white);
+    }
+
     .mockup-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 1rem;
+      gap: 1.15rem;
+      margin-top: 0.5rem;
     }
 
     .mockup-card {
       border: 1px solid var(--gray-200);
-      padding: 1.25rem;
+      padding: 1.15rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -388,15 +408,30 @@
     .mockup-card-title {
       font-family: var(--font-serif);
       font-weight: 500;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     .mockup-card-desc {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: 0.8125rem;
+      font-size: 0.8rem;
       color: var(--gray-600);
       line-height: 1.4;
+    }
+
+    .mockup-card-tags {
+      display: flex;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .mockup-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      border: 1px solid var(--bg-black);
+      padding: 0.15rem 0.4rem;
+      text-transform: uppercase;
     }
 
     /* SELECTION OVERLAY WITH HANDLES */
@@ -459,15 +494,15 @@
     }
 
     .menu-header {
-      padding: 0.85rem 1rem;
+      padding: 0.75rem 1rem;
       border-bottom: var(--border-black);
     }
 
     .menu-title {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
     }
 
     .menu-subtitle {
@@ -484,7 +519,7 @@
     }
 
     .menu-item {
-      height: 44px;
+      height: 42px;
       padding: 0 1rem;
       display: flex;
       align-items: center;
@@ -492,6 +527,8 @@
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s;
       position: relative;
+      text-decoration: none;
+      color: var(--bg-black);
     }
 
     .menu-item.primary-action {
@@ -501,7 +538,7 @@
     .menu-item-left {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
 
     .menu-item-icon {
@@ -513,14 +550,14 @@
     .menu-item-text {
       font-family: var(--font-sans);
       font-weight: 300;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
     }
 
     .menu-item kbd {
       font-family: var(--font-mono);
       font-size: 0.7rem;
       border: 1px solid currentColor;
-      padding: 0.15rem 0.4rem;
+      padding: 0.15rem 0.35rem;
       text-transform: uppercase;
     }
 
@@ -534,7 +571,7 @@
       stroke: var(--bg-white);
     }
 
-    /* RIGHT SIDEBAR (ANNOTATIONS) */
+    /* RIGHT SIDEBAR (ANNOTATIONS / CAREER TIMELINE) */
     .right-sidebar {
       width: 384px;
       background-color: var(--bg-white);
@@ -546,11 +583,11 @@
     }
 
     .sidebar-header {
-      padding: 1.25rem 1.5rem;
+      padding: 1.15rem 1.25rem;
       border-bottom: var(--border-black);
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .sidebar-title-row {
@@ -562,22 +599,23 @@
     .sidebar-title {
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
     }
 
     .status-chips-group {
       display: flex;
-      gap: 0.5rem;
+      gap: 0.4rem;
+      flex-wrap: wrap;
     }
 
     .status-chip {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.35rem 0.65rem;
+      gap: 0.35rem;
+      padding: 0.3rem 0.55rem;
       border: 1px solid var(--bg-black);
       font-family: var(--font-sans);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 500;
       letter-spacing: 0.05em;
       cursor: pointer;
@@ -590,20 +628,20 @@
     }
 
     .chip-square-todo {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       border: 1px solid currentColor;
     }
 
     .chip-square-progress {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       background-color: var(--gray-400);
     }
 
     .chip-square-done {
-      width: 8px;
-      height: 8px;
+      width: 7px;
+      height: 7px;
       background-color: var(--bg-black);
     }
 
@@ -611,23 +649,23 @@
       background-color: var(--bg-white);
     }
 
-    /* ANNOTATION LIST & CARDS */
+    /* ANNOTATION SCROLLABLE LIST */
     .sidebar-body {
       flex: 1;
       overflow-y: auto;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .annotation-card {
       padding: 1.25rem;
-      background-color: var(--bg-white);
-      border: var(--border-black); /* 2px black border when active/primary */
       display: flex;
       flex-direction: column;
       gap: 0.85rem;
+    }
+
+    .annotation-card {
+      padding: 1.15rem;
+      background-color: var(--bg-white);
+      border: var(--border-black); /* 2px black border when active */
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s;
     }
@@ -649,7 +687,7 @@
       color: var(--bg-white);
       font-family: var(--font-serif);
       font-weight: 600;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -672,22 +710,23 @@
       font-weight: 300;
       font-size: 0.75rem;
       color: var(--gray-600);
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     .annotation-tags-row {
       display: flex;
-      gap: 0.5rem;
-      margin-top: 0.25rem;
+      gap: 0.4rem;
+      margin-top: 0.15rem;
+      flex-wrap: wrap;
     }
 
     .annotation-tag-box {
-      padding: 0.2rem 0.5rem;
+      padding: 0.15rem 0.45rem;
       border: 1px solid var(--bg-black);
       font-family: var(--font-sans);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
@@ -714,35 +753,35 @@
     /* CONTEXTUAL HINT BAR */
     .hint-bar {
       position: absolute;
-      bottom: 2rem;
+      bottom: 1.75rem;
       left: 50%;
       transform: translateX(-50%);
       background-color: var(--bg-white);
       border: var(--border-black);
-      padding: 12px 24px;
+      padding: 10px 20px;
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.25rem;
       z-index: 40;
     }
 
     .hint-item {
       font-family: var(--font-sans);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       color: var(--bg-black);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
     .hint-item kbd {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10px;
       border: 1px solid var(--bg-black);
-      padding: 0.15rem 0.45rem;
+      padding: 0.12rem 0.4rem;
     }
   </style>
 </head>
@@ -754,46 +793,35 @@
     <div class="toolbar-left">
       <div class="brand-mark">
         <div class="brand-mark-square"></div>
-        <span>SpecOS</span>
+        <span>TUSHAR_BARMAN // SPEC_OS</span>
       </div>
 
       <div class="v-separator"></div>
 
       <div class="icon-btn-group">
-        <button class="icon-btn active" title="Select Tool (V)">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M3 3l7 18 3-7 7-3L3 3z" stroke-width="2" stroke-linecap="square"/></svg>
-        </button>
-        <button class="icon-btn" title="Inspect Layout (I)">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" stroke-width="2"/><line x1="9" y1="3" x2="9" y2="21" stroke-width="2"/></svg>
-        </button>
-        <button class="icon-btn" title="Annotation Wire (A)">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-width="2"/></svg>
-        </button>
-        <button class="icon-btn" title="Grid Overlay (G)">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" stroke-width="2"/><rect x="14" y="3" width="7" height="7" stroke-width="2"/><rect x="14" y="14" width="7" height="7" stroke-width="2"/><rect x="3" y="14" width="7" height="7" stroke-width="2"/></svg>
-        </button>
+        <button class="icon-btn active" title="System Specification">SPEC</button>
+        <button class="icon-btn" title="Work History">WORK</button>
+        <button class="icon-btn" title="Publications">PUB</button>
       </div>
     </div>
 
-    <!-- Middle Section: AI Scan Button -->
+    <!-- Middle Section: Live Visitor Telemetry Status -->
     <div class="toolbar-middle">
-      <button class="ai-scan-btn" id="aiScanBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-        </svg>
-        <span>AI Scan Component</span>
+      <button class="visitor-telemetry-btn" id="telemetryBtn">
+        <span class="telemetry-pulse-dot"></span>
+        <span>LIVE TELEMETRY // VISITORS: <span id="visitorCount">1,248</span></span>
       </button>
     </div>
 
     <!-- Right Section -->
     <div class="toolbar-right">
-      <button class="action-btn">
-        <span>Share</span>
-      </button>
-      <button class="action-btn">
-        <span>Export</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
+      <a href="https://portfolio-lsq3.onrender.com/api/resume" target="_blank" class="action-btn">
+        <span>Resume PDF</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/tusharkbarman19" target="_blank" class="action-btn">
+        <span>LinkedIn</span>
+      </a>
     </div>
   </header>
 
@@ -808,12 +836,12 @@
 
         <!-- MOCKUP HEADER -->
         <header class="mockup-header">
-          <div class="mockup-brand">AURA_WORKSPACE</div>
+          <div class="mockup-brand">TUSHAR KUMAR BARMAN</div>
           <ul class="mockup-nav">
             <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="1">Overview</li>
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="2">Deployments</li>
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="3">Telemetry</li>
-            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="4">Settings</li>
+            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="2">Intel GPU SDE</li>
+            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="3">Projects</li>
+            <li class="mockup-nav-item" data-type="NAV_ITEM" data-index="4">Education</li>
           </ul>
         </header>
 
@@ -821,37 +849,49 @@
         <div class="mockup-body">
 
           <!-- HERO SECTION -->
-          <div class="mockup-hero" id="heroTarget" data-type="HERO_SECTION" data-index="2">
-            <span class="mockup-eyebrow">SYSTEM_SPEC // V2.4</span>
-            <h1 class="mockup-h1">Stark Editorial Workspace Architecture</h1>
-            <p class="mockup-sub">High-contrast brutalist design system engineered for high-density industrial control panels and document specification.</p>
+          <div class="mockup-hero" id="heroTarget" data-type="GPU_ENGINEER" data-index="1">
+            <span class="mockup-eyebrow">GPU_SOFTWARE_ENGINEER // INTEL_CORP</span>
+            <h1 class="mockup-h1">Heterogeneous GPU Systems & AI Tooling Specialist</h1>
+            <p class="mockup-sub">Engineering Visual Studio IDE extensions for next-gen Intel oneAPI compilers, autonomous AI log analysis agents, and hybrid cloud telemetry pipelines across 300+ distributed nodes.</p>
 
             <div class="mockup-cta-group">
-              <button class="mockup-btn-primary" id="btnPrimary" data-type="BUTTON" data-index="1">
-                Deploy SpecOS
-              </button>
-              <button class="mockup-btn-secondary" id="btnSecondary" data-type="BUTTON" data-index="4">
-                View Documentation
-              </button>
+              <a href="https://github.com/callmetushar123" target="_blank" class="mockup-btn-primary" data-type="BUTTON" data-index="1">
+                GitHub Repositories
+              </a>
+              <a href="https://portfolio-lsq3.onrender.com/api/resume" target="_blank" class="mockup-btn-secondary" data-type="BUTTON" data-index="4">
+                Download Resume PDF
+              </a>
             </div>
           </div>
 
-          <!-- THREE-COLUMN CARD GRID -->
+          <!-- THREE-COLUMN FEATURED PROJECTS GRID -->
           <div class="mockup-grid">
             
-            <div class="mockup-card" data-type="CARD" data-index="3">
-              <div class="mockup-card-title">01 // Monospaced Tokens</div>
-              <div class="mockup-card-desc">Strict 2px black rules with zero border radius and zero drop shadows.</div>
+            <div class="mockup-card" data-type="PROJECT" data-index="1">
+              <div class="mockup-card-title">01 // Intel Compiler Integration</div>
+              <div class="mockup-card-desc">Visual Studio 2026 integration for Intel oneAPI compilers providing heterogeneous GPU computing support.</div>
+              <div class="mockup-card-tags">
+                <span class="mockup-tag">C++</span>
+                <span class="mockup-tag">oneAPI</span>
+              </div>
             </div>
 
-            <div class="mockup-card" data-type="CARD" data-index="3">
-              <div class="mockup-card-title">02 // Negative Inversion</div>
-              <div class="mockup-card-desc">High contrast state changes on interactive hover elements across workspace.</div>
+            <div class="mockup-card" data-type="PROJECT" data-index="2">
+              <div class="mockup-card-title">02 // AI CI/CD Log Analyzer</div>
+              <div class="mockup-card-desc">Autonomous Python agent parsing massive CI logs, identifying root causes, and creating automated JIRA tickets.</div>
+              <div class="mockup-card-tags">
+                <span class="mockup-tag">Python</span>
+                <span class="mockup-tag">LLM</span>
+              </div>
             </div>
 
-            <div class="mockup-card" data-type="CARD" data-index="3">
-              <div class="mockup-card-title">03 // Serif Annotation</div>
-              <div class="mockup-card-desc">IBM Plex Serif display hierarchy combined with crisp sans UI controls.</div>
+            <div class="mockup-card" data-type="PROJECT" data-index="3">
+              <div class="mockup-card-title">03 // Distributed Telemetry Pipeline</div>
+              <div class="mockup-card-desc">Centralized hybrid cloud monitoring system scaling across 300+ distributed systems with 20% infra gain.</div>
+              <div class="mockup-card-tags">
+                <span class="mockup-tag">NestJS</span>
+                <span class="mockup-tag">Grafana</span>
+              </div>
             </div>
 
           </div>
@@ -859,42 +899,42 @@
         </div>
 
         <!-- ACTIVE SELECTION OVERLAY WITH HANDLES -->
-        <div class="selection-overlay" id="selectionOverlay" style="top: 155px; left: 40px; width: 200px; height: 48px;">
+        <div class="selection-overlay" id="selectionOverlay" style="top: 80px; left: 35px; width: 680px; height: 180px;">
           <div class="corner-handle handle-tl"></div>
           <div class="corner-handle handle-tr"></div>
           <div class="corner-handle handle-bl"></div>
           <div class="corner-handle handle-br"></div>
-          <div class="selection-label" id="selectionLabel">BUTTON</div>
+          <div class="selection-label" id="selectionLabel">GPU_ENGINEER</div>
         </div>
 
         <!-- FLOATING CONTEXT MENU -->
-        <div class="context-menu" id="contextMenu" style="top: 215px; left: 40px;">
+        <div class="context-menu" id="contextMenu" style="top: 275px; left: 35px;">
           <div class="menu-header">
-            <div class="menu-title">Primary CTA Button</div>
-            <div class="menu-subtitle">COMPONENT_ACTIONS</div>
+            <div class="menu-title">Tushar Kumar Barman</div>
+            <div class="menu-subtitle">GPU_SDE // INTEL_CORP</div>
           </div>
           <ul class="menu-list">
-            <li class="menu-item primary-action">
+            <a href="https://github.com/callmetushar123" target="_blank" class="menu-item primary-action">
               <div class="menu-item-left">
-                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke-width="2"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke-width="2"/></svg>
-                <span class="menu-item-text">Edit Properties</span>
+                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/></svg>
+                <span class="menu-item-text">View GitHub Profile</span>
               </div>
-              <kbd>CMD+E</kbd>
-            </li>
-            <li class="menu-item">
+              <kbd>CMD+G</kbd>
+            </a>
+            <a href="https://doi.org/10.1109/CLUSTERWorkshops61457.2023.00010" target="_blank" class="menu-item">
               <div class="menu-item-left">
-                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="13" height="13" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke-width="2"/></svg>
-                <span class="menu-item-text">Duplicate Node</span>
+                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                <span class="menu-item-text">IEEE Cluster Publication</span>
               </div>
-              <kbd>CMD+D</kbd>
-            </li>
-            <li class="menu-item">
+              <kbd>CMD+P</kbd>
+            </a>
+            <a href="mailto:tusharbarman123@gmail.com" class="menu-item">
               <div class="menu-item-left">
-                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="12" stroke-width="2"/><line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2"/></svg>
-                <span class="menu-item-text">Inspect Token</span>
+                <svg class="menu-item-icon" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke-width="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke-width="2"/></svg>
+                <span class="menu-item-text">Send Email</span>
               </div>
-              <kbd>CMD+I</kbd>
-            </li>
+              <kbd>CMD+M</kbd>
+            </a>
           </ul>
         </div>
 
@@ -904,11 +944,11 @@
       <div class="hint-bar">
         <div class="hint-item">
           <kbd>CMD + K</kbd>
-          <span>SELECT COMPONENT</span>
+          <span>COMMAND PALETTE</span>
         </div>
         <div class="hint-item">
           <kbd>TAB</kbd>
-          <span>SWITCH VIEW</span>
+          <span>FILTER LOGS</span>
         </div>
         <div class="hint-item">
           <kbd>ESC</kbd>
@@ -918,30 +958,30 @@
 
     </main>
 
-    <!-- RIGHT SIDEBAR (384px WIDTH ANNOTATIONS) -->
+    <!-- RIGHT SIDEBAR (CAREER LOGS & ANNOTATIONS) -->
     <aside class="right-sidebar">
       
       <!-- SIDEBAR HEADER -->
       <div class="sidebar-header">
         <div class="sidebar-title-row">
-          <h2 class="sidebar-title">ANNOTATIONS (04)</h2>
+          <h2 class="sidebar-title">CAREER_LOGS (04)</h2>
         </div>
 
         <div class="status-chips-group">
           <button class="status-chip active" data-filter="all">
             <span>ALL</span>
           </button>
-          <button class="status-chip" data-filter="todo">
+          <button class="status-chip" data-filter="intel">
             <span class="chip-square-todo"></span>
-            <span>TODO</span>
+            <span>INTEL</span>
           </button>
-          <button class="status-chip" data-filter="progress">
+          <button class="status-chip" data-filter="research">
             <span class="chip-square-progress"></span>
-            <span>PROGRESS</span>
+            <span>RESEARCH</span>
           </button>
-          <button class="status-chip" data-filter="done">
+          <button class="status-chip" data-filter="edu">
             <span class="chip-square-done"></span>
-            <span>DONE</span>
+            <span>EDU</span>
           </button>
         </div>
       </div>
@@ -950,54 +990,54 @@
       <div class="sidebar-body" id="annotationList">
         
         <!-- CARD 1 (ACTIVE / 2px BLACK BORDER) -->
-        <div class="annotation-card" data-status="todo" id="card-1">
+        <div class="annotation-card" data-status="intel" id="card-1">
           <div class="annotation-card-top">
             <div class="annotation-index-box">01</div>
-            <div class="annotation-card-title">Primary CTA Negative State</div>
+            <div class="annotation-card-title">Intel GPU Software Engineer</div>
           </div>
-          <p class="annotation-card-desc">Ensure primary action button maintains solid 2px black border with negative white hover text transition.</p>
+          <p class="annotation-card-desc">07.2024 — 03.2026 // Integrated Intel Compiler IDE extensions for VS 2026 & built AI agent for parsing CI/CD log streams.</p>
           <div class="annotation-tags-row">
-            <span class="annotation-tag-box">BUTTON</span>
-            <span class="annotation-tag-box">HIGH_PRIORITY</span>
+            <span class="annotation-tag-box">FULL_TIME</span>
+            <span class="annotation-tag-box">GPU_COMPILERS</span>
           </div>
         </div>
 
         <!-- CARD 2 -->
-        <div class="annotation-card inactive" data-status="progress" id="card-2">
+        <div class="annotation-card inactive" data-status="intel" id="card-2">
           <div class="annotation-card-top">
             <div class="annotation-index-box">02</div>
-            <div class="annotation-card-title">Hero Typography Weight</div>
+            <div class="annotation-card-title">Infrastructure & DevOps Intern</div>
           </div>
-          <p class="annotation-card-desc">Headline must strictly use thin 300 font-weight in IBM Plex Sans to match industrial blueprint spec.</p>
+          <p class="annotation-card-desc">01.2024 — 06.2024 // Built Python ETL pipelines ingesting telemetry from OneCloud/GTAX APIs & failure classification models.</p>
           <div class="annotation-tags-row">
-            <span class="annotation-tag-box">HERO</span>
-            <span class="annotation-tag-box">TYPOGRAPHY</span>
+            <span class="annotation-tag-box">INTERNSHIP</span>
+            <span class="annotation-tag-box">AIOPS</span>
           </div>
         </div>
 
         <!-- CARD 3 -->
-        <div class="annotation-card inactive" data-status="done" id="card-3">
+        <div class="annotation-card inactive" data-status="research" id="card-3">
           <div class="annotation-card-top">
             <div class="annotation-index-box">03</div>
-            <div class="annotation-card-title">Grid Container Dashed Hover</div>
+            <div class="annotation-card-title">IEEE Cluster 2023 Publication</div>
           </div>
-          <p class="annotation-card-desc">Cards feature dashed 1px black outline on hover, transitioning to solid handles when selected.</p>
+          <p class="annotation-card-desc">Published research analyzing BeeGFS configuration impacts on HPC I/O performance utilizing ELK-based telemetry monitoring.</p>
           <div class="annotation-tags-row">
-            <span class="annotation-tag-box">CARD</span>
-            <span class="annotation-tag-box">INTERACTION</span>
+            <span class="annotation-tag-box">IEEE_CLUSTER</span>
+            <span class="annotation-tag-box">HPC_IO</span>
           </div>
         </div>
 
         <!-- CARD 4 -->
-        <div class="annotation-card inactive" data-status="todo" id="card-4">
+        <div class="annotation-card inactive" data-status="edu" id="card-4">
           <div class="annotation-card-top">
             <div class="annotation-index-box">04</div>
-            <div class="annotation-card-title">Secondary Ghost Action</div>
+            <div class="annotation-card-title">BITS Pilani — M.E. CS (8.95 GPA)</div>
           </div>
-          <p class="annotation-card-desc">Secondary button features white ground with 2px border and inverts to solid black on cursor focus.</p>
+          <p class="annotation-card-desc">2022 — 2024 // Master of Engineering in Computer Science, graduating in Top 10 of class. BE from Assam Engineering College.</p>
           <div class="annotation-tags-row">
-            <span class="annotation-tag-box">BUTTON</span>
-            <span class="annotation-tag-box">ACTIONS</span>
+            <span class="annotation-tag-box">BITS_PILANI</span>
+            <span class="annotation-tag-box">TOP_10</span>
           </div>
         </div>
 
@@ -1031,7 +1071,7 @@
 
       // Update Context Menu Position
       menu.style.top = (relativeTop + targetRect.height + 12) + 'px';
-      menu.style.left = relativeLeft + 'px';
+      menu.style.left = Math.min(relativeLeft, viewportRect.width - 270) + 'px';
 
       // Highlight matching Annotation Card
       document.querySelectorAll('.annotation-card').forEach(card => {
@@ -1053,24 +1093,20 @@
       }
     });
 
-    // Initialize positioning on Primary Button
-    const primaryBtn = document.getElementById('btnPrimary');
-    if (primaryBtn) {
-      setTimeout(() => {
-        updateSelection(primaryBtn, 'BUTTON', '1');
-      }, 100);
-    }
-
-    // AI Scan Button Demo Effect
-    const aiBtn = document.getElementById('aiScanBtn');
-    if (aiBtn) {
-      aiBtn.addEventListener('click', () => {
-        aiBtn.querySelector('span').textContent = 'Scanning Architecture...';
-        setTimeout(() => {
-          aiBtn.querySelector('span').textContent = 'AI Scan Component';
-        }, 1500);
-      });
-    }
+    // Fetch Live Visitor Count from Render API
+    (async function fetchVisitors() {
+      const countEl = document.getElementById('visitorCount');
+      if (!countEl) return;
+      try {
+        const res = await fetch('https://portfolio-lsq3.onrender.com/api/visitors');
+        const data = await res.json();
+        if (data && data.count) {
+          countEl.textContent = data.count.toLocaleString();
+        }
+      } catch (err) {
+        countEl.textContent = '1,248+';
+      }
+    })();
 
     // Status Filter Chips
     const chips = document.querySelectorAll('.status-chip');
