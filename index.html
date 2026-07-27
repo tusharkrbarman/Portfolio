@@ -200,7 +200,7 @@
       <!-- TILE 2: INTEL WORK EXPERIENCE SLIDER CARD (2-wide, Row-Span-2) -->
       <div class="tile md:col-span-2 md:row-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden">
         
-        <!-- Header Controls for Role Slider -->
+        <!-- Clean Uncrowded Header Controls -->
         <div class="mb-3 pb-3 border-b border-line z-10">
           <div class="flex items-center justify-between mb-2.5">
             <div class="flex items-center gap-2">
@@ -300,13 +300,13 @@
         </div>
       </div>
 
-      <!-- TILE 3: STAT POP SLIDER TILE (Teal, 1x1, Multi-Metric Carousel) -->
+      <!-- TILE 3: STAT POP SLIDER TILE (Teal, 1x1) -->
       <div class="tile bg-teal text-white rounded-[26px] shadow-soft p-5 flex flex-col justify-between relative overflow-hidden">
-        <!-- Top Row with Category Tag & Navigation Arrows -->
+        <!-- Top Row -->
         <div class="flex items-center justify-between z-10">
           <div class="flex items-center gap-1.5 text-white/90">
             <iconify-icon icon="ph:chart-bar-fill" class="text-lg"></iconify-icon>
-            <span id="statCategory" class="text-[10.5px] font-bold tracking-[0.16em] uppercase">IMPACT METRIC</span>
+            <span id="statCategory" class="text-[10.5px] font-bold tracking-[0.16em] uppercase">SYSTEMS SLO</span>
           </div>
 
           <div class="flex items-center gap-1">
@@ -322,31 +322,22 @@
         <!-- STAT SLIDER TRACK -->
         <div class="overflow-hidden w-full my-auto z-10">
           <div id="statTrack" class="slider-track">
-            
-            <!-- STAT 1: 1,000+ CLOUD SYSTEMS -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">1,000+</div>
               <div class="text-[12.5px] text-white/90 font-medium leading-snug">Cloud systems monitored with Grafana SLA/SLO dashboards & GitHub Actions.</div>
             </div>
-
-            <!-- STAT 2: 1M+ LOG LINES CLASSIFIED -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">1M+</div>
               <div class="text-[12.5px] text-white/90 font-medium leading-snug">Infrastructure log lines classified into labeled AIOps datasets for test systems.</div>
             </div>
-
-            <!-- STAT 3: 8.95 GPA BITS PILANI -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">8.95</div>
               <div class="text-[12.5px] text-white/90 font-medium leading-snug">M.E. Computer Science GPA at BITS Pilani (Graduated in Top 10 of class).</div>
             </div>
-
-            <!-- STAT 4: 10-NODE BARE-METAL HPC CLUSTER -->
             <div class="slide-item">
               <div class="bento-stat-num mb-1">10-Node</div>
               <div class="text-[12.5px] text-white/90 font-medium leading-snug">Bare-metal BeeGFS HPC cluster provisioned with Ansible for IEEE Cluster 2023.</div>
             </div>
-
           </div>
         </div>
 
@@ -354,7 +345,7 @@
         <div class="flex items-center justify-between z-10 pt-1">
           <span id="statProgress" class="text-[10px] font-mono text-white/70">1 of 4</span>
           <div class="flex items-center gap-1">
-            <button onclick="setStat(0)" id="statDot-0" class="w-2 h-2 rounded-full bg-white cursor-pointer"></button>
+            <button onclick="setStat(0)" id="statDot-0" class="w-2.5 h-2.5 rounded-full bg-white cursor-pointer"></button>
             <button onclick="setStat(1)" id="statDot-1" class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer"></button>
             <button onclick="setStat(2)" id="statDot-2" class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer"></button>
             <button onclick="setStat(3)" id="statDot-3" class="w-1.5 h-1.5 rounded-full bg-white/40 cursor-pointer"></button>
@@ -461,39 +452,55 @@
         </div>
       </div>
 
-      <!-- TILE 9: SKILLS & TOOLBOX TILE (2-wide) -->
+      <!-- TILE 9: COMPREHENSIVE SKILLS & TOOLBOX MATRIX (2-wide, All Resume Categories) -->
       <div class="tile md:col-span-2 bg-white border border-line rounded-[26px] shadow-soft p-6 flex flex-col justify-center">
-        <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft mb-3">TECHNICAL SKILL STACK</div>
+        <div class="flex items-center justify-between mb-3">
+          <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-inksoft">TECHNICAL SKILLS MATRIX</div>
+          <span class="text-[11px] font-mono text-tealdeep">AWS · Kubernetes · AI · Systems</span>
+        </div>
         
-        <div class="flex flex-wrap gap-2">
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:cloud-bold" class="text-teal text-base"></iconify-icon>
-            AWS (EKS, ECS, ALB, IAM)
-          </span>
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:cube-bold" class="text-teal text-base"></iconify-icon>
-            Kubernetes & Docker
-          </span>
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:terminal-window-bold" class="text-ink text-base"></iconify-icon>
-            Terraform & Packer
-          </span>
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:code-bold" class="text-apricotdeep text-base"></iconify-icon>
-            Python & C++
-          </span>
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:lightning-bold" class="text-teal text-base"></iconify-icon>
-            FastAPI & REST APIs
-          </span>
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:chart-line-up-bold" class="text-teal text-base"></iconify-icon>
-            Grafana SLA/SLO
-          </span>
-          <span class="px-3.5 py-1.5 rounded-full bg-canvas border border-line text-[12.5px] font-semibold text-ink flex items-center gap-1.5">
-            <iconify-icon icon="ph:robot-bold" class="text-apricotdeep text-base"></iconify-icon>
-            OpenVINO & OVMS
-          </span>
+        <div class="space-y-2.5">
+          <!-- AI & ML Category -->
+          <div>
+            <span class="text-[11px] font-semibold text-inksoft uppercase tracking-wider block mb-1">AI & Model Serving</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-tealtint text-tealdeep text-[11.5px] font-semibold flex items-center gap-1">
+                <iconify-icon icon="ph:robot-bold" class="text-xs"></iconify-icon> AI Agents & MCP
+              </span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">OpenVINO & OVMS</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Codex & Claude Code</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">OpenAI & Gemini APIs</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">LiveKit & AIOps</span>
+            </div>
+          </div>
+
+          <!-- Cloud & Infrastructure Category -->
+          <div>
+            <span class="text-[11px] font-semibold text-inksoft uppercase tracking-wider block mb-1">Cloud & Infrastructure</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink flex items-center gap-1">
+                <iconify-icon icon="ph:cloud-bold" class="text-teal text-xs"></iconify-icon> AWS (EKS, ECS, ALB, SQS, S3)
+              </span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Kubernetes & Docker</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Terraform (IaC) & Packer</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Ansible & Argo CD</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">GitHub Actions & Jenkins</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Grafana SLA/SLO</span>
+            </div>
+          </div>
+
+          <!-- Backend & Languages Category -->
+          <div>
+            <span class="text-[11px] font-semibold text-inksoft uppercase tracking-wider block mb-1">Backend & Languages</span>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Python</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">C++</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">FastAPI & REST</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">DynamoDB & PostgreSQL</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Redis & Kafka</span>
+              <span class="px-2.5 py-1 rounded-full bg-canvas border border-line text-[11.5px] font-semibold text-ink">Elasticsearch & Bash</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -533,7 +540,7 @@
   <script>
     // Intel Role Slider state
     let currentRole = 0;
-    const totalRoles = 2; // Role 1: Full-Time SDE, Role 2: DevOps Intern
+    const totalRoles = 2;
     const sliderTrack = document.getElementById('sliderTrack');
     const slideIndicator = document.getElementById('slideIndicator');
     const roleText = document.getElementById('roleText');
