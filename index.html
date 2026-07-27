@@ -421,16 +421,44 @@
       <!-- RIGHT SIDE (2 COLUMNS): ACCENT COLOR & GRAPHIC TILES -->
       <div class="flex flex-col gap-4">
 
-        <!-- TILE 6: WORKSPACE PHOTO TILE (2-wide Photo Container) -->
-        <div class="tile rounded-[26px] shadow-soft overflow-hidden relative h-[210px] group bg-ink">
-          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop" alt="Workspace Desk" class="w-full h-full object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
-          
-          <div class="absolute bottom-4 left-4 z-10">
-            <div class="h-8 px-3 rounded-full bg-white/90 backdrop-blur-md text-ink text-[12px] font-semibold flex items-center gap-1.5 shadow-soft border border-white/40">
-              <iconify-icon icon="ph:coffee-fill" class="text-apricotdeep text-sm"></iconify-icon>
-              On the desk today
+        <!-- TILE 6: LIVE GITHUB ACTIVITY TILE (2-wide Dark Charcoal) -->
+        <div class="tile bg-ink text-white rounded-[26px] shadow-soft p-6 flex flex-col justify-between relative overflow-hidden h-[210px]">
+          <!-- Ambient Glow Background -->
+          <div class="absolute -right-10 -bottom-10 w-48 h-48 rounded-full bg-teal/15 blur-3xl pointer-events-none"></div>
+
+          <!-- Header Row -->
+          <div class="flex items-center justify-between z-10">
+            <div class="flex items-center gap-2">
+              <div class="h-7 px-3 rounded-full bg-teal/20 text-teal text-[11.5px] font-semibold flex items-center gap-1.5 border border-teal/30">
+                <span class="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
+                <span>BUILDING RIGHT NOW</span>
+              </div>
             </div>
+
+            <a id="githubRepoLink" href="https://github.com/tusharkrbarman/Portfolio" target="_blank" class="text-[12px] font-mono text-white/60 hover:text-teal flex items-center gap-1 transition-colors">
+              <iconify-icon icon="ph:git-commit-bold" class="text-sm text-teal"></iconify-icon>
+              <span id="githubRepoName">tusharkrbarman/Portfolio</span>
+            </a>
+          </div>
+
+          <!-- Main Commit Message Box -->
+          <div class="my-auto z-10">
+            <div class="text-[10.5px] font-bold tracking-[0.16em] uppercase text-white/50 mb-1 flex items-center gap-1">
+              <iconify-icon icon="ph:git-pull-request-bold" class="text-xs text-apricot"></iconify-icon>
+              LATEST COMMIT ON GITHUB
+            </div>
+            <h3 id="githubCommitMsg" class="font-mono text-[15px] text-white font-medium leading-snug line-clamp-2">
+              feat: Restructure Bento Grid into signature bento.me split layout
+            </h3>
+          </div>
+
+          <!-- Footer Metadata Row -->
+          <div class="flex items-center justify-between pt-2.5 border-t border-white/10 text-[12px] font-mono text-white/60 z-10">
+            <div class="flex items-center gap-1.5">
+              <iconify-icon icon="ph:github-logo-bold" class="text-sm text-teal"></iconify-icon>
+              <span>Live GitHub Sync</span>
+            </div>
+            <span id="githubCommitTime" class="text-[11.5px] text-teal font-semibold">Pushed 5m ago</span>
           </div>
         </div>
 
@@ -716,8 +744,41 @@
         clockEl.textContent = `${hours}:${minutes}`;
       }
     }
-    updateClock();
-    setInterval(updateClock, 10000);
+    // Live GitHub Commit Fetcher
+    async function fetchLatestGithubCommit() {
+      try {
+        const res = await fetch('https://api.github.com/users/tusharkrbarman/events/public');
+        if (!res.ok) return;
+        const events = await res.json();
+        const pushEvent = events.find(e => e.type === 'PushEvent');
+        if (pushEvent && pushEvent.payload && pushEvent.payload.commits && pushEvent.payload.commits.length > 0) {
+          const repoName = pushEvent.repo.name;
+          const commitMsg = pushEvent.payload.commits[pushEvent.payload.commits.length - 1].message;
+          const createdAt = new Date(pushEvent.created_at);
+          
+          const repoNameEl = document.getElementById('githubRepoName');
+          const repoLinkEl = document.getElementById('githubRepoLink');
+          const commitMsgEl = document.getElementById('githubCommitMsg');
+          const commitTimeEl = document.getElementById('githubCommitTime');
+
+          if (repoNameEl) repoNameEl.textContent = repoName;
+          if (repoLinkEl) repoLinkEl.href = `https://github.com/${repoName}`;
+          if (commitMsgEl) commitMsgEl.textContent = commitMsg;
+          
+          const diffMs = new Date() - createdAt;
+          const diffMins = Math.floor(diffMs / 60000);
+          const diffHours = Math.floor(diffMins / 60);
+          let timeAgo = `${diffMins}m ago`;
+          if (diffHours > 0) timeAgo = `${diffHours}h ago`;
+          if (diffHours >= 24) timeAgo = `${Math.floor(diffHours/24)}d ago`;
+          
+          if (commitTimeEl) commitTimeEl.textContent = `Pushed ${timeAgo}`;
+        }
+      } catch (err) {
+        console.warn('GitHub API fetch notice:', err);
+      }
+    }
+    fetchLatestGithubCommit();
   </script>
 
 </body>
